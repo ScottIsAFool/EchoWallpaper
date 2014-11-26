@@ -37,12 +37,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             if (ViewModelBase.IsInDesignModeStatic)
             {
                 // Create design time view services and models
-                SimpleIoc.Default.Register<IStorageService, EmptyStorageService>();
+                if (!SimpleIoc.Default.IsRegistered<IStorageService>())
+                    SimpleIoc.Default.Register<IStorageService, EmptyStorageService>();
             }
             else
             {
                 // Create run time view services and models
-                SimpleIoc.Default.Register<IStorageService, StorageService>();
+                if (!SimpleIoc.Default.IsRegistered<IStorageService>())
+                    SimpleIoc.Default.Register<IStorageService, StorageService>();
             }
 
             if(!SimpleIoc.Default.IsRegistered<LockscreenService>())

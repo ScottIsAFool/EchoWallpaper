@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Windows;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;

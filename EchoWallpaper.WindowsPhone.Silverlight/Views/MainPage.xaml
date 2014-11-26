@@ -56,10 +56,11 @@
                     <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
                                            Stretch="UniformToFill"
                                            PlaceholderImageSource="/Assets/LoadingImage.png" />
-                    <Border Background="#C4000000"
+                    <Border Background="#79000000"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Left"
-                            Margin="12,0,0,0">
+                            Margin="12,0,0,0"
+                            Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
                         <TextBlock Text="Current image"
                                    Foreground="{StaticResource PhoneBackgroundBrush}"
                                    Style="{StaticResource PhoneTextTitle3Style}"></TextBlock>

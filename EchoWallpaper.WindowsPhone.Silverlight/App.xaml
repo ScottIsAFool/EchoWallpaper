@@ -21,6 +21,10 @@
             <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
                                                      InvertValue="True"/>
+            <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+            <converters:NullToVisibilityConverter x:Key="InvertedNullToVisibilityConverter"
+                                                  InvertValue="True"/>
+
         </ResourceDictionary>
     </Application.Resources>
     <Application.ApplicationLifetimeObjects>
