@@ -78,7 +78,7 @@ namespace EchoWallpaper.Core
                 {
                     var resolution = container.InnerText;
                     var uri = CreateUri(href.Value);
-                    switch (resolution)
+                    switch (resolution.Trim())
                     {
                         case "iPad, landscape with calendar":
                             result.IpadLandscape = uri;
@@ -108,10 +108,10 @@ namespace EchoWallpaper.Core
 
         private static void GetWindowsWallpapers(HtmlNode imageDiv, Wallpapers result)
         {
-            var pContainer = imageDiv.Descendants("p").FirstOrDefault();
+            var pContainer = imageDiv.Descendants("p").FirstOrDefault(x => x.InnerText.Contains("1920 x 1200"));
             if (pContainer == null) return;
 
-            var aContainers = pContainer.Descendants("a");
+            var aContainers = pContainer.Descendants("a").ToList();
             foreach (var container in aContainers)
             {
                 if (!container.HasAttributes) continue;
@@ -120,7 +120,7 @@ namespace EchoWallpaper.Core
                 {
                     var resolution = container.InnerText;
                     var uri = CreateUri(href.Value);
-                    switch (resolution)
+                    switch (resolution.Trim())
                     {
                         case "1920 x 1200":
                             result.NineteenTwentyTwelveHundred = uri;

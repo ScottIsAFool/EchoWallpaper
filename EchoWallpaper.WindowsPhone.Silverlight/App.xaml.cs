@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Resources;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
@@ -10,7 +9,7 @@ using EchoWallpaper.WindowsPhone.Silverlight.Resources;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight
 {
-    public partial class App : Application
+    public partial class App
     {
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
@@ -34,6 +33,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
 
             // Language display initialization
             InitializeLanguage();
+
+            ThemeManager.OverrideOptions = ThemeManagerOverrideOptions.SystemTrayAndApplicationBars;
+            //ThemeManager.ToLightTheme();
+
+            var rd = Resources.MergedDictionaries[0];
+            ThemeManager.SetCustomTheme(rd, Theme.Light);
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
