@@ -14,6 +14,8 @@
                 SupportedOrientations="Portrait"
                 Orientation="Portrait"
                 shell:SystemTray.IsVisible="True"
+                shell:SystemTray.Opacity="0"
+                shell:SystemTray.ForegroundColor="White"
                 DataContext="{Binding Main, Source={StaticResource Locator}}">
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="{Binding ProgressIsVisible}"
@@ -35,25 +37,45 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel"
-                    Grid.Row="0"
-                    Margin="12,17,0,28">
-            <TextBlock Text="ECHO WALLPAPERS"
-                       Style="{StaticResource PhoneTextNormalStyle}"
-                       Margin="12,0" />
-        </StackPanel>
+        <Grid Background="{StaticResource PhoneForegroundBrush}">
+            <StackPanel x:Name="TitlePanel"
+                        Grid.Row="0"
+                        Margin="12,49,0,28">
+                <TextBlock Text="ECHO WALLPAPERS"
+                           Style="{StaticResource PhoneTextNormalStyle}"
+                           Foreground="{StaticResource PhoneBackgroundBrush}"
+                           Margin="12,0" />
+            </StackPanel>
+        </Grid>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel"
               Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
-                                       Stretch="UniformToFill" />
+                <Grid>
+                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
+                                           Stretch="UniformToFill"
+                                           PlaceholderImageSource="/Assets/LoadingImage.png" />
+                    <Border Background="#C4000000"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="12,0,0,0">
+                        <TextBlock Text="Current image"
+                                   Foreground="{StaticResource PhoneBackgroundBrush}"
+                                   Style="{StaticResource PhoneTextTitle3Style}"></TextBlock>
+                    </Border>
+                </Grid>
                 <StackPanel Orientation="Vertical"
                             Margin="12,0">
                     <TextBlock Text="{Binding CurrentWallpapers.Title}"
                                Style="{StaticResource PhoneTextSubtleStyle}"
                                TextWrapping="Wrap" />
+
+                    <HyperlinkButton Content="Set as lockscreen app"
+                                     HorizontalContentAlignment="Left"
+                                     Margin="0,12"
+                                     Command="{Binding SetAsLockScreenAppCommand}"
+                                     Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
                 </StackPanel>
             </StackPanel>
         </Grid>

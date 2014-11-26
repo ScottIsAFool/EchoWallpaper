@@ -34,7 +34,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
             // Language display initialization
             InitializeLanguage();
 
-            ThemeManager.OverrideOptions = ThemeManagerOverrideOptions.SystemTrayAndApplicationBars;
+            ThemeManager.OverrideOptions = ThemeManagerOverrideOptions.ApplicationBarColors;
             //ThemeManager.ToLightTheme();
 
             var rd = Resources.MergedDictionaries[0];

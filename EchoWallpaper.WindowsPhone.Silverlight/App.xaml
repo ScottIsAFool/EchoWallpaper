@@ -2,20 +2,25 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+             xmlns:vm="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight.ViewModel"
+             xmlns:local="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Cimbalino.Toolkit.Converters;assembly=Cimbalino.Toolkit">
     <!--Application Resources-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Theme/EchoTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <local:LocalizedStrings xmlns:local="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight"
-                                    x:Key="LocalizedStrings" />
+            <local:LocalizedStrings x:Key="LocalizedStrings" />
             <vm:ViewModelLocator x:Key="Locator"
-                                 d:IsDataSource="True"
-                                 xmlns:vm="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight.ViewModel" />
+                                 d:IsDataSource="True"/>
+            
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
+                                                     InvertValue="True"/>
         </ResourceDictionary>
     </Application.Resources>
     <Application.ApplicationLifetimeObjects>

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using GalaSoft.MvvmLight.Command;
 using ScottIsAFool.WindowsPhone.ViewModel;
 
@@ -39,6 +40,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         }
 
         public Wallpapers CurrentWallpapers { get; set; }
+        public bool IsLockscreenProvider { get { return LockscreenService.Current.IsProvidedByCurrentApplication; } }
 
         public RelayCommand MainPageLoaded
         {
@@ -62,6 +64,22 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             }
         }
 
+        public RelayCommand SetAsLockScreenAppCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    var result = await LockscreenService.Current.RequestAccessAsync();
+
+                    if (result == LockScreenServiceRequestResult.Granted)
+                    {
+                        RaisePropertyChanged(() => IsLockscreenProvider);
+                    }
+                });
+            }
+        }
+
         private async Task LoadData(bool isRefresh)
         {
             if (_dataLoaded && !isRefresh)
@@ -74,6 +92,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 SetProgressBar("Getting current wallpapers...");
                 var wallpapers = await Echo.GetWallpapersAsync();
                 CurrentWallpapers = wallpapers;
+                _dataLoaded = true;
             }
             catch (Exception ex)
             {

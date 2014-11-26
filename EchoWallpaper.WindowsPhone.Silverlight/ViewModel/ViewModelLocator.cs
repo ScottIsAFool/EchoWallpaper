@@ -12,6 +12,9 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using Cimbalino.Toolkit.Services;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
+using EchoWallpaper.WindowsPhone.Silverlight.Empty;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -31,16 +34,19 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                // Create design time view services and models
+                SimpleIoc.Default.Register<IStorageService, EmptyStorageService>();
+            }
+            else
+            {
+                // Create run time view services and models
+                SimpleIoc.Default.Register<IStorageService, StorageService>();
+            }
+
+            if(!SimpleIoc.Default.IsRegistered<LockscreenService>())
+                SimpleIoc.Default.Register<LockscreenService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
         }
