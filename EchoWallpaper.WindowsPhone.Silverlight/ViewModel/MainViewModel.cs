@@ -1,4 +1,9 @@
-using GalaSoft.MvvmLight;
+using System;
+using System.Threading.Tasks;
+using EchoWallpaper.Core;
+using EchoWallpaper.Core.Model;
+using GalaSoft.MvvmLight.Command;
+using ScottIsAFool.WindowsPhone.ViewModel;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 {
@@ -16,6 +21,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private bool _dataLoaded;
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -29,6 +36,51 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+        }
+
+        public Wallpapers CurrentWallpapers { get; set; }
+
+        public RelayCommand MainPageLoaded
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await LoadData(false);
+                });
+            }
+        }
+
+        public RelayCommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await LoadData(true);
+                });
+            }
+        }
+
+        private async Task LoadData(bool isRefresh)
+        {
+            if (_dataLoaded && !isRefresh)
+            {
+                return;
+            }
+
+            try
+            {
+                SetProgressBar("Getting current wallpapers...");
+                var wallpapers = await Echo.GetWallpapersAsync();
+                CurrentWallpapers = wallpapers;
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorException("LoadData(" + isRefresh + ")", ex);
+            }
+
+            SetProgressBar();
         }
     }
 }

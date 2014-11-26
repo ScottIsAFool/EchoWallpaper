@@ -59,12 +59,90 @@ namespace EchoWallpaper.Core
 
             GetWindowsWallpapers(imageDiv, result);
 
-            return new Wallpapers();
+            GetMobileWallpapers(imageDiv, result);
+
+            return result;
+        }
+
+        private static void GetMobileWallpapers(HtmlNode imageDiv, Wallpapers result)
+        {
+            var liContainers = imageDiv.Descendants("li");
+
+            foreach(var li in liContainers)
+            {
+                var container = li.Descendants("a").FirstOrDefault();
+                if (container == null || !container.HasAttributes) continue;
+
+                var href = container.Attributes["href"];
+                if (href != null)
+                {
+                    var resolution = container.InnerText;
+                    var uri = CreateUri(href.Value);
+                    switch (resolution)
+                    {
+                        case "iPad, landscape with calendar":
+                            result.IpadLandscape = uri;
+                            break;
+                        case "iPad, landscape with no calendar":
+                            result.IpadLandscapeNoCalendar = uri;
+                            break;
+                        case "iPad upright, no calendar":
+                            result.IpadPortraitNoCalendar = uri;
+                            break;
+                        case "iPad mini, no calendar":
+                            result.IpadMiniNoCalendar = uri;
+                            break;
+                        case "1136x640 landscape with calendar":
+                            result.AndroidLandscape = uri;
+                            break;
+                        case "1080x1920 mobile phone upright, no calendar":
+                            result.HdNoCalendar = uri;
+                            break;
+                        case "iPhone, no calendar":
+                            result.IphoneNoCalendar = uri;
+                            break;
+                    }
+                }
+            }
         }
 
         private static void GetWindowsWallpapers(HtmlNode imageDiv, Wallpapers result)
         {
-            
+            var pContainer = imageDiv.Descendants("p").FirstOrDefault();
+            if (pContainer == null) return;
+
+            var aContainers = pContainer.Descendants("a");
+            foreach (var container in aContainers)
+            {
+                if (!container.HasAttributes) continue;
+                var href = container.Attributes["href"];
+                if (href != null)
+                {
+                    var resolution = container.InnerText;
+                    var uri = CreateUri(href.Value);
+                    switch (resolution)
+                    {
+                        case "1920 x 1200":
+                            result.NineteenTwentyTwelveHundred = uri;
+                            break;
+                        case "1920 x 1080":
+                            result.NineteenTwentyTenEighty = uri;
+                            break;
+                        case "1280 x 1024":
+                            result.TwelveEightyTenTwentyFour = uri;
+                            break;
+                        case "1024 x 768":
+                            result.TenTwentyFourSevenSixtyEight = uri;
+                            break;
+                        case "1280 x 768":
+                            result.TwelveEightySevenSixtyEight = uri;
+                            break;
+                        case "1280 x 720":
+                            result.TwelveEightySevenTwenty = uri;
+                            break;
+                    }
+                }
+            }
         }
 
         private static void GetPreviewDetails(HtmlNode imageDiv, Wallpapers result)
