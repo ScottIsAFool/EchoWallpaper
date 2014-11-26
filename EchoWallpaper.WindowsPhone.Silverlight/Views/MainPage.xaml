@@ -7,6 +7,7 @@
                 xmlns:scott="clr-namespace:ScottIsAFool.WindowsPhone.Controls;assembly=ScottIsAFool.WindowsPhone"
                 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                 xmlns:coding4Fun="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+                xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                 mc:Ignorable="d"
                 FontFamily="{StaticResource PhoneFontFamilyNormal}"
                 FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -76,7 +77,12 @@
                                      HorizontalContentAlignment="Left"
                                      Margin="0,12"
                                      Command="{Binding SetAsLockScreenAppCommand}"
-                                     Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
+                                     Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
+                    
+                    <StackPanel Orientation="Vertical"
+                                Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}">
+                        <toolkit:ToggleSwitch />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>
