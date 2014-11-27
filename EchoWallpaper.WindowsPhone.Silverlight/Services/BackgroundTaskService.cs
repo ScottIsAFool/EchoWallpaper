@@ -35,15 +35,18 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Services
                 var task = new PeriodicTask(Constants.BackgroundAgentName) { Description = "Automatically set your lockscreen wallpaper to that of a Bournemouth Echo wallpaper" };
 
                 ScheduledActionService.Add(task);
-
-                TestScheduledEvent();
             }
+
+            TestScheduledEvent();
         }
 
         [Conditional("DEBUG")]
-        private static void TestScheduledEvent()
+        private void TestScheduledEvent()
         {
-            ScheduledActionService.LaunchForTest(Constants.BackgroundAgentName, new TimeSpan(0, 0, 1));
+            if (AgentRunning)
+            {
+                ScheduledActionService.LaunchForTest(Constants.BackgroundAgentName, new TimeSpan(0, 0, 1));
+            }
         }
     }
 }
