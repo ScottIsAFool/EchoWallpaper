@@ -123,6 +123,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             }
         }
 
+        public RelayCommand NavigateToSettingsCommand
+        {
+            get
+            {
+                return new RelayCommand(() => _navigationService.Navigate("/Views/SettingsView.xaml"));
+            }
+        }
+
         public RelayCommand SetAsLockScreenAppCommand
         {
             get
