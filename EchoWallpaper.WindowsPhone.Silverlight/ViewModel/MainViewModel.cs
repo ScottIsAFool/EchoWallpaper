@@ -1,10 +1,15 @@
 using System;
+using System.Data.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Windows.Security.Authentication.OnlineId;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
+using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using GalaSoft.MvvmLight.Command;
+using JetBrains.Annotations;
 using ScottIsAFool.WindowsPhone.ViewModel;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
@@ -23,13 +28,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private readonly IAppSettings _appSettings;
         private bool _dataLoaded;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(IAppSettings appSettings)
         {
+            _appSettings = appSettings;
             ////if (IsInDesignMode)
             ////{
             ////    // Code runs in Blend --> create design time data.
@@ -42,6 +49,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
         public Wallpapers CurrentWallpapers { get; set; }
         public bool IsLockscreenProvider { get { return LockscreenService.Current.IsProvidedByCurrentApplication; } }
+        public bool AutomaticallyUpdateLockscreen { get; set; }
+        public bool DownloadImageForStartScreen { get; set; }
 
         public RelayCommand MainPageLoaded
         {
@@ -61,6 +70,28 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 return new RelayCommand(async () =>
                 {
                     await LoadData(true);
+                });
+            }
+        }
+
+        public RelayCommand SetLockscreenCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    
+                });
+            }
+        }
+
+        public RelayCommand DownloadImageNow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    
                 });
             }
         }
@@ -101,6 +132,30 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             }
 
             SetProgressBar();
+        }
+
+        [UsedImplicitly]
+        private void OnAutomaticallyUpdateLockscreenChanged()
+        {
+            CheckAndStartStopAgent();
+        }
+
+        [UsedImplicitly]
+        private void OnDownloadImageForStartScreenChanged()
+        {
+            CheckAndStartStopAgent();
+        }
+
+        private void CheckAndStartStopAgent()
+        {
+            if (AutomaticallyUpdateLockscreen || DownloadImageForStartScreen)
+            {
+                BackgroundTaskService.Current.CreateAgent();
+            }
+            else
+            {
+                BackgroundTaskService.Current.StopAgent();
+            }
         }
     }
 }

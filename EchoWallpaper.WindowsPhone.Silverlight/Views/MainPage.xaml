@@ -52,39 +52,42 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel"
               Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <Grid>
-                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
-                                           Stretch="UniformToFill"
-                                           PlaceholderImageSource="/Assets/LoadingImage.png" />
-                    <Border Background="#79000000"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left"
-                            Margin="12,0,0,0"
-                            Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
-                        <TextBlock Text="Current image"
-                                   Foreground="{StaticResource PhoneBackgroundBrush}"
-                                   Style="{StaticResource PhoneTextTitle3Style}"></TextBlock>
-                    </Border>
-                </Grid>
-                <StackPanel Orientation="Vertical"
-                            Margin="12,0">
-                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
-                               Style="{StaticResource PhoneTextSubtleStyle}"
-                               TextWrapping="Wrap" />
-
-                    <HyperlinkButton Content="Set as lockscreen app"
-                                     HorizontalContentAlignment="Left"
-                                     Margin="0,12"
-                                     Command="{Binding SetAsLockScreenAppCommand}"
-                                     Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
-                    
+            <ScrollViewer>
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
+                                               Stretch="UniformToFill"
+                                               PlaceholderImageSource="/Assets/LoadingImage.png" />
+                        <Border Background="#79000000"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Margin="12,0,0,0"
+                                Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
+                            <TextBlock Text="Current image"
+                                       Foreground="{StaticResource PhoneBackgroundBrush}"
+                                       Style="{StaticResource PhoneTextTitle3Style}"/>
+                        </Border>
+                    </Grid>
                     <StackPanel Orientation="Vertical"
-                                Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}">
-                        <toolkit:ToggleSwitch />
+                                Margin="12,0">
+                        <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                                   Style="{StaticResource PhoneTextSubtleStyle}"
+                                   TextWrapping="Wrap" />
+
+                        <HyperlinkButton Content="Set as lockscreen app"
+                                         HorizontalContentAlignment="Left"
+                                         Margin="0,12"
+                                         Command="{Binding SetAsLockScreenAppCommand}"
+                                         Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
+
+                        <StackPanel Orientation="Vertical"
+                                    Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}">
+                            <toolkit:ToggleSwitch Header="Automatically update lockscreen"
+                                                  IsChecked="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

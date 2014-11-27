@@ -13,6 +13,7 @@
 */
 
 using Cimbalino.Toolkit.Services;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Empty;
 using GalaSoft.MvvmLight;
@@ -46,6 +47,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IStorageService>())
                     SimpleIoc.Default.Register<IStorageService, StorageService>();
             }
+
+            if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
+                SimpleIoc.Default.Register<IAppSettings, AppSettings>();
 
             if(!SimpleIoc.Default.IsRegistered<LockscreenService>())
                 SimpleIoc.Default.Register<LockscreenService>();
