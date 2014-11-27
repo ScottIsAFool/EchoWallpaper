@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.Phone.System.UserProfile;
@@ -137,6 +138,11 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             {
                 _logger.ErrorException("SetLockScreen(uri)", ex);
             }
+        }
+
+        public async Task SetLockScreen(Stream stream)
+        {
+            await _storage.WriteAllBytesAsync(LockScreenImageUrl, await stream.ToArrayAsync());
         }
     }
 

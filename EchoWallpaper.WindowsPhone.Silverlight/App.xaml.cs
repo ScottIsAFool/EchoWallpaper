@@ -6,10 +6,12 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using EchoWallpaper.Core;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
+using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.ViewModel;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using EchoWallpaper.WindowsPhone.Silverlight.Resources;
+using Newtonsoft.Json;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight
 {
@@ -92,13 +94,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
         private void LoadSettings()
         {
             var localSettings = ViewModelLocator.SettingsService.Local;
-            var settings = localSettings.Get<AppSettings>(Constants.Settings.AppSettings);
+            var json = localSettings.Get<string>(Constants.Settings.AppSettings);
+            var settings = JsonConvert.DeserializeObject<AppSettings>(json);
             if (settings != null)
             {
                 var app = ViewModelLocator.Settings;
                 app.AutomaticallyUpdateLockScreen = settings.AutomaticallyUpdateLockScreen;
                 app.DownloadImageForStartScreen = settings.DownloadImageForStartScreen;
             }
+
+            BackgroundTaskService.Current.CreateAgent();
         }
 
         // Code to execute when the application is deactivated (sent to background)

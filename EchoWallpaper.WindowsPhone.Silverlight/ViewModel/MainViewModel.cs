@@ -29,7 +29,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IAppSettings _appSettings;
-        private readonly IStorageServiceHandler _storage;
+        private readonly INavigationService _navigationService;
 
         private readonly MediaLibrary _library;
         private bool _dataLoaded;
@@ -37,10 +37,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IAppSettings appSettings, IStorageService storageService)
+        public MainViewModel(IAppSettings appSettings, INavigationService navigationService)
         {
             _appSettings = appSettings;
-            _storage = storageService.Local;
+            _navigationService = navigationService;
             _library = new MediaLibrary();
 
             AutomaticallyUpdateLockscreen = _appSettings.AutomaticallyUpdateLockScreen;
@@ -166,7 +166,6 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             _appSettings.AutomaticallyUpdateLockScreen = AutomaticallyUpdateLockscreen;
             _appSettings.Save();
-            CheckAndStartStopAgent();
         }
 
         [UsedImplicitly]
@@ -174,19 +173,6 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             _appSettings.DownloadImageForStartScreen = DownloadImageForStartScreen;
             _appSettings.Save();
-            CheckAndStartStopAgent();
-        }
-
-        private void CheckAndStartStopAgent()
-        {
-            if (AutomaticallyUpdateLockscreen || DownloadImageForStartScreen)
-            {
-                BackgroundTaskService.Current.CreateAgent();
-            }
-            else
-            {
-                BackgroundTaskService.Current.StopAgent();
-            }
         }
     }
 }

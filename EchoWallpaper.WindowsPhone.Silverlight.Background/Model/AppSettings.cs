@@ -1,5 +1,6 @@
 ﻿using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using Newtonsoft.Json;
 using PropertyChanged;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
@@ -25,7 +26,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
 
         public void Save()
         {
-            _storage.Set(Constants.Settings.AppSettings, this);
+            var json = JsonConvert.SerializeObject(this);
+            _storage.Set(Constants.Settings.AppSettings, json);
         }
     }
 }

@@ -8,6 +8,7 @@
         public static class Settings
         {
             public const string AppSettings = "AppSettings";
+            public const string LastRunSettings = "LastRunSettings";
         }
     }
 }
