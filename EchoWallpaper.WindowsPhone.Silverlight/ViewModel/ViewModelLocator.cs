@@ -40,12 +40,18 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 // Create design time view services and models
                 if (!SimpleIoc.Default.IsRegistered<IStorageService>())
                     SimpleIoc.Default.Register<IStorageService, EmptyStorageService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
+                    SimpleIoc.Default.Register<IApplicationSettingsService, EmptySettingsService>();
             }
             else
             {
                 // Create run time view services and models
                 if (!SimpleIoc.Default.IsRegistered<IStorageService>())
                     SimpleIoc.Default.Register<IStorageService, StorageService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
+                    SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
             }
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
@@ -63,6 +69,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
+        }
+
+        public static IAppSettings Settings
+        {
+            get { return ServiceLocator.Current.GetInstance<IAppSettings>(); }
+        }
+
+        public static IApplicationSettingsService SettingsService
+        {
+            get { return ServiceLocator.Current.GetInstance<IApplicationSettingsService>(); }
         }
         
         public static void Cleanup()

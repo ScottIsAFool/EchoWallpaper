@@ -4,5 +4,10 @@
     {
         public const string WallpaperUrl = "http://www.bournemouthecho.co.uk/photos/echowallpaper/";
         public const string BackgroundAgentName = "EchoWallpaper.BackgroundTask";
+
+        public static class Settings
+        {
+            public const string AppSettings = "AppSettings";
+        }
     }
 }

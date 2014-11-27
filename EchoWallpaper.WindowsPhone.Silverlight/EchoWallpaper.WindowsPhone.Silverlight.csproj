@@ -97,6 +97,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Empty\EmptySettingsService.cs" />
     <Compile Include="Empty\EmptyStorageService.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />

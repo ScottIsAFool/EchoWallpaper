@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -37,6 +38,16 @@ namespace EchoWallpaper.Core
 
 
             return wallpapers;
+        }
+
+        public static async Task<Stream> GetWallpaperStreamAsync(Uri uri, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var response = await HttpClient.GetAsync(uri, cancellationToken);
+
+            response.EnsureSuccessStatusCode();
+
+            var stream = await response.Content.ReadAsStreamAsync();
+            return stream;
         }
 
         private static Wallpapers ParseHtml(string html)

@@ -1,8 +1,7 @@
 using System;
-using System.Data.Linq;
 using System.Threading.Tasks;
-using System.Windows;
-using Windows.Security.Authentication.OnlineId;
+using Windows.System;
+using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
@@ -10,6 +9,7 @@ using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
+using Microsoft.Xna.Framework.Media;
 using ScottIsAFool.WindowsPhone.ViewModel;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
@@ -29,22 +29,22 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IAppSettings _appSettings;
+        private readonly IStorageServiceHandler _storage;
+
+        private readonly MediaLibrary _library;
         private bool _dataLoaded;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IAppSettings appSettings)
+        public MainViewModel(IAppSettings appSettings, IStorageService storageService)
         {
             _appSettings = appSettings;
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            _storage = storageService.Local;
+            _library = new MediaLibrary();
+
+            AutomaticallyUpdateLockscreen = _appSettings.AutomaticallyUpdateLockScreen;
+            DownloadImageForStartScreen = _appSettings.DownloadImageForStartScreen;
         }
 
         public Wallpapers CurrentWallpapers { get; set; }
@@ -78,9 +78,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             get
             {
-                return new RelayCommand(() =>
+                return new RelayCommand(async () =>
                 {
-                    
+                    if (CurrentWallpapers == null)
+                    {
+                        await LockscreenService.Current.SetLockScreen();
+                    }
+                    else
+                    {
+                        await LockscreenService.Current.SetLockScreen(CurrentWallpapers.HdNoCalendar);
+                    }
                 });
             }
         }
@@ -89,10 +96,30 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             get
             {
-                return new RelayCommand(() =>
+                return new RelayCommand(async () =>
                 {
-                    
+                    try
+                    {
+                        using (var stream = await Echo.GetWallpaperStreamAsync(CurrentWallpapers.HdNoCalendar))
+                        {
+                            var date = DateTime.Now;
+                            var file = string.Format("{0}.{1}.jpg", date.Year, date.ToString("MMMM"));
+                            _library.SavePicture(file, stream);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.ErrorException("DownloadImageNow", ex);
+                    }
                 });
+            }
+        }
+
+        public RelayCommand GoToLockScreenSettings
+        {
+            get
+            {
+                return new RelayCommand(() => Launcher.LaunchUriAsync(new Uri("ms-settings-lock:", UriKind.Absolute)));
             }
         }
 
@@ -137,12 +164,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         [UsedImplicitly]
         private void OnAutomaticallyUpdateLockscreenChanged()
         {
+            _appSettings.AutomaticallyUpdateLockScreen = AutomaticallyUpdateLockscreen;
+            _appSettings.Save();
             CheckAndStartStopAgent();
         }
 
         [UsedImplicitly]
         private void OnDownloadImageForStartScreenChanged()
         {
+            _appSettings.DownloadImageForStartScreen = DownloadImageForStartScreen;
+            _appSettings.Save();
             CheckAndStartStopAgent();
         }
 

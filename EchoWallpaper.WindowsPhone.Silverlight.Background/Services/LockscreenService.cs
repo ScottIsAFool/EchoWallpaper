@@ -100,24 +100,42 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
                 var wallpapers = await Echo.GetWallpapersAsync();
                 if (wallpapers != null && wallpapers.HdNoCalendar != null)
                 {
-                    using (var client = new HttpClient())
-                    {
-                        var response = await client.GetAsync(wallpapers.HdNoCalendar);
-                        if (!response.IsSuccessStatusCode)
-                        {
-                            return;
-                        }
-
-                        using (var stream = await response.Content.ReadAsStreamAsync())
-                        {
-                            await _storage.WriteAllBytesAsync(LockScreenImageUrl, await stream.ToArrayAsync());
-                        }
-                    }
+                    var uri = wallpapers.HdNoCalendar;
+                    await DownloadAndSaveImage(uri);
                 }
             }
             catch (Exception ex)
             {
                 _logger.ErrorException("SetLockScreen()", ex);
+            }
+        }
+
+        private async Task DownloadAndSaveImage(Uri uri)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(uri);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return;
+                }
+
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                {
+                    await _storage.WriteAllBytesAsync(LockScreenImageUrl, await stream.ToArrayAsync());
+                }
+            }
+        }
+
+        public async Task SetLockScreen(Uri uri)
+        {
+            try
+            {
+                await DownloadAndSaveImage(uri);
+            }
+            catch (Exception ex)
+            {
+                _logger.ErrorException("SetLockScreen(uri)", ex);
             }
         }
     }

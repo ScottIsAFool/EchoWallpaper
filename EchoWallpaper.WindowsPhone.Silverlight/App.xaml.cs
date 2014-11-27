@@ -2,7 +2,11 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
+using System.Windows.Media;
 using System.Windows.Navigation;
+using EchoWallpaper.Core;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
+using EchoWallpaper.WindowsPhone.Silverlight.ViewModel;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using EchoWallpaper.WindowsPhone.Silverlight.Resources;
@@ -72,24 +76,48 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            LoadSettings();
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            if (!e.IsApplicationInstancePreserved)
+            {
+                LoadSettings();
+            }
+        }
+
+        private void LoadSettings()
+        {
+            var localSettings = ViewModelLocator.SettingsService.Local;
+            var settings = localSettings.Get<AppSettings>(Constants.Settings.AppSettings);
+            if (settings != null)
+            {
+                var app = ViewModelLocator.Settings;
+                app.AutomaticallyUpdateLockScreen = settings.AutomaticallyUpdateLockScreen;
+                app.DownloadImageForStartScreen = settings.DownloadImageForStartScreen;
+            }
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            SaveSettings();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            SaveSettings();
+        }
+
+        private void SaveSettings()
+        {
+            ViewModelLocator.Settings.Save();
         }
 
         // Code to execute if a navigation fails
@@ -125,7 +153,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame {Background = new SolidColorBrush(Colors.Transparent)};
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures

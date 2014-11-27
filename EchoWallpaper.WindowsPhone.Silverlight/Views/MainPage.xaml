@@ -82,8 +82,18 @@
 
                         <StackPanel Orientation="Vertical"
                                     Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}">
+                            <HyperlinkButton Content="Lockscreen settings"
+                                             HorizontalContentAlignment="Left"
+                                             Margin="0,12"
+                                             Command="{Binding GoToLockScreenSettings}"/>
                             <toolkit:ToggleSwitch Header="Automatically update lockscreen"
                                                   IsChecked="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                            <toolkit:ToggleSwitch Header="Save copy for start screen use"
+                                                  IsChecked="{Binding DownloadImageForStartScreen, Mode=TwoWay}"/>
+                            <Button Content="Set lockscreen now"
+                                    Command="{Binding SetLockscreenCommand}"/>
+                            <Button Content="Save image for start screen now"
+                                    Command="{Binding DownloadImageNow}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

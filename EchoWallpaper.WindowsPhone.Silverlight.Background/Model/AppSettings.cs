@@ -1,4 +1,5 @@
 ﻿using Cimbalino.Toolkit.Services;
+using EchoWallpaper.Core;
 using PropertyChanged;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
@@ -13,9 +14,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
     [ImplementPropertyChanged]
     public class AppSettings : IAppSettings
     {
-        public AppSettings(IStorageService storageService)
+        private readonly IApplicationSettingsServiceHandler _storage;
+        public AppSettings(IApplicationSettingsService storageService)
         {
-            
+            _storage = storageService.Local;
         }
 
         public bool DownloadImageForStartScreen { get; set; }
@@ -23,7 +25,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
 
         public void Save()
         {
-            
+            _storage.Set(Constants.Settings.AppSettings, this);
         }
     }
 }
