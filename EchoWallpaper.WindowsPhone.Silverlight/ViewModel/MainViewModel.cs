@@ -80,6 +80,19 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
+                    var result = LockScreenServiceRequestResult.Granted;
+                    if (!IsLockscreenProvider)
+                    {
+                        result = await LockscreenService.Current.RequestAccessAsync();
+                    }
+
+                    if (result == LockScreenServiceRequestResult.Denied)
+                    {
+                        return;
+                    }
+
+                    SetProgressBar("Setting lock screen...");
+
                     if (CurrentWallpapers == null)
                     {
                         await LockscreenService.Current.SetLockScreen();
@@ -88,6 +101,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                     {
                         await LockscreenService.Current.SetLockScreen(CurrentWallpapers.HdNoCalendar);
                     }
+
+                    SetProgressBar();
                 });
             }
         }
@@ -100,6 +115,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 {
                     try
                     {
+                        SetProgressBar("Saving image...");
                         using (var stream = await Echo.GetWallpaperStreamAsync(CurrentWallpapers.HdNoCalendar))
                         {
                             var date = DateTime.Now;
@@ -111,6 +127,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                     {
                         Log.ErrorException("DownloadImageNow", ex);
                     }
+                    
+                    SetProgressBar();
                 });
             }
         }

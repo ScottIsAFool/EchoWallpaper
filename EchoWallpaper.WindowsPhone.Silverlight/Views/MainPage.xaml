@@ -18,6 +18,7 @@
                 shell:SystemTray.IsVisible="True"
                 shell:SystemTray.Opacity="0"
                 shell:SystemTray.ForegroundColor="White"
+                toolkit:TiltEffect.IsTiltEnabled="True"
                 DataContext="{Binding Main, Source={StaticResource Locator}}">
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="{Binding ProgressIsVisible}"
@@ -30,7 +31,9 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <i:Interaction.Behaviors>
-        <behaviors:ApplicationBarBehavior Mode="Minimized">
+        <behaviors:ApplicationBarBehavior Mode="Minimized"
+                                          BackgroundColor="#DDDDDD"
+                                          ForegroundColor="#065EA6">
             <behaviors:ApplicationBarBehavior.Buttons>
                 <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/feature.settings.png"
                                                     Text="settings"
@@ -79,16 +82,20 @@
                                        Style="{StaticResource PhoneTextTitle3Style}"/>
                         </Border>
                     </Grid>
-                    <StackPanel Orientation="Vertical"
-                                Margin="12,0">
+                    <StackPanel Orientation="Vertical">
                         <TextBlock Text="{Binding CurrentWallpapers.Title}"
                                    Style="{StaticResource PhoneTextSubtleStyle}"
-                                   TextWrapping="Wrap" />
+                                   TextWrapping="Wrap"
+                                   Margin="24,0,24,36"/>
 
                         <Button Content="Set lockscreen now"
-                                Command="{Binding SetLockscreenCommand}" />
-                        <Button Content="Save image for start screen now"
-                                Command="{Binding DownloadImageNow}" />
+                                Command="{Binding SetLockscreenCommand}"
+                                Style="{StaticResource CoolButtonStyle}"
+                                Background="{StaticResource PhoneForegroundBrush}" />
+                        <Button Content="Save image for start screen"
+                                Command="{Binding DownloadImageNow}"
+                                Style="{StaticResource CoolButtonStyle}"
+                                Background="#FF0689A6" />
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
