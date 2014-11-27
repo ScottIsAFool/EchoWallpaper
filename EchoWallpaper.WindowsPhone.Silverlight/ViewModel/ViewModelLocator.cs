@@ -43,6 +43,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, EmptySettingsService>();
+
+                if(!SimpleIoc.Default.IsRegistered<INavigationService>())
+                    SimpleIoc.Default.Register<INavigationService, EmptyNavigationService>();
             }
             else
             {
@@ -52,6 +55,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
+
+                if (!SimpleIoc.Default.IsRegistered<INavigationService>())
+                    SimpleIoc.Default.Register<INavigationService, NavigationService>();
             }
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())

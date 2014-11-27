@@ -1,5 +1,6 @@
 ﻿using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using GalaSoft.MvvmLight.Ioc;
 using Newtonsoft.Json;
 using PropertyChanged;
 
@@ -16,10 +17,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
     public class AppSettings : IAppSettings
     {
         private readonly IApplicationSettingsServiceHandler _storage;
+
+        [PreferredConstructor]
         public AppSettings(IApplicationSettingsService storageService)
         {
             _storage = storageService.Local;
         }
+
+        public AppSettings() { }
 
         public bool DownloadImageForStartScreen { get; set; }
         public bool AutomaticallyUpdateLockScreen { get; set; }

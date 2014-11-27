@@ -94,7 +94,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
         private void LoadSettings()
         {
             var localSettings = ViewModelLocator.SettingsService.Local;
-            var json = localSettings.Get<string>(Constants.Settings.AppSettings);
+            var json = localSettings.Get<string>(Constants.Settings.AppSettings, string.Empty);
             var settings = JsonConvert.DeserializeObject<AppSettings>(json);
             if (settings != null)
             {

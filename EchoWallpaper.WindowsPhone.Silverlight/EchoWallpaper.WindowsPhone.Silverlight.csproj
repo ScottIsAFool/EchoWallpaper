@@ -97,6 +97,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Empty\EmptyNavigationService.cs" />
     <Compile Include="Empty\EmptySettingsService.cs" />
     <Compile Include="Empty\EmptyStorageService.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -120,6 +121,7 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Content Include="Assets\LoadingImage.png" />
+    <Content Include="DefaultLockScreen.jpg" />
     <Content Include="Theme\EchoTheme.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
