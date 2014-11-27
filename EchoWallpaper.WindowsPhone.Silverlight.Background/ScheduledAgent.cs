@@ -14,17 +14,17 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
 {
     public class ScheduledAgent : ScheduledTaskAgent
     {
-        private static readonly IApplicationSettingsServiceHandler SettingsService;
+        private static IApplicationSettingsServiceHandler _settingsService;
         /// <remarks>
         /// ScheduledAgent constructor, initializes the UnhandledException handler
         /// </remarks>
         static ScheduledAgent()
         {
-            SettingsService = new ApplicationSettingsService().Local;
             // Subscribe to the managed exception handler
             Deployment.Current.Dispatcher.BeginInvoke(delegate
             {
                 Application.Current.UnhandledException += UnhandledException;
+                _settingsService = new ApplicationSettingsService().Local;
             });
         }
 
@@ -49,7 +49,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
         /// </remarks>
         protected override async void OnInvoke(ScheduledTask task)
         {
-            var lastRunDetailsJson = SettingsService.Get<string>(Constants.Settings.LastRunSettings);
+            var lastRunDetailsJson = _settingsService.Get<string>(Constants.Settings.LastRunSettings);
             LastRunDetails lastRunDetails = null;
 
             if (!string.IsNullOrEmpty(lastRunDetailsJson))
@@ -65,7 +65,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 }
             }
 
-            var json = SettingsService.Get<string>(Constants.Settings.AppSettings);
+            var json = _settingsService.Get<string>(Constants.Settings.AppSettings);
             if (string.IsNullOrEmpty(json))
             {
                 NotifyComplete();
@@ -114,7 +114,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 lastRunDetails.LastUsedUri = wallpapers.HdNoCalendar;
 
                 lastRunDetailsJson = JsonConvert.SerializeObject(lastRunDetails);
-                SettingsService.Set(Constants.Settings.LastRunSettings, lastRunDetailsJson);
+                _settingsService.Set(Constants.Settings.LastRunSettings, lastRunDetailsJson);
             }
             catch (Exception ex)
             {

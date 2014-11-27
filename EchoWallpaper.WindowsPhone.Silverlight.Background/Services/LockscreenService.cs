@@ -103,6 +103,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
                 {
                     var uri = wallpapers.HdNoCalendar;
                     await DownloadAndSaveImage(uri);
+
+                    ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
                 }
             }
             catch (Exception ex)
@@ -123,7 +125,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 
                 using (var stream = await response.Content.ReadAsStreamAsync())
                 {
-                    await _storage.WriteAllBytesAsync(LockScreenImageUrl, await stream.ToArrayAsync());
+                    using (var fileStream = await _storage.CreateFileAsync(LockScreenFile))
+                    {
+                        await stream.CopyToAsync(fileStream);
+                    }
                 }
             }
         }
@@ -133,6 +138,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             try
             {
                 await DownloadAndSaveImage(uri);
+
+                ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
             }
             catch (Exception ex)
             {
@@ -142,7 +149,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 
         public async Task SetLockScreen(Stream stream)
         {
-            await _storage.WriteAllBytesAsync(LockScreenImageUrl, await stream.ToArrayAsync());
+            using (var fileStream = await _storage.CreateFileAsync(LockScreenFile))
+            {
+                await stream.CopyToAsync(fileStream);
+            }
+
+            ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
         }
     }
 
