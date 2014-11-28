@@ -41,7 +41,7 @@
             </behaviors:ApplicationBarBehavior.Buttons>
         </behaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
-    
+
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot"
@@ -66,39 +66,37 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel"
               Grid.Row="1">
-            <ScrollViewer>
-                <StackPanel Orientation="Vertical">
-                    <Grid>
-                        <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
                                                Stretch="UniformToFill"
                                                PlaceholderImageSource="/Assets/LoadingImage.png" />
-                        <Border Background="#79000000"
+                    <Border Background="#79000000"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
                                 Margin="12,0,0,0"
                                 Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
-                            <TextBlock Text="Current image"
+                        <TextBlock Text="Current image"
                                        Foreground="{StaticResource PhoneBackgroundBrush}"
                                        Style="{StaticResource PhoneTextTitle3Style}"/>
-                        </Border>
-                    </Grid>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                    </Border>
+                </Grid>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
                                    Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="24,0,24,36"/>
 
-                        <Button Content="Set lockscreen now"
+                    <Button Content="Set lockscreen now"
                                 Command="{Binding SetLockscreenCommand}"
                                 Style="{StaticResource CoolButtonStyle}"
                                 Background="{StaticResource PhoneForegroundBrush}" />
-                        <Button Content="Save image for start screen"
+                    <Button Content="Save image for start screen"
                                 Command="{Binding DownloadImageNow}"
                                 Style="{StaticResource CoolButtonStyle}"
                                 Background="#FF0689A6" />
-                    </StackPanel>
                 </StackPanel>
-            </ScrollViewer>
+            </StackPanel>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
