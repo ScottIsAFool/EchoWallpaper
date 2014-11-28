@@ -56,7 +56,7 @@
                                  Command="{Binding GoToLockScreenSettings}" />
                 <toolkit:ToggleSwitch Header="Automatically update lockscreen"
                                       IsChecked="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
-                <toolkit:ToggleSwitch Header="Save copy for start screen use"
+                <toolkit:ToggleSwitch Header="Automatically save copy for start screen use"
                                       IsChecked="{Binding DownloadImageForStartScreen, Mode=TwoWay}" />
             </StackPanel>
         </Grid>
