@@ -43,8 +43,11 @@
     <Compile Include="Empty\EmptyNavigationService.cs" />
     <Compile Include="Empty\EmptySettingsService.cs" />
     <Compile Include="Empty\EmptyStorageService.cs" />
+    <Compile Include="Empty\EmptyStoreService.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />
     <Compile Include="Empty\EmptyMediaLibraryService.cs" />
+    <Compile Include="Empty\EmptyApplicationInfoService.cs" />
+    <Compile Include="Interfaces\IApplicationInfoService.cs" />
     <Compile Include="Interfaces\IAppSettings.cs" />
     <Compile Include="Interfaces\IBackgroundTaskService.cs" />
     <Compile Include="Interfaces\ILockscreenService.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="Model\LockScreenServiceRequestResult.cs" />
     <Compile Include="Model\Wallpapers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
   </ItemGroup>

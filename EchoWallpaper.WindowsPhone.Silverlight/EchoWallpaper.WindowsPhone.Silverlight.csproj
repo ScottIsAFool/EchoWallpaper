@@ -98,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Services\ApplicationInfoService.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\MediaLibraryService.cs" />
     <Compile Include="ThemeManager.cs" />

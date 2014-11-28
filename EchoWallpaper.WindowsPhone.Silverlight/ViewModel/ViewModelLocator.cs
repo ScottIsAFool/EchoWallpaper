@@ -15,6 +15,7 @@
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Core.ViewModel;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Services;
@@ -57,6 +58,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, EmptyLauncherService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IStoreService>())
+                    SimpleIoc.Default.Register<IStoreService, EmptyStoreService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
+                    SimpleIoc.Default.Register<IApplicationInfoService, EmptyApplicationInfoService>();
             }
             else
             {
@@ -78,6 +85,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, LauncherService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IStoreService>())
+                    SimpleIoc.Default.Register<IStoreService, StoreService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
+                    SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
             }
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
@@ -87,6 +100,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 SimpleIoc.Default.Register<LockscreenService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<AboutViewModel>();
         }
 
         public MainViewModel Main
@@ -94,6 +108,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public AboutViewModel About
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AboutViewModel>();
             }
         }
 
