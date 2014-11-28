@@ -33,12 +33,17 @@
     <i:Interaction.Behaviors>
         <behaviors:ApplicationBarBehavior Mode="Minimized"
                                           BackgroundColor="#DDDDDD"
-                                          ForegroundColor="#065EA6">
+                                          ForegroundColor="#065EA6"
+                                          IsMenuEnabled="True">
             <behaviors:ApplicationBarBehavior.Buttons>
                 <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/feature.settings.png"
                                                     Text="settings"
                                                     Command="{Binding NavigateToSettingsCommand}"/>
             </behaviors:ApplicationBarBehavior.Buttons>
+            <behaviors:ApplicationBarBehavior.MenuItems>
+                <behaviors:ApplicationBarMenuItem Text="about"
+                                                  Command="{Binding NavigateToAboutCommand}"/>
+            </behaviors:ApplicationBarBehavior.MenuItems>
         </behaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
 
@@ -52,11 +57,11 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <Grid Background="{StaticResource PhoneForegroundBrush}">
+        <Grid Background="{StaticResource PhoneAccentBrush}">
             <StackPanel x:Name="TitlePanel"
                         Grid.Row="0"
                         Margin="12,49,0,28">
-                <TextBlock Text="ECHO WALLPAPERS"
+                <TextBlock Text="{Binding Source={StaticResource AppName}, Converter={StaticResource StringToUppercaseConverter}}"
                            Style="{StaticResource PhoneTextNormalStyle}"
                            Foreground="{StaticResource PhoneBackgroundBrush}"
                            Margin="12,0" />
@@ -90,7 +95,7 @@
                     <Button Content="Set lockscreen now"
                                 Command="{Binding SetLockscreenCommand}"
                                 Style="{StaticResource CoolButtonStyle}"
-                                Background="{StaticResource PhoneForegroundBrush}" />
+                                Background="{StaticResource PhoneAccentBrush}" />
                     <Button Content="Save image for start screen"
                                 Command="{Binding DownloadImageNow}"
                                 Style="{StaticResource CoolButtonStyle}"

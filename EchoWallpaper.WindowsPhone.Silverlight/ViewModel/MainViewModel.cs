@@ -149,6 +149,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             }
         }
 
+        public RelayCommand NavigateToAboutCommand
+        {
+            get
+            {
+                return new RelayCommand(() => _navigationService.Navigate("/Views/AboutView.xaml"));
+            }
+        }
+
         public RelayCommand SetAsLockScreenAppCommand
         {
             get

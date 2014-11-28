@@ -7,13 +7,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:converters="clr-namespace:Cimbalino.Toolkit.Converters;assembly=Cimbalino.Toolkit">
+             xmlns:converters="clr-namespace:Cimbalino.Toolkit.Converters;assembly=Cimbalino.Toolkit"
+             xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!--Application Resources-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Theme/EchoTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <system:String x:Key="AppName">Echo Wallpapers</system:String>
             <local:LocalizedStrings x:Key="LocalizedStrings" />
             <vm:ViewModelLocator x:Key="Locator"
                                  d:IsDataSource="True"/>
@@ -24,6 +26,7 @@
             <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
             <converters:NullToVisibilityConverter x:Key="InvertedNullToVisibilityConverter"
                                                   InvertValue="True"/>
+            <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter"/>
 
             <Style x:Key="EmptyButtonStyle"
                    TargetType="ButtonBase">

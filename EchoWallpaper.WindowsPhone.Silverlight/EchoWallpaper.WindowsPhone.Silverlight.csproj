@@ -103,6 +103,9 @@
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="ThemeManager.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -124,12 +127,17 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Content Include="Assets\AppBarIcons\feature.settings.png" />
+    <Content Include="Assets\EchoWallpaperLogo.png" />
     <Content Include="Assets\LoadingImage.png" />
     <Content Include="DefaultLockScreen.jpg" />
     <Content Include="Theme\EchoTheme.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Content>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
