@@ -52,6 +52,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         public bool AutomaticallyUpdateLockscreen { get; set; }
         public bool DownloadImageForStartScreen { get; set; }
 
+        public bool CanDoStuff
+        {
+            get
+            {
+                return !ProgressIsVisible
+                       && CurrentWallpapers != null;
+            }
+        }
+
         public RelayCommand MainPageLoaded
         {
             get
@@ -91,16 +100,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                         return;
                     }
 
+                    if (CurrentWallpapers == null || CurrentWallpapers.HdNoCalendar == null)
+                    {
+                        return;
+                    }
+
                     SetProgressBar("Setting lock screen...");
 
-                    if (CurrentWallpapers == null)
-                    {
-                        await LockscreenService.Current.SetLockScreen();
-                    }
-                    else
-                    {
-                        await LockscreenService.Current.SetLockScreen(CurrentWallpapers.HdNoCalendar);
-                    }
+                    await LockscreenService.Current.SetLockScreen(CurrentWallpapers.HdNoCalendar);
 
                     SetProgressBar();
                 });
@@ -113,6 +120,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
+                    if (CurrentWallpapers == null || CurrentWallpapers == null)
+                    {
+                        return;
+                    }
                     try
                     {
                         SetProgressBar("Saving image...");
@@ -207,6 +218,11 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             _appSettings.DownloadImageForStartScreen = DownloadImageForStartScreen;
             _appSettings.Save();
+        }
+
+        public override void UpdateProperties()
+        {
+            RaisePropertyChanged(() => CanDoStuff);
         }
     }
 }
