@@ -97,11 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Empty\EmptyNavigationService.cs" />
-    <Compile Include="Empty\EmptySettingsService.cs" />
-    <Compile Include="Empty\EmptyStorageService.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
+    <Compile Include="Services\MediaLibraryService.cs" />
     <Compile Include="ThemeManager.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
@@ -115,7 +113,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>

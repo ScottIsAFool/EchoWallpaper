@@ -1,16 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using Windows.System;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
-using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
-using Microsoft.Xna.Framework.Media;
 using ScottIsAFool.WindowsPhone.ViewModel;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
@@ -31,25 +26,34 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
     {
         private readonly IAppSettings _appSettings;
         private readonly INavigationService _navigationService;
+        private readonly ILockScreenService _lockscreenService;
+        private readonly IMediaLibraryService _mediaLibraryService;
+        private readonly ILauncherService _launcherService;
 
-        private readonly MediaLibrary _library;
         private bool _dataLoaded;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IAppSettings appSettings, INavigationService navigationService)
+        public MainViewModel(
+            IAppSettings appSettings, 
+            INavigationService navigationService,
+            ILockScreenService lockscreenService,
+            IMediaLibraryService mediaLibraryService,
+            ILauncherService launcherService)
         {
             _appSettings = appSettings;
             _navigationService = navigationService;
-            _library = new MediaLibrary();
+            _lockscreenService = lockscreenService;
+            _mediaLibraryService = mediaLibraryService;
+            _launcherService = launcherService;
 
             AutomaticallyUpdateLockscreen = _appSettings.AutomaticallyUpdateLockScreen;
             DownloadImageForStartScreen = _appSettings.DownloadImageForStartScreen;
         }
 
         public Wallpapers CurrentWallpapers { get; set; }
-        public bool IsLockscreenProvider { get { return LockscreenService.Current.IsProvidedByCurrentApplication; } }
+        public bool IsLockscreenProvider { get { return _lockscreenService.IsProvidedByCurrentApplication; } }
         public bool AutomaticallyUpdateLockscreen { get; set; }
         public bool DownloadImageForStartScreen { get; set; }
 
@@ -93,7 +97,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                     var result = LockScreenServiceRequestResult.Granted;
                     if (!IsLockscreenProvider)
                     {
-                        result = await LockscreenService.Current.RequestAccessAsync();
+                        result = await _lockscreenService.RequestAccessAsync();
                     }
 
                     if (result == LockScreenServiceRequestResult.Denied)
@@ -108,7 +112,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                     SetProgressBar("Setting lock screen...");
 
-                    await LockscreenService.Current.SetLockScreen(CurrentWallpapers.HdNoCalendar);
+                    await _lockscreenService.SetLockScreen(CurrentWallpapers.HdNoCalendar);
 
                     SetProgressBar();
                 });
@@ -132,12 +136,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                         {
                             var date = DateTime.Now;
                             var file = string.Format("{0}.{1}.jpg", date.Year, date.ToString("MMMM"));
-                            _library.SavePicture(file, stream);
+                            _mediaLibraryService.SavePicture(file, stream);
                         }
                     }
                     catch (Exception ex)
                     {
-                        Log.ErrorException("DownloadImageNow", ex);
+                        //Log.ErrorException("DownloadImageNow", ex);
                     }
                     
                     SetProgressBar();
@@ -149,7 +153,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
         {
             get
             {
-                return new RelayCommand(() => Launcher.LaunchUriAsync(new Uri("ms-settings-lock:", UriKind.Absolute)));
+                return new RelayCommand(() => _launcherService.LaunchUriAsync(new Uri("ms-settings-lock:", UriKind.Absolute)));
             }
         }
 
@@ -175,7 +179,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
-                    var result = await LockscreenService.Current.RequestAccessAsync();
+                    var result = await _lockscreenService.RequestAccessAsync();
 
                     if (result == LockScreenServiceRequestResult.Granted)
                     {
@@ -201,7 +205,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             }
             catch (Exception ex)
             {
-                Log.ErrorException("LoadData(" + isRefresh + ")", ex);
+                //Log.ErrorException("LoadData(" + isRefresh + ")", ex);
             }
 
             SetProgressBar();

@@ -5,7 +5,7 @@ using EchoWallpaper.Core.Model;
 
 namespace EchoWallpaper.Core.Interfaces
 {
-    public interface ILockscreenService
+    public interface ILockScreenService
     {
         string LockScreenImageUrl { get; }
         string LockScreenFile { get; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Cimbalino.Toolkit.Services;
 
-namespace EchoWallpaper.WindowsPhone.Silverlight.Empty
+namespace EchoWallpaper.Core.Empty
 {
     public class EmptyNavigationService : INavigationService
     {

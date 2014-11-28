@@ -13,10 +13,11 @@
 */
 
 using Cimbalino.Toolkit.Services;
+using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
-using EchoWallpaper.WindowsPhone.Silverlight.Empty;
+using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -47,6 +48,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if(!SimpleIoc.Default.IsRegistered<INavigationService>())
                     SimpleIoc.Default.Register<INavigationService, EmptyNavigationService>();
+
+                if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
+                    SimpleIoc.Default.Register<ILockScreenService, EmptyLockScreenService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
+                    SimpleIoc.Default.Register<IMediaLibraryService, EmptyMediaLibraryService>();
+
+                if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
+                    SimpleIoc.Default.Register<ILauncherService, EmptyLauncherService>();
             }
             else
             {
@@ -59,6 +69,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<INavigationService>())
                     SimpleIoc.Default.Register<INavigationService, NavigationService>();
+
+                if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
+                    SimpleIoc.Default.Register<ILockScreenService>(() => LockscreenService.Current);
+
+                if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
+                    SimpleIoc.Default.Register<IMediaLibraryService, MediaLibraryService>();
+
+                if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
+                    SimpleIoc.Default.Register<ILauncherService, LauncherService>();
             }
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())

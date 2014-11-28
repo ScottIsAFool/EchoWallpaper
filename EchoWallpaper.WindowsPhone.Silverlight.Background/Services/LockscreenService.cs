@@ -12,7 +12,7 @@ using ScottIsAFool.WindowsPhone.Logging;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 {
-    public class LockscreenService : ILockscreenService
+    public class LockscreenService : ILockScreenService
     {
         private const string LockScreenImageUrlNormal = "ms-appdata:///Local/shared/shellcontent/MBWallpaper.png";
         private const string LockScreenImageUrlAlternative = "ms-appdata:///Local/shared/shellcontent/MBWallpaper2.png";
