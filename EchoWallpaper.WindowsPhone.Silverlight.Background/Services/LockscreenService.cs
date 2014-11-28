@@ -6,11 +6,13 @@ using Windows.Phone.System.UserProfile;
 using Cimbalino.Toolkit.Extensions;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Core.Model;
 using ScottIsAFool.WindowsPhone.Logging;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 {
-    public class LockscreenService 
+    public class LockscreenService : ILockscreenService
     {
         private const string LockScreenImageUrlNormal = "ms-appdata:///Local/shared/shellcontent/MBWallpaper.png";
         private const string LockScreenImageUrlAlternative = "ms-appdata:///Local/shared/shellcontent/MBWallpaper2.png";
@@ -156,21 +158,5 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 
             ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
         }
-    }
-
-    /// <summary>
-    /// Indicates if the app was successfully or unsuccessfully set as the lock screen background provider.
-    /// </summary>
-    public enum LockScreenServiceRequestResult
-    {
-        /// <summary>
-        /// The app was not set as the lock screen background provider.
-        /// </summary>
-        Denied,
-
-        /// <summary>
-        /// The app was set as the lock screen background provider.
-        /// </summary>
-        Granted
     }
 }

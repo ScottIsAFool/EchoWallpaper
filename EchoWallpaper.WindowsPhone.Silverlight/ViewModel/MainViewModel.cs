@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Windows.System;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;

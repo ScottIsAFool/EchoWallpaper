@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Interfaces;
 using Microsoft.Phone.Scheduler;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Services
 {
-    public class BackgroundTaskService
+    public class BackgroundTaskService : IBackgroundTaskService
     {
         private static BackgroundTaskService _current;
         public static BackgroundTaskService Current { get { return _current ?? (_current = new BackgroundTaskService()); } }

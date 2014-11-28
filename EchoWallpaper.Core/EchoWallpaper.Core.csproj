@@ -39,7 +39,11 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Echo.cs" />
     <Compile Include="Extensions\AttributeExtensions.cs" />
+    <Compile Include="Interfaces\IAppSettings.cs" />
+    <Compile Include="Interfaces\IBackgroundTaskService.cs" />
+    <Compile Include="Interfaces\ILockscreenService.cs" />
     <Compile Include="Model\LastRunDetails.cs" />
+    <Compile Include="Model\LockScreenServiceRequestResult.cs" />
     <Compile Include="Model\Wallpapers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

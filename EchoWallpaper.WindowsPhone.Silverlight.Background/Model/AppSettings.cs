@@ -1,18 +1,12 @@
 ﻿using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Interfaces;
 using GalaSoft.MvvmLight.Ioc;
 using Newtonsoft.Json;
 using PropertyChanged;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
 {
-    public interface IAppSettings
-    {
-        bool DownloadImageForStartScreen { get; set; }
-        bool AutomaticallyUpdateLockScreen { get; set; }
-        void Save();
-    }
-
     [ImplementPropertyChanged]
     public class AppSettings : IAppSettings
     {

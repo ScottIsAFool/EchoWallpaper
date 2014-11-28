@@ -13,6 +13,7 @@
 */
 
 using Cimbalino.Toolkit.Services;
+using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Empty;
