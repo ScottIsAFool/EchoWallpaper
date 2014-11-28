@@ -35,7 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Attributes\DescriptionAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Echo.cs" />
     <Compile Include="Empty\EmptyLauncherService.cs" />
@@ -44,7 +43,6 @@
     <Compile Include="Empty\EmptySettingsService.cs" />
     <Compile Include="Empty\EmptyStorageService.cs" />
     <Compile Include="Empty\EmptyStoreService.cs" />
-    <Compile Include="Extensions\AttributeExtensions.cs" />
     <Compile Include="Empty\EmptyMediaLibraryService.cs" />
     <Compile Include="Empty\EmptyApplicationInfoService.cs" />
     <Compile Include="Interfaces\IApplicationInfoService.cs" />
