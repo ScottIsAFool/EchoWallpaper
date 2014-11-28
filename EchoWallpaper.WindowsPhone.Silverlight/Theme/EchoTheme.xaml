@@ -5,7 +5,7 @@
 
     <Color x:Key="PhoneAccentColor">#065EA6</Color>
     <SolidColorBrush x:Key="PhoneAccentBrush"
-                     Color="{StaticResource PhoneForegroundColor}"/>
+                     Color="{StaticResource PhoneAccentColor}"/>
     
     <Color x:Key="PhoneBackgroundColor">White</Color>
     <SolidColorBrush x:Key="PhoneBackgroundBrush"
