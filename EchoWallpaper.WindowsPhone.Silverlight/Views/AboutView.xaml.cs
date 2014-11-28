@@ -7,12 +7,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Views
 {
     public partial class AboutView
     {
-        private string VersionText
+        private static string VersionText
         {
             get
             {
                 var version = Package.Current.Id.Version;
-                return string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build)
+                return string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build);
             }
         }
         // Constructor
@@ -25,7 +25,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Views
 
         private void DaveLarsen_OnClick(object sender, RoutedEventArgs e)
         {
-            new WebBrowserTask()
+            new WebBrowserTask
             {
                 Uri = new Uri("http://www.thenounproject.com/davelarsen")
             }.Show();
@@ -33,7 +33,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Views
 
         private void NounProject_OnClick(object sender, RoutedEventArgs e)
         {
-            new WebBrowserTask()
+            new WebBrowserTask
             {
                 Uri = new Uri("http://www.thenounproject.com/")
             }.Show();
@@ -41,7 +41,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Views
 
         private void Feedback_OnClick(object sender, RoutedEventArgs e)
         {
-            new EmailComposeTask()
+            new EmailComposeTask
             {
                 To = "scottisafool@live.co.uk",
                 Subject = string.Format("Feedback from Echo Wallpapers ({0})", VersionText)
