@@ -17,7 +17,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Services
 
         public string AppId
         {
-            get { return string.Empty; }
+            get
+            {
+                return string.Empty; //ApplicationManifest.Current.App.ProductId;
+            }
         }
     }
 }
