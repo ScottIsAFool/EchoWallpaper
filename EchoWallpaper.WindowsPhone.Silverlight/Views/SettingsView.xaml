@@ -41,22 +41,25 @@
         <Grid x:Name="ContentPanel"
               Grid.Row="1"
               Margin="12,0,12,0">
-            <HyperlinkButton Content="Set as lockscreen app"
-                             HorizontalContentAlignment="Left"
-                             VerticalAlignment="Top"
-                             Margin="0,12"
-                             Command="{Binding SetAsLockScreenAppCommand}"
-                             Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
-            <StackPanel Orientation="Vertical"
-                        Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}"
-                        VerticalAlignment="Top">
-                <HyperlinkButton Content="Lockscreen settings"
+            <StackPanel Orientation="Vertical">
+                <HyperlinkButton Content="Set as lockscreen app"
                                  HorizontalContentAlignment="Left"
+                                 VerticalAlignment="Top"
                                  Margin="0,12"
-                                 Command="{Binding GoToLockScreenSettings}" />
-                <toolkit:ToggleSwitch Header="Automatically update lockscreen"
-                                      IsChecked="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
-                <toolkit:ToggleSwitch Header="Automatically save copy for start screen use"
+                                 Command="{Binding SetAsLockScreenAppCommand}"
+                                 Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
+
+                <StackPanel Orientation="Vertical"
+                            Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}"
+                            VerticalAlignment="Top">
+                    <HyperlinkButton Content="Lockscreen settings"
+                                     HorizontalContentAlignment="Left"
+                                     Margin="0,12"
+                                     Command="{Binding GoToLockScreenSettings}" />
+                    <toolkit:ToggleSwitch Header="Automatically update lockscreen"
+                                          IsChecked="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                </StackPanel>
+                <toolkit:ToggleSwitch Header="Automatically save for start screen use"
                                       IsChecked="{Binding DownloadImageForStartScreen, Mode=TwoWay}" />
             </StackPanel>
         </Grid>
