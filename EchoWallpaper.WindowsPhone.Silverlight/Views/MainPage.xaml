@@ -39,6 +39,9 @@
                 <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/feature.settings.png"
                                                     Text="settings"
                                                     Command="{Binding NavigateToSettingsCommand}" />
+                <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/refresh.png"
+                                                    Text="refresh"
+                                                    Command="{Binding RefreshCommand}"/>
             </behaviors:ApplicationBarBehavior.Buttons>
             <behaviors:ApplicationBarBehavior.MenuItems>
                 <behaviors:ApplicationBarMenuItem Text="about"

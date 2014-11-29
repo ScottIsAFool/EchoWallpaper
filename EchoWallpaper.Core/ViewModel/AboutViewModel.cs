@@ -46,8 +46,8 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 return new RelayCommand(() =>
                 {
-                    var email = string.Format("scottisafool@live.co.uk?subject=Feedback from Echo Wallpapers ({0})", _applicationInfo.Version);
-                    _launcherService.LaunchUriAsync(new Uri(email, UriKind.Absolute));
+                    var email = string.Format("mailto:scottisafool@live.co.uk?subject=Feedback from Echo Wallpapers ({0})", _applicationInfo.Version);
+                    _launcherService.LaunchUriAsync(new Uri(email));
                 });
             }
         }

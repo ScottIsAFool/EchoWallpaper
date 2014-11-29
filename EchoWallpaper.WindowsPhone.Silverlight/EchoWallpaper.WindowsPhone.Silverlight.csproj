@@ -125,6 +125,7 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Content Include="Assets\AppBarIcons\feature.settings.png" />
+    <Content Include="Assets\AppBarIcons\refresh.png" />
     <Content Include="Assets\EchoWallpaperLogo.png" />
     <Content Include="Assets\LoadingImage.png" />
     <Content Include="DefaultLockScreen.jpg" />
