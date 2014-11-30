@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.WindowsPhone.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.WindowsPhone.Silverlight.Background", "EchoWallpaper.WindowsPhone.Silverlight.Background\EchoWallpaper.WindowsPhone.Silverlight.Background.csproj", "{27318DB9-9134-4BAE-89A9-C3AEF521BCBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.Windows.Shared", "EchoWallpaper.Windows.Shared\EchoWallpaper.Windows.Shared.csproj", "{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.Windows.Background", "EchoWallpaper.Windows.Background\EchoWallpaper.Windows.Background.csproj", "{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		EchoWallpaper\EchoWallpaper.Shared\EchoWallpaper.Shared.projitems*{02a5e73c-abdb-4a0c-b515-0e9ed67c1a46}*SharedItemsImports = 13
@@ -150,6 +154,34 @@ Global
 		{27318DB9-9134-4BAE-89A9-C3AEF521BCBE}.Release|x64.ActiveCfg = Release|Any CPU
 		{27318DB9-9134-4BAE-89A9-C3AEF521BCBE}.Release|x86.ActiveCfg = Release|x86
 		{27318DB9-9134-4BAE-89A9-C3AEF521BCBE}.Release|x86.Build.0 = Release|x86
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|x64.ActiveCfg = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|x86.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|x64.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,5 +193,7 @@ Global
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{497F9181-CF89-46ED-81EE-4519B00DEB42} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{27318DB9-9134-4BAE-89A9-C3AEF521BCBE} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 	EndGlobalSection
 EndGlobal

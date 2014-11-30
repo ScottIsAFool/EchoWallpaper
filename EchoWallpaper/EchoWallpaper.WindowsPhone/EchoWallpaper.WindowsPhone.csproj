@@ -131,6 +131,14 @@
       <Project>{5b72543b-dbfc-4c23-b697-bb8de4435b01}</Project>
       <Name>EchoWallpaper.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\EchoWallpaper.Windows.Background\EchoWallpaper.Windows.Background.csproj">
+      <Project>{e49bfdc0-225d-423e-8eef-47e8c72f9af8}</Project>
+      <Name>EchoWallpaper.Windows.Background</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EchoWallpaper.Windows.Shared\EchoWallpaper.Windows.Shared.csproj">
+      <Project>{1fc4a2fe-1436-4536-8365-a577cc6f4a4a}</Project>
+      <Name>EchoWallpaper.Windows.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
