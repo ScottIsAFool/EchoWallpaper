@@ -1,9 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.Phone.System.UserProfile;
-using Cimbalino.Toolkit.Extensions;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
@@ -19,7 +17,6 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
         private const string LockScreenImageUrlAlternative = "ms-appdata:///Local/shared/shellcontent/MBWallpaper2.png";
         private const string LockScreenFileNormal = "shared\\shellcontent\\MBWallpaper.png";
         private const string LockScreenFileAlternative = "shared\\shellcontent\\MBWallpaper2.png";
-        private const string DefaultLockScreenImageFormat = "ms-appx:///DefaultLockScreen.jpg";
 
         private readonly IStorageServiceHandler _storage;
         private readonly IDisplayPropertiesService _display;
