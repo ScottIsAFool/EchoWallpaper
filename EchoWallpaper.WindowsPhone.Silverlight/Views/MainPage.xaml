@@ -98,12 +98,12 @@
                     <Button Content="Set lockscreen now"
                             Command="{Binding SetLockscreenCommand}"
                             Style="{StaticResource CoolButtonStyle}"
-                            Background="{StaticResource PhoneAccentBrush}"
+                            Background="#FF0689A6"
                             IsEnabled="{Binding CanDoStuff}" />
                     <Button Content="Save image for start screen"
                             Command="{Binding DownloadImageNow}"
                             Style="{StaticResource CoolButtonStyle}"
-                            Background="#FF0689A6"
+                            Background="{StaticResource PhoneAccentBrush}"
                             IsEnabled="{Binding CanDoStuff}" />
                 </StackPanel>
             </StackPanel>
