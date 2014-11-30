@@ -46,6 +46,12 @@ namespace EchoWallpaper.WindowsPhone.Silverlight
             var rd = Resources.MergedDictionaries[0];
             ThemeManager.SetCustomTheme(rd, Theme.Light);
 
+            var accentBrush = Resources["PhoneAccentBrush"] as SolidColorBrush;
+            if (accentBrush != null)
+            {
+                ThemeManager.SetAccentColor(accentBrush.Color);
+            }
+
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
             {

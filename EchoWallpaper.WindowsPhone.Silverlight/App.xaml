@@ -31,6 +31,7 @@
             <Color x:Key="AppBarBackground">#DDDDDD</Color>
             <SolidColorBrush x:Key="AppBarBackgroundBrush"
                              Color="{StaticResource AppBarBackground}"/>
+            <Color x:Key="AccentColor">#065EA6</Color>
 
             <Style x:Key="EmptyButtonStyle"
                    TargetType="ButtonBase">

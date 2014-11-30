@@ -17,7 +17,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Views
             if (ApplicationBar != null)
             {
                 ApplicationBar.BackgroundColor = (Color) Application.Current.Resources["AppBarBackground"];
-                ApplicationBar.ForegroundColor = (Color) Application.Current.Resources["PhoneAccentColor"];
+                ApplicationBar.ForegroundColor = (Color) Application.Current.Resources["AccentColor"];
             }
 
             base.OnNavigatedTo(e);
