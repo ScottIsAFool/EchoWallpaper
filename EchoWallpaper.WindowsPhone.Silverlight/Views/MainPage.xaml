@@ -33,7 +33,7 @@
     <i:Interaction.Behaviors>
         <behaviors:ApplicationBarBehavior Mode="Minimized"
                                           BackgroundColor="#DDDDDD"
-                                          ForegroundColor="#065EA6"
+                                          ForegroundColor="{StaticResource PhoneAccentColor}"
                                           IsMenuEnabled="True">
             <behaviors:ApplicationBarBehavior.Buttons>
                 <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/feature.settings.png"

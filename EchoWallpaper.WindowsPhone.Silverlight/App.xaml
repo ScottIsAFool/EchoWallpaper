@@ -15,7 +15,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Theme/EchoTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <system:String x:Key="AppName">Echo Wallpapers</system:String>
+            <system:String x:Key="AppName">Echo Wallpaper</system:String>
             <local:LocalizedStrings x:Key="LocalizedStrings" />
             <vm:ViewModelLocator x:Key="Locator"
                                  d:IsDataSource="True"/>
@@ -27,6 +27,10 @@
             <converters:NullToVisibilityConverter x:Key="InvertedNullToVisibilityConverter"
                                                   InvertValue="True"/>
             <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter"/>
+
+            <Color x:Key="AppBarBackground">#DDDDDD</Color>
+            <SolidColorBrush x:Key="AppBarBackgroundBrush"
+                             Color="{StaticResource AppBarBackground}"/>
 
             <Style x:Key="EmptyButtonStyle"
                    TargetType="ButtonBase">
