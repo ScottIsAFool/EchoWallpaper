@@ -3,6 +3,7 @@ using Windows.Storage;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.Windows.Shared.Extensions;
 using EchoWallpaper.Windows.Shared.Model;
 using EchoWallpaper.Windows.Shared.Services;
 using Windows.ApplicationModel.Background;
@@ -19,8 +20,8 @@ namespace EchoWallpaper.Windows.Background
         {
             var deferral = taskInstance.GetDeferral();
             var localSettings = ApplicationData.Current.LocalSettings;
-            
-            var lastRunDetailsJson = localSettings.Values[Constants.Settings.LastRunSettings].ToString();
+
+            var lastRunDetailsJson = localSettings.Get<string>(Constants.Settings.LastRunSettings);
             LastRunDetails lastRunDetails = null;
 
             if (!string.IsNullOrEmpty(lastRunDetailsJson))
@@ -36,7 +37,7 @@ namespace EchoWallpaper.Windows.Background
                 }
             }
 
-            var json = localSettings.Values[Constants.Settings.AppSettings].ToString();
+            var json = localSettings.Get<string>(Constants.Settings.AppSettings);
             if (string.IsNullOrEmpty(json))
             {
                 Finish(deferral);

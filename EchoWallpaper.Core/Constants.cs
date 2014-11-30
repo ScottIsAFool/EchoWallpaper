@@ -4,6 +4,7 @@
     {
         public const string WallpaperUrl = "http://www.bournemouthecho.co.uk/photos/echowallpaper/";
         public const string BackgroundAgentName = "EchoWallpaper.BackgroundTask";
+        public const string BackgroundAgentEntryPoint = "EchoWallpaper.Windows.Background.BackgroundTask";
 
         public static class Settings
         {
