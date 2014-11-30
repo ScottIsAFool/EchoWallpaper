@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-GB" />
-  <App xmlns="" ProductID="{497f9181-cf89-46ed-81ee-4519b00deb42}" Title="Echo Wallpaper" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="EchoWallpaper.WindowsPhone.Silverlight author" Description="Sample description" SDOptOut="false" BackUpOptOut="false" Publisher="EchoWallpaper.WindowsPhone.Silverlight" PublisherID="{3c219732-a0cc-4ee0-8c7d-79b36c87d28b}">
+  <App xmlns="" ProductID="{497f9181-cf89-46ed-81ee-4519b00deb42}" Title="Echo Wallpaper" RuntimeType="Silverlight" Version="1.0.0.2" Genre="apps.normal" Author="EchoWallpaper.WindowsPhone.Silverlight author" Description="Sample description" SDOptOut="false" BackUpOptOut="false" Publisher="EchoWallpaper.WindowsPhone.Silverlight" PublisherID="{3c219732-a0cc-4ee0-8c7d-79b36c87d28b}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
