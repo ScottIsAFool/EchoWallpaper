@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
@@ -57,7 +58,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 lastRunDetails = JsonConvert.DeserializeObject<LastRunDetails>(lastRunDetailsJson);
                 if (lastRunDetails != null && lastRunDetails.LastRunDate.HasValue)
                 {
-                    if (!LastDateOk(lastRunDetails.LastRunDate.Value))
+                    if (!lastRunDetails.LastRunDate.Value.LastDateOk())
                     {
                         NotifyComplete();
                         return;
@@ -122,23 +123,6 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
             }
 
             NotifyComplete();
-        }
-
-        private bool LastDateOk(DateTime lastRunDate)
-        {
-            var date = DateTime.Now;
-
-            if (date.Date == lastRunDate.Date)
-            {
-                return false;
-            }
-
-            if (date.Date.Day != 1 && lastRunDate.Date.Month == date.Date.Month)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }

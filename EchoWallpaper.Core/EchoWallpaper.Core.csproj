@@ -45,6 +45,7 @@
     <Compile Include="Empty\EmptyStoreService.cs" />
     <Compile Include="Empty\EmptyMediaLibraryService.cs" />
     <Compile Include="Empty\EmptyApplicationInfoService.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Interfaces\IApplicationInfoService.cs" />
     <Compile Include="Interfaces\IAppSettings.cs" />
     <Compile Include="Interfaces\IBackgroundTaskService.cs" />
