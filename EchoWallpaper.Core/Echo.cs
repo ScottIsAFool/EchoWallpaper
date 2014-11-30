@@ -112,6 +112,15 @@ namespace EchoWallpaper.Core
                         case "iPhone, no calendar":
                             result.IphoneNoCalendar = uri;
                             break;
+                        case "720x1280":
+                            result.SevenTwentyP = uri;
+                            break;
+                        case "768x1280":
+                            result.Wxga = uri;
+                            break;
+                        case "480x800":
+                            result.Wvga = uri;
+                            break;
                     }
                 }
             }

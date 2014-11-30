@@ -23,5 +23,8 @@ namespace EchoWallpaper.Core.Model
         public Uri AndroidLandscape { get; set; }
         public Uri HdNoCalendar { get; set; }
         public Uri IphoneNoCalendar { get; set; }
+        public Uri Wvga { get; set; }
+        public Uri Wxga { get; set; }
+        public Uri SevenTwentyP { get; set; }
     }
 }

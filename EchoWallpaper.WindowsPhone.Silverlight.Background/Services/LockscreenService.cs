@@ -8,6 +8,7 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.WindowsPhone.Silverlight.Background.Extensions;
 using ScottIsAFool.WindowsPhone.Logging;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
@@ -21,12 +22,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
         private const string DefaultLockScreenImageFormat = "ms-appx:///DefaultLockScreen.jpg";
 
         private readonly IStorageServiceHandler _storage;
+        private readonly IDisplayPropertiesService _display;
         private readonly ILog _logger;
         private static LockscreenService _current;
         public static LockscreenService Current { get { return _current ?? (_current = new LockscreenService()); } }
 
         public LockscreenService()
         {
+            _display = new DisplayPropertiesService();
             _storage = new StorageService().Local;
             _logger = new WPLogger(typeof(LockscreenService));
         }
@@ -98,21 +101,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 
         private async Task DownloadAndSaveImage(Uri uri)
         {
-            using (var client = new HttpClient())
+            using (var stream = await Echo.GetWallpaperStreamAsync(uri))
             {
-                var response = await client.GetAsync(uri);
-                if (!response.IsSuccessStatusCode)
-                {
-                    return;
-                }
-
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                {
-                    using (var fileStream = await _storage.CreateFileAsync(LockScreenFile))
-                    {
-                        await stream.CopyToAsync(fileStream);
-                    }
-                }
+                await SetLockScreen(stream);
             }
         }
 
@@ -142,7 +133,21 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
 
         public Uri ImageUriToUse(Wallpapers wallpapers)
         {
-            return wallpapers != null ? wallpapers.HdNoCalendar : null;
+            var res = _display.ToScreenResolution();
+
+            switch (res)
+            {
+                case ScreenInfoServiceResolution.HD1080p:
+                    return wallpapers.HdNoCalendar;
+                case ScreenInfoServiceResolution.HD720p:
+                    return wallpapers.SevenTwentyP;
+                case ScreenInfoServiceResolution.WVGA:
+                    return wallpapers.Wvga;
+                case ScreenInfoServiceResolution.WXGA:
+                    return wallpapers.Wxga;
+                default:
+                    return null;
+            }
         }
     }
 }
