@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.System.UserProfile;
+using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
@@ -11,6 +12,14 @@ namespace EchoWallpaper.Windows.Shared.Services
 {
     public class LockScreenService : ILockScreenService
     {
+        private readonly IDisplayPropertiesService _displayProperties;
+
+        public LockScreenService(/*IDisplayPropertiesService displayProperties*/)
+        {
+            Current = this;
+            //_displayProperties = displayProperties;
+        }
+
         public bool IsProvidedByCurrentApplication
         {
             get
@@ -22,8 +31,7 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public Uri ImageUri { get; set; }
 
-        private static LockScreenService _current;
-        public static LockScreenService Current { get { return _current ?? (_current = new LockScreenService()); } }
+        public static LockScreenService Current { get; private set; }
 
         public async Task<LockScreenServiceRequestResult> RequestAccessAsync()
         {
@@ -53,6 +61,7 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public Uri ImageUriToUse(Wallpapers wallpapers)
         {
+            //var rect = _displayProperties.PhysicalBounds;
             return wallpapers != null ? wallpapers.NineteenTwentyTenEighty : null;
         }
     }

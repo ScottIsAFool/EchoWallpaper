@@ -77,7 +77,7 @@ namespace EchoWallpaper.ViewModel
                     SimpleIoc.Default.Register<INavigationService, NavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
-                    SimpleIoc.Default.Register<ILockScreenService>(() => new LockScreenService());
+                    SimpleIoc.Default.Register<ILockScreenService, LockScreenService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
                     SimpleIoc.Default.Register<IMediaLibraryService, MediaLibraryService>();
@@ -91,6 +91,9 @@ namespace EchoWallpaper.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
                     SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
             }
+
+            if(!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
+                SimpleIoc.Default.Register<IDisplayPropertiesService, DisplayPropertiesService>();
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();

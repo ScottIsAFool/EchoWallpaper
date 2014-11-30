@@ -85,13 +85,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 var wallpapers = await Echo.GetWallpapersAsync();
                 var date = DateTime.Now;
 
-                if (lastRunDetails != null && wallpapers.HdNoCalendar == lastRunDetails.LastUsedUri)
+                var uri = LockscreenService.Current.ImageUriToUse(wallpapers);
+
+                if (lastRunDetails != null && uri == lastRunDetails.LastUsedUri)
                 {
                     NotifyComplete();
                     return;
                 }
 
-                using (var stream = await Echo.GetWallpaperStreamAsync(wallpapers.HdNoCalendar))
+                using (var stream = await Echo.GetWallpaperStreamAsync(uri))
                 {
                     if (settings.AutomaticallyUpdateLockScreen)
                     {
@@ -112,7 +114,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 }
 
                 lastRunDetails.LastRunDate = date;
-                lastRunDetails.LastUsedUri = wallpapers.HdNoCalendar;
+                lastRunDetails.LastUsedUri = uri;
 
                 lastRunDetailsJson = JsonConvert.SerializeObject(lastRunDetails);
                 _settingsService.Set(Constants.Settings.LastRunSettings, lastRunDetailsJson);

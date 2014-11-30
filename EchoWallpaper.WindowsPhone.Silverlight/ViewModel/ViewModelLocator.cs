@@ -93,6 +93,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                     SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
             }
 
+            if (!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
+                SimpleIoc.Default.Register<IDisplayPropertiesService, DisplayPropertiesService>();
+
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();
 
