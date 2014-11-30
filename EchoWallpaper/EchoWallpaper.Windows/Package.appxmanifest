@@ -16,6 +16,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="EchoWallpaper.Windows.App">
       <m2:VisualElements DisplayName="Echo Wallpaper" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Echo Wallpaper" ForegroundText="light" BackgroundColor="#065EA6">
+        <m2:DefaultTile ShortName="Echo Wallpaper">
+        </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
     </Application>

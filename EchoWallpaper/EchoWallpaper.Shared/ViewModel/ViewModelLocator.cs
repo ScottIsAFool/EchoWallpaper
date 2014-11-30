@@ -18,7 +18,6 @@ using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.ViewModel;
 using EchoWallpaper.Windows.Shared.Model;
 using EchoWallpaper.Windows.Shared.Services;
-using EchoWallpaper.WindowsPhone.Silverlight.ViewModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;

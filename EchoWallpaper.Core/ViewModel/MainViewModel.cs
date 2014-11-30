@@ -1,14 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using Cimbalino.Toolkit.Services;
-using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
 using ScottIsAFool.WindowsPhone.ViewModel;
 
-namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
+namespace EchoWallpaper.Core.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.
@@ -47,6 +46,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             _lockscreenService = lockscreenService;
             _mediaLibraryService = mediaLibraryService;
             _launcherService = launcherService;
+
+            if (IsInDesignMode)
+            {
+                CurrentWallpapers = new Wallpapers
+                {
+                    PreviewImage = new Uri("http://www.bournemouthecho.co.uk/resources/images/3345456.jpg"),
+                    NineteenTwentyTenEighty = new Uri("http://www.bournemouthecho.co.uk/resources/images/3345456.jpg"),
+                    Title = "A picture from the Bournemouth Echo"
+                };
+            }
 
             AutomaticallyUpdateLockscreen = _appSettings.AutomaticallyUpdateLockScreen;
             DownloadImageForStartScreen = _appSettings.DownloadImageForStartScreen;
@@ -105,14 +114,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                         return;
                     }
 
-                    if (CurrentWallpapers == null || CurrentWallpapers.HdNoCalendar == null)
+                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers);
+
+                    if (CurrentWallpapers == null || uri == null)
                     {
                         return;
                     }
 
                     SetProgressBar("Setting lock screen...");
 
-                    await _lockscreenService.SetLockScreen(CurrentWallpapers.HdNoCalendar);
+                    await _lockscreenService.SetLockScreen(uri);
 
                     SetProgressBar();
                 });
@@ -125,14 +136,16 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
-                    if (CurrentWallpapers == null || CurrentWallpapers == null)
+                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers);
+
+                    if (CurrentWallpapers == null || uri == null)
                     {
                         return;
                     }
                     try
                     {
                         SetProgressBar("Saving image...");
-                        using (var stream = await Echo.GetWallpaperStreamAsync(CurrentWallpapers.HdNoCalendar))
+                        using (var stream = await Echo.GetWallpaperStreamAsync(uri))
                         {
                             var date = DateTime.Now;
                             var file = string.Format("{0}.{1}.jpg", date.Year, date.ToString("MMMM"));

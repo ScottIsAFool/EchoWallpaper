@@ -96,25 +96,6 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             }
         }
 
-        public async Task SetLockScreen()
-        {
-            try
-            {
-                var wallpapers = await Echo.GetWallpapersAsync();
-                if (wallpapers != null && wallpapers.HdNoCalendar != null)
-                {
-                    var uri = wallpapers.HdNoCalendar;
-                    await DownloadAndSaveImage(uri);
-
-                    ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.ErrorException("SetLockScreen()", ex);
-            }
-        }
-
         private async Task DownloadAndSaveImage(Uri uri)
         {
             using (var client = new HttpClient())
@@ -157,6 +138,11 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             }
 
             ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
+        }
+
+        public Uri ImageUriToUse(Wallpapers wallpapers)
+        {
+            return wallpapers != null ? wallpapers.HdNoCalendar : null;
         }
     }
 }

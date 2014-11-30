@@ -7,9 +7,6 @@ namespace EchoWallpaper.Core.Interfaces
 {
     public interface ILockScreenService
     {
-        string LockScreenImageUrl { get; }
-        string LockScreenFile { get; }
-
         /// <summary>
         /// Gets a value indicating whether the app is the current lock screen background provider.
         /// </summary>
@@ -28,8 +25,8 @@ namespace EchoWallpaper.Core.Interfaces
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<LockScreenServiceRequestResult> RequestAccessAsync();
 
-        Task SetLockScreen();
         Task SetLockScreen(Uri uri);
         Task SetLockScreen(Stream stream);
+        Uri ImageUriToUse(Wallpapers wallpapers);
     }
 }

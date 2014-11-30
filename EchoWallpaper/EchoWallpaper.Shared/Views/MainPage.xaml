@@ -4,6 +4,7 @@
       xmlns:local="using:EchoWallpaper.Views"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:coding4Fun="using:Coding4Fun.Toolkit.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
@@ -16,20 +17,77 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*"
+                           MaxHeight="154" />
             <RowDefinition Height="80*" />
         </Grid.RowDefinitions>
-        
-        <Grid Background="{StaticResource AccentBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="90*" />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.ColumnSpan="2"
+                   Fill="{StaticResource AccentBrush}" />
+
+        <Grid Grid.Column="1"
+              Grid.Row="0">
             <TextBlock Text="{Binding Source={StaticResource AppName}}"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        VerticalAlignment="Center"
-                       Padding="120,0,0,0"
-                       Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                       Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
         </Grid>
-        
-        <Grid Grid.Row="1">
-            
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <StackPanel>
+                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.NineteenTwentyTenEighty}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Stretch="Uniform"
+                                           PlaceholderImageSource="/Assets/LoadingImage.png"
+                                           PlaceholderImageStretch="UniformToFill"/>
+                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                               Style="{StaticResource SubheaderTextBlockStyle}"
+                               Foreground="#7E000000"
+                               VerticalAlignment="Top" />
+                </StackPanel>
+                
+                <Border Background="#79000000"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Stretch"
+                        Margin="12,0,0,0"
+                        Padding="10,0,10,10"
+                        Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}, FallbackValue=Visible}">
+                    <TextBlock Text="Current image"
+                               Foreground="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                               Style="{StaticResource SubheaderTextBlockStyle}" />
+                </Border>
+            </Grid>
+
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="1"
+                        VerticalAlignment="Top">
+                <Button Style="{StaticResource EmptyButtonStyle}"
+                        Content="Set lock screen now"
+                        Background="#FF0689A6"
+                        Command="{Binding SetLockscreenCommand}"/>
+                <Button Style="{StaticResource EmptyButtonStyle}"
+                        Content="Save image"
+                        Background="{StaticResource AccentBrush}"
+                        Command="{Binding DownloadImageNow}" />
+                <ProgressRing IsActive="{Binding ProgressIsVisible}"
+                              Visibility="{Binding ProgressIsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              Foreground="{StaticResource AccentBrush}"/>
+                <TextBlock Text="{Binding ProgressText}"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

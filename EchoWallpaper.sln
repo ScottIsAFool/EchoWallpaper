@@ -9,8 +9,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "EchoWallpaper.Shared", "Ech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.Windows", "EchoWallpaper\EchoWallpaper.Windows\EchoWallpaper.Windows.csproj", "{C913DAD0-BFC4-4842-80F0-D193036120AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.WindowsPhone", "EchoWallpaper\EchoWallpaper.WindowsPhone\EchoWallpaper.WindowsPhone.csproj", "{208B1F53-2BE2-4FED-8455-52C9F21C94B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.Core", "EchoWallpaper.Core\EchoWallpaper.Core.csproj", "{5B72543B-DBFC-4C23-B697-BB8DE4435B01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoWallpaper.WindowsPhone.Silverlight", "EchoWallpaper.WindowsPhone.Silverlight\EchoWallpaper.WindowsPhone.Silverlight.csproj", "{497F9181-CF89-46ED-81EE-4519B00DEB42}"
@@ -25,7 +23,6 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		EchoWallpaper\EchoWallpaper.Shared\EchoWallpaper.Shared.projitems*{02a5e73c-abdb-4a0c-b515-0e9ed67c1a46}*SharedItemsImports = 13
 		EchoWallpaper\EchoWallpaper.Shared\EchoWallpaper.Shared.projitems*{c913dad0-bfc4-4842-80f0-d193036120ae}*SharedItemsImports = 4
-		EchoWallpaper\EchoWallpaper.Shared\EchoWallpaper.Shared.projitems*{208b1f53-2be2-4fed-8455-52c9f21c94b7}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,32 +67,6 @@ Global
 		{C913DAD0-BFC4-4842-80F0-D193036120AE}.Release|x86.ActiveCfg = Release|x86
 		{C913DAD0-BFC4-4842-80F0-D193036120AE}.Release|x86.Build.0 = Release|x86
 		{C913DAD0-BFC4-4842-80F0-D193036120AE}.Release|x86.Deploy.0 = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|ARM.ActiveCfg = Debug|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|ARM.Build.0 = Debug|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|ARM.Deploy.0 = Debug|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|x86.ActiveCfg = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|x86.Build.0 = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Debug|x86.Deploy.0 = Debug|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|ARM.ActiveCfg = Release|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|ARM.Build.0 = Release|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|ARM.Deploy.0 = Release|ARM
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Mixed Platforms.Build.0 = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|Mixed Platforms.Deploy.0 = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|x64.ActiveCfg = Release|Any CPU
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|x86.ActiveCfg = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|x86.Build.0 = Release|x86
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7}.Release|x86.Deploy.0 = Release|x86
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -189,7 +160,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{02A5E73C-ABDB-4A0C-B515-0E9ED67C1A46} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{C913DAD0-BFC4-4842-80F0-D193036120AE} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
-		{208B1F53-2BE2-4FED-8455-52C9F21C94B7} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{497F9181-CF89-46ED-81EE-4519B00DEB42} = {41B768AE-711A-4D9E-829B-B743696A2ACD}
 		{27318DB9-9134-4BAE-89A9-C3AEF521BCBE} = {41B768AE-711A-4D9E-829B-B743696A2ACD}

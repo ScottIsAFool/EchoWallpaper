@@ -8,8 +8,6 @@ namespace EchoWallpaper.Core.Empty
 {
     public class EmptyLockScreenService : ILockScreenService
     {
-        public string LockScreenImageUrl { get; private set; }
-        public string LockScreenFile { get; private set; }
         public bool IsProvidedByCurrentApplication { get; private set; }
         public Uri ImageUri { get; set; }
         public async Task<LockScreenServiceRequestResult> RequestAccessAsync()
@@ -27,6 +25,11 @@ namespace EchoWallpaper.Core.Empty
 
         public async Task SetLockScreen(Stream stream)
         {
+        }
+
+        public Uri ImageUriToUse(Wallpapers wallpapers)
+        {
+            return null;
         }
     }
 }

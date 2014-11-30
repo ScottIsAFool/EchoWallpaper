@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\PreviewImageUrlConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -30,6 +31,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.scale-100.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.scale-140.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LoadingImage.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-100.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-140.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\logo.scale-180.png" />

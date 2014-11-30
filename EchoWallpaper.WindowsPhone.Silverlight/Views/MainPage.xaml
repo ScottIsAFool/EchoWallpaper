@@ -81,12 +81,12 @@
                                            PlaceholderImageSource="/Assets/LoadingImage.png" />
                     <Border Background="#79000000"
                             VerticalAlignment="Top"
-                            HorizontalAlignment="Left"
-                            Margin="12,0,0,0"
+                            HorizontalAlignment="Stretch"
                             Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
                         <TextBlock Text="Current image"
                                    Foreground="{StaticResource PhoneBackgroundBrush}"
-                                   Style="{StaticResource PhoneTextTitle3Style}" />
+                                   Style="{StaticResource PhoneTextTitle3Style}" 
+                                   Margin="24,0,12,0"/>
                     </Border>
                 </Grid>
                 <StackPanel Orientation="Vertical">
