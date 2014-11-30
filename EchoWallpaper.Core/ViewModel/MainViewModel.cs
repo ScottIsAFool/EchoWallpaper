@@ -206,6 +206,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             catch (Exception ex)
             {
                 //Log.ErrorException("LoadData(" + isRefresh + ")", ex);
+                var s = "";
             }
 
             SetProgressBar();

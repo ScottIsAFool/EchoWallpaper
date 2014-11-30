@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="/Theme/EchoTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <viewModel:ViewModelLocator x:Key="Locator" />
-            <x:String x:Key="AppName">Echo Wallpapers</x:String>
+            <x:String x:Key="AppName">Echo Wallpaper</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
