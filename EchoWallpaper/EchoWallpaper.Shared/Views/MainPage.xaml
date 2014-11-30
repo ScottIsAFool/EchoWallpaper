@@ -17,7 +17,8 @@
             <TextBlock Text="{Binding Source={StaticResource AppName}}"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        VerticalAlignment="Center"
-                       Padding="120,0,0,0"></TextBlock>
+                       Padding="120,0,0,0"
+                       Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
         </Grid>
     </Grid>
 </Page>

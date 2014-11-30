@@ -16,7 +16,8 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.ViewModel;
-using EchoWallpaper.Services;
+using EchoWallpaper.Windows.Shared.Model;
+using EchoWallpaper.Windows.Shared.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.ViewModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -77,7 +78,7 @@ namespace EchoWallpaper.ViewModel
                     SimpleIoc.Default.Register<INavigationService, NavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
-                    SimpleIoc.Default.Register<ILockScreenService>(() => LockscreenService.Current);
+                    SimpleIoc.Default.Register<ILockScreenService>(() => new LockScreenService());
 
                 if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
                     SimpleIoc.Default.Register<IMediaLibraryService, MediaLibraryService>();
@@ -94,9 +95,6 @@ namespace EchoWallpaper.ViewModel
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();
-
-            if (!SimpleIoc.Default.IsRegistered<LockscreenService>())
-                SimpleIoc.Default.Register<LockscreenService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();

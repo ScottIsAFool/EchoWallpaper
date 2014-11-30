@@ -4,12 +4,10 @@ using System.Threading.Tasks;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 
-namespace EchoWallpaper.Services
+namespace EchoWallpaper.Windows.Shared.Services
 {
-    public class LockscreenService : ILockScreenService
+    public class LockScreenService : ILockScreenService
     {
-        private static LockscreenService _current;
-        public static LockscreenService Current { get { return _current ?? (_current = new LockscreenService()); } }
         public string LockScreenImageUrl { get; private set; }
         public string LockScreenFile { get; private set; }
         public bool IsProvidedByCurrentApplication { get; private set; }

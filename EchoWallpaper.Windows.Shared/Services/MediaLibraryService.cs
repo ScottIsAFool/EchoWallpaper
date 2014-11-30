@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using EchoWallpaper.Core.Interfaces;
 
-namespace EchoWallpaper.Services
+namespace EchoWallpaper.Windows.Shared.Services
 {
     public class MediaLibraryService : IMediaLibraryService
     {

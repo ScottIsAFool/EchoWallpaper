@@ -1,6 +1,6 @@
 ﻿using EchoWallpaper.Core.Interfaces;
 
-namespace EchoWallpaper.Services
+namespace EchoWallpaper.Windows.Shared.Model
 {
     public class AppSettings : IAppSettings
     {
