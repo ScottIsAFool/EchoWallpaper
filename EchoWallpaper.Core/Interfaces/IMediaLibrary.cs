@@ -1,9 +1,10 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace EchoWallpaper.Core.Interfaces
 {
     public interface IMediaLibraryService
     {
-        void SavePicture(string file, Stream stream);
+        Task SavePicture(string file, Stream stream);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 using EchoWallpaper.Core.Interfaces;
 using Microsoft.Xna.Framework.Media;
 
@@ -8,7 +9,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Services
     {
         private readonly MediaLibrary _library = new MediaLibrary();
 
-        public void SavePicture(string file, Stream stream)
+        public async Task SavePicture(string file, Stream stream)
         {
             _library.SavePicture(file, stream);
         }

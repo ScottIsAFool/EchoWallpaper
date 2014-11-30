@@ -149,7 +149,7 @@ namespace EchoWallpaper.Core.ViewModel
                         {
                             var date = DateTime.Now;
                             var file = string.Format("{0}.{1}.jpg", date.Year, date.ToString("MMMM"));
-                            _mediaLibraryService.SavePicture(file, stream);
+                            await _mediaLibraryService.SavePicture(file, stream);
                         }
                     }
                     catch (Exception ex)
