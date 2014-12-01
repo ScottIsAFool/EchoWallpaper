@@ -94,7 +94,8 @@ namespace EchoWallpaper.Core.ViewModel
         {
             get
             {
-                RaisePropertyChanged(() => BackgroundAgentAllowed);
+
+                return new RelayCommand(() => RaisePropertyChanged(() => BackgroundAgentAllowed));
             }
         }
 
