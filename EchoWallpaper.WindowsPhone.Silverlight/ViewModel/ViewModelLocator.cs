@@ -15,8 +15,8 @@
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Core.Model;
 using EchoWallpaper.Core.ViewModel;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using GalaSoft.MvvmLight;

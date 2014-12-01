@@ -5,7 +5,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using EchoWallpaper.Core;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
+using EchoWallpaper.Core.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.ViewModel;
 using Microsoft.Phone.Controls;

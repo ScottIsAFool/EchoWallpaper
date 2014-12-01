@@ -12,12 +12,9 @@ namespace EchoWallpaper.Windows.Shared.Services
 {
     public class LockScreenService : ILockScreenService
     {
-        private readonly IDisplayPropertiesService _displayProperties;
-
-        public LockScreenService(/*IDisplayPropertiesService displayProperties*/)
+        public LockScreenService()
         {
             Current = this;
-            //_displayProperties = displayProperties;
         }
 
         public bool IsProvidedByCurrentApplication
@@ -61,7 +58,6 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public Uri ImageUriToUse(Wallpapers wallpapers)
         {
-            //var rect = _displayProperties.PhysicalBounds;
             return wallpapers != null ? wallpapers.NineteenTwentyTenEighty : null;
         }
     }

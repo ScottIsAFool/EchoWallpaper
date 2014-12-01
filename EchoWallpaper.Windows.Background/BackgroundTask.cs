@@ -4,7 +4,6 @@ using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.Windows.Shared.Extensions;
-using EchoWallpaper.Windows.Shared.Model;
 using EchoWallpaper.Windows.Shared.Services;
 using Windows.ApplicationModel.Background;
 using Newtonsoft.Json;
@@ -56,9 +55,9 @@ namespace EchoWallpaper.Windows.Background
                 var wallpapers = await Echo.GetWallpapersAsync();
                 var date = DateTime.Now;
 
-                var uri = LockScreenService.ImageUriToUse(wallpapers);
+                var uri = wallpapers.GetUri(settings.WallpaperSizeToUse);
 
-                if (lastRunDetails != null && uri == lastRunDetails.LastUsedUri)
+                if (uri == null || (lastRunDetails != null && uri == lastRunDetails.LastUsedUri))
                 {
                     Finish(deferral);
                     return;

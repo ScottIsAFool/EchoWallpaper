@@ -1,13 +1,10 @@
 ﻿using Cimbalino.Toolkit.Services;
-using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using GalaSoft.MvvmLight.Ioc;
 using Newtonsoft.Json;
-using PropertyChanged;
 
-namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
+namespace EchoWallpaper.Core.Model
 {
-    [ImplementPropertyChanged]
     public class AppSettings : IAppSettings
     {
         private readonly IApplicationSettingsServiceHandler _storage;
@@ -19,10 +16,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Model
         }
 
         public AppSettings() { }
-
         public bool DownloadImageForStartScreen { get; set; }
         public bool AutomaticallyUpdateLockScreen { get; set; }
-
+        public WallpaperSize WallpaperSizeToUse { get; set; }
         public void Save()
         {
             var json = JsonConvert.SerializeObject(this);

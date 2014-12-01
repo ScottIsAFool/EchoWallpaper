@@ -15,8 +15,8 @@
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Core.Model;
 using EchoWallpaper.Core.ViewModel;
-using EchoWallpaper.Windows.Shared.Model;
 using EchoWallpaper.Windows.Shared.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;

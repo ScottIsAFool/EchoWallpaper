@@ -5,7 +5,6 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Model;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Model;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using Microsoft.Phone.Scheduler;
 using Microsoft.Xna.Framework.Media;
