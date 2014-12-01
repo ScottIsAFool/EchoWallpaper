@@ -1,37 +1,51 @@
 ﻿<UserControl x:Class="EchoWallpaper.Controls.SettingsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:EchoWallpaper.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core"
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400"
              DataContext="{Binding Main, Source={StaticResource Locator}}">
-
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Loaded">
+                    <core:InvokeCommandAction Command="{Binding SettingsLoadedCommand}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+    
     <Grid>
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Vertical">
-                <HyperlinkButton Content="Set as lockscreen app"
-                                 HorizontalContentAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Margin="0,12"
-                                 Command="{Binding SetAsLockScreenAppCommand}"
-                                 Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
+            <StackPanel Orientation="Vertical"
+                        Visibility="{Binding BackgroundAgentAllowed, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=visible}">
+                <TextBlock TextWrapping="WrapWholeWords"
+                           Text="In order to update in the background, press start, then search for &quot;Lock Screen,&quot; selecting the option that says the same as below"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           Margin="18,0"/>
+                <Image Source="/Assets/ChooseLockScreen.png"
+                       Margin="18,6"/>
+                <TextBlock Text="Then choose an empty slot in the Lock Screen Apps section and choose Echo Wallpaper"
+                           TextWrapping="WrapWholeWords"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           Margin="18,0"/>
+                <Image Source="/Assets/LockScreenApps.png"
+                       Margin="18,6"/>
 
-                <StackPanel Orientation="Vertical"
-                            Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left">
-                    <ToggleSwitch Header="Automatically update lockscreen"
-                                  HorizontalAlignment="Left"
-                                  Margin="12,0,0,0"
-                                  IsOn="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
-                </StackPanel>
+                
             </StackPanel>
-            <ToggleSwitch Header="Automatically save wallpaper"
-                          IsOn="{Binding DownloadImageForStartScreen, Mode=TwoWay}"
-                          Margin="12,0,0,0"/>
+            <StackPanel Orientation="Vertical"
+                        Visibility="{Binding BackgroundAgentAllowed, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=collapsed}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left">
+                <ToggleSwitch Header="Automatically update lockscreen"
+                              HorizontalAlignment="Left"
+                              Margin="12,0,0,0"
+                              IsOn="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                <ToggleSwitch Header="Automatically save wallpaper"
+                              IsOn="{Binding DownloadImageForStartScreen, Mode=TwoWay}"
+                              Margin="12,0,0,0" />
+            </StackPanel>
 
         </StackPanel>
 

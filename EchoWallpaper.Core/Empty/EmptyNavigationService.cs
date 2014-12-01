@@ -26,6 +26,16 @@ namespace EchoWallpaper.Core.Empty
             throw new NotImplementedException();
         }
 
+        public bool Navigate(Type type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Navigate(Type type, object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
         public void GoBack()
         {
             throw new NotImplementedException();
@@ -42,7 +52,7 @@ namespace EchoWallpaper.Core.Empty
         }
 
         public Uri CurrentSource { get; private set; }
-        public IDictionary<string, string> QueryString { get; private set; }
+        public IEnumerable<KeyValuePair<string, string>> QueryString { get; private set; }
         public object CurrentParameter { get; private set; }
         public bool CanGoBack { get; private set; }
         public bool CanGoForward { get; private set; }

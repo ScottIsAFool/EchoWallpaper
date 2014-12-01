@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cimbalino.Toolkit.Core">
-      <HintPath>..\packages\Cimbalino.Toolkit.Core.1.2.2\lib\portable-net45+wp8+win8+wpa81\Cimbalino.Toolkit.Core.dll</HintPath>
+      <HintPath>..\packages\Cimbalino.Toolkit.Core.1.2.3\lib\portable-net45+wp8+win8+wpa81\Cimbalino.Toolkit.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">

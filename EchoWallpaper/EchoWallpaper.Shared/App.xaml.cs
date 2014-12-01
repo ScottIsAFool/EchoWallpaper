@@ -107,8 +107,6 @@ namespace EchoWallpaper
                     throw new Exception("Failed to create initial page");
                 }
 
-                await BackgroundTaskService.Current.CreateAgent();
-
                 CreateSettingsFlyout();
             }
 

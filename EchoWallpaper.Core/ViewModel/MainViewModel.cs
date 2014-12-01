@@ -85,6 +85,7 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
+                    await _backgroundTaskService.CreateAgent();
                     await LoadData(false);
                 });
             }
@@ -96,6 +97,21 @@ namespace EchoWallpaper.Core.ViewModel
             {
 
                 return new RelayCommand(() => RaisePropertyChanged(() => BackgroundAgentAllowed));
+            }
+        }
+
+        public RelayCommand CreateBackgroundTaskCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    _backgroundTaskService.StopAgent();
+                    
+                    await _backgroundTaskService.CreateAgent();
+
+                    RaisePropertyChanged(() => BackgroundAgentAllowed);
+                });
             }
         }
 
