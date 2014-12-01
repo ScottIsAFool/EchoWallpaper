@@ -31,8 +31,6 @@
                            Margin="18,0"/>
                 <Image Source="/Assets/LockScreenApps.png"
                        Margin="18,6"/>
-
-                
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Visibility="{Binding BackgroundAgentAllowed, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=collapsed}"
