@@ -41,7 +41,7 @@
                                                     Command="{Binding NavigateToSettingsCommand}" />
                 <behaviors:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/refresh.png"
                                                     Text="refresh"
-                                                    Command="{Binding RefreshCommand}"/>
+                                                    Command="{Binding RefreshCommand}" />
             </behaviors:ApplicationBarBehavior.Buttons>
             <behaviors:ApplicationBarBehavior.MenuItems>
                 <behaviors:ApplicationBarMenuItem Text="about"
@@ -75,20 +75,10 @@
         <Grid x:Name="ContentPanel"
               Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <Grid>
-                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
-                                           Stretch="UniformToFill"
-                                           PlaceholderImageSource="/Assets/LoadingImage.png" />
-                    <Border Background="#79000000"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Stretch"
-                            Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}}">
-                        <TextBlock Text="Current image"
-                                   Foreground="{StaticResource PhoneBackgroundBrush}"
-                                   Style="{StaticResource PhoneTextTitle3Style}" 
-                                   Margin="24,0,12,0"/>
-                    </Border>
-                </Grid>
+                <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
+                                       Stretch="UniformToFill"
+                                       PlaceholderImageSource="/Assets/LoadingImage.png" />
+
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="{Binding CurrentWallpapers.Title}"
                                Style="{StaticResource PhoneTextSubtleStyle}"
