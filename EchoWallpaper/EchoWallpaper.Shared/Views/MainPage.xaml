@@ -38,36 +38,20 @@
         </Grid>
 
         <Grid Grid.Row="1"
-              Grid.Column="1">
+              Grid.Column="0"
+              Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="3.95*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Grid>
-                <StackPanel>
-                    <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.NineteenTwentyTenEighty}"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Top"
-                                           Stretch="Uniform"
-                                           PlaceholderImageSource="/Assets/LoadingImage.png"
-                                           PlaceholderImageStretch="UniformToFill"/>
-                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
-                               Style="{StaticResource SubheaderTextBlockStyle}"
-                               Foreground="#7E000000"
-                               VerticalAlignment="Top" />
-                </StackPanel>
-                
-                <Border Background="#79000000"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Stretch"
-                        Margin="12,0,0,0"
-                        Padding="10,0,10,10"
-                        Visibility="{Binding CurrentWallpapers, Converter={StaticResource NullToVisibilityConverter}, FallbackValue=Visible}">
-                    <TextBlock Text="Current image"
-                               Foreground="{StaticResource ApplicationPageBackgroundThemeBrush}"
-                               Style="{StaticResource SubheaderTextBlockStyle}" />
-                </Border>
+                <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.NineteenTwentyTenEighty}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Stretch="Uniform"
+                                       PlaceholderImageSource="/Assets/LoadingImage.png"
+                                       PlaceholderImageStretch="Uniform" />
             </Grid>
 
             <StackPanel Orientation="Vertical"
@@ -76,17 +60,23 @@
                 <Button Style="{StaticResource EmptyButtonStyle}"
                         Content="Set lock screen now"
                         Background="#FF0689A6"
-                        Command="{Binding SetLockscreenCommand}"/>
+                        Command="{Binding SetLockscreenCommand}" />
                 <Button Style="{StaticResource EmptyButtonStyle}"
                         Content="Save image"
                         Background="{StaticResource AccentBrush}"
                         Command="{Binding DownloadImageNow}" />
+                <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                           Style="{StaticResource SubheaderTextBlockStyle}"
+                           Foreground="#7E000000"
+                           VerticalAlignment="Top"
+                           TextWrapping="WrapWholeWords"
+                           Margin="12,0" />
                 <ProgressRing IsActive="{Binding ProgressIsVisible}"
                               Visibility="{Binding ProgressIsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
-                              Foreground="{StaticResource AccentBrush}"/>
+                              Foreground="{StaticResource AccentBrush}" />
                 <TextBlock Text="{Binding ProgressText}"
                            Style="{StaticResource BodyTextBlockStyle}"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
     </Grid>
