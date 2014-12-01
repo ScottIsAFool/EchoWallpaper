@@ -85,7 +85,11 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
-                    await _backgroundTaskService.CreateAgent();
+                    try
+                    {
+                        await _backgroundTaskService.CreateAgent();
+                    }
+                    catch { }
                     await LoadData(false);
                 });
             }
