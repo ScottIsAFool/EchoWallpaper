@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
              xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+             xmlns:helpers="using:U2UC.WinRT.HyperlinkBox.Helpers"
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400"
@@ -14,46 +15,27 @@
             <TextBlock x:Name="Version"
                        Style="{StaticResource BodyTextBlockStyle}"
                        Text="{Binding Version}"
-                       Margin="12,0,12,12" />
+                       Margin="14,0,12,12" />
 
             <HyperlinkButton Content="Feedback"
                              HorizontalContentAlignment="Left"
                              Margin="0,0,0,12"
                              x:Name="Feedback"
+                             Foreground="{StaticResource AccentBrush}"
                              Command="{Binding LaunchFeedbackCommand}" />
 
             <HyperlinkButton Content="Rate and Review"
                              HorizontalContentAlignment="Left"
                              Margin="0,0,0,12"
                              x:Name="RateAndReview"
+                             Foreground="{StaticResource AccentBrush}"
                              Command="{Binding LaunchRateReviewCommand}" />
 
             <RichTextBlock x:Name="RichTextBox"
-                         TextWrapping="Wrap"
-                           >
-                <Paragraph>
-                    <Run Text="Beach designed by" />
-                    <Hyperlink x:Name="DaveLarsen"
-                               Foreground="{StaticResource AccentBrush}">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Click">
-                                <core:InvokeCommandAction Command="{Binding LaunchArtistCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                        Dave Larsen
-                    </Hyperlink>
-                    <Run Text="from the" />
-                    <Hyperlink x:Name="NounProject"
-                               Foreground="{StaticResource AccentBrush}">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Click">
-                                <core:InvokeCommandAction Command="{Binding LaunchNounProjectCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                        Noun Project
-                    </Hyperlink>
-                </Paragraph>
-            </RichTextBlock>
+                           TextWrapping="Wrap"
+                           FontSize="14.333"
+                           Margin="14,0"/>
+            
         </StackPanel>
     </Grid>
 </UserControl>

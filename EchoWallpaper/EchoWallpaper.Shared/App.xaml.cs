@@ -120,6 +120,7 @@ namespace EchoWallpaper
             if (colour != null)
             {
                 AppSettings.Current.AddCommand<SettingsControl>("Background", colour, 200D);
+                AppSettings.Current.AddCommand<AboutControl>("About", colour, 200D);
             }
         }
 

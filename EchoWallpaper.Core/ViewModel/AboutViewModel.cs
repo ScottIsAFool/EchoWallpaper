@@ -24,11 +24,22 @@ namespace EchoWallpaper.Core.ViewModel
             get { return string.Format("Version {0}", _applicationInfo.Version); }
         }
 
+        public string RawHtml
+        {
+            get
+            {
+                return "Beach designed by Dave Larsen (http://www.thenounproject.com/davelarsen) from the Noun Project (http://www.thenounproject.com).";
+            }
+        }
+
         public RelayCommand LaunchArtistCommand
         {
             get
             {
-                return new RelayCommand(() => _launcherService.LaunchUriAsync(new Uri("http://www.thenounproject.com/davelarsen", UriKind.Absolute)));
+                return new RelayCommand(() =>
+                {
+                    _launcherService.LaunchUriAsync(new Uri("http://www.thenounproject.com/davelarsen", UriKind.Absolute));
+                });
             }
         }
 
