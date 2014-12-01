@@ -25,6 +25,12 @@ namespace EchoWallpaper.Core.Interfaces
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<LockScreenServiceRequestResult> RequestAccessAsync();
 
+        /// <summary>
+        /// Revokes the access.
+        /// </summary>
+        /// <returns></returns>
+        Task RevokeAccessAsync();
+
         Task SetLockScreen(Uri uri);
         Task SetLockScreen(Stream stream);
         Uri ImageUriToUse(Wallpapers wallpapers);

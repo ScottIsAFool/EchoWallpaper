@@ -102,6 +102,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             if(!SimpleIoc.Default.IsRegistered<LockscreenService>())
                 SimpleIoc.Default.Register<LockscreenService>();
 
+            if (!SimpleIoc.Default.IsRegistered<IBackgroundTaskService>())
+                SimpleIoc.Default.Register<IBackgroundTaskService, BackgroundTaskService>();
+
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();
         }

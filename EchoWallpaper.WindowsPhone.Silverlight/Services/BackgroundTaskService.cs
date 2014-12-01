@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using Microsoft.Phone.Scheduler;
@@ -16,6 +17,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Services
             get { return GetAgent() != null; }
         }
 
+        public bool CanRunTask { get { return true; } }
+
         private static ScheduledAction GetAgent()
         {
             return ScheduledActionService.Find(Constants.BackgroundAgentName);
@@ -29,7 +32,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Services
             }
         }
 
-        public void CreateAgent()
+        public async Task CreateAgent()
         {
             if (!AgentRunning)
             {

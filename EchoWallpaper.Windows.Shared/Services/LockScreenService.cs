@@ -3,7 +3,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.System.UserProfile;
-using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
@@ -19,12 +18,7 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public bool IsProvidedByCurrentApplication
         {
-            get
-            {
-                return true;
-                //var status = BackgroundExecutionManager.GetAccessStatus();
-                //return status != BackgroundAccessStatus.Denied && status != BackgroundAccessStatus.Unspecified;
-            }
+            get { return true; }
         }
 
         public Uri ImageUri { get; set; }
@@ -33,15 +27,11 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public async Task<LockScreenServiceRequestResult> RequestAccessAsync()
         {
-            var status = await BackgroundExecutionManager.RequestAccessAsync();
-            switch (status)
-            {
-                case BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity:
-                    case BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity:
-                    return LockScreenServiceRequestResult.Granted;
-                default:
-                    return LockScreenServiceRequestResult.Denied;
-            }
+            return LockScreenServiceRequestResult.Granted;
+        }
+
+        public async Task RevokeAccessAsync()
+        {
         }
 
         public async Task SetLockScreen(Uri uri)

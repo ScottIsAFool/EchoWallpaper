@@ -68,6 +68,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             }
         }
 
+        public async Task RevokeAccessAsync()
+        {
+        }
+
         /// <summary>
         /// Gets a value indicating whether the app is the current lock screen background provider.
         /// </summary>

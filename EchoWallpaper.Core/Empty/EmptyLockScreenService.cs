@@ -15,6 +15,10 @@ namespace EchoWallpaper.Core.Empty
             return LockScreenServiceRequestResult.Granted;
         }
 
+        public async Task RevokeAccessAsync()
+        {
+        }
+
         public async Task SetLockScreen()
         {
         }

@@ -28,6 +28,7 @@ namespace EchoWallpaper.Core.ViewModel
         private readonly ILockScreenService _lockscreenService;
         private readonly IMediaLibraryService _mediaLibraryService;
         private readonly ILauncherService _launcherService;
+        private readonly IBackgroundTaskService _backgroundTaskService;
 
         private bool _dataLoaded;
 
@@ -39,13 +40,15 @@ namespace EchoWallpaper.Core.ViewModel
             INavigationService navigationService,
             ILockScreenService lockscreenService,
             IMediaLibraryService mediaLibraryService,
-            ILauncherService launcherService)
+            ILauncherService launcherService,
+            IBackgroundTaskService backgroundTaskService)
         {
             _appSettings = appSettings;
             _navigationService = navigationService;
             _lockscreenService = lockscreenService;
             _mediaLibraryService = mediaLibraryService;
             _launcherService = launcherService;
+            _backgroundTaskService = backgroundTaskService;
 
             if (IsInDesignMode)
             {
@@ -65,6 +68,7 @@ namespace EchoWallpaper.Core.ViewModel
         public bool IsLockscreenProvider { get { return _lockscreenService.IsProvidedByCurrentApplication; } }
         public bool AutomaticallyUpdateLockscreen { get; set; }
         public bool DownloadImageForStartScreen { get; set; }
+        public bool BackgroundAgentAllowed { get { return _backgroundTaskService.CanRunTask; } }
 
         public bool CanDoStuff
         {
@@ -83,6 +87,14 @@ namespace EchoWallpaper.Core.ViewModel
                 {
                     await LoadData(false);
                 });
+            }
+        }
+
+        public RelayCommand SettingsLoadedCommand
+        {
+            get
+            {
+                RaisePropertyChanged(() => BackgroundAgentAllowed);
             }
         }
 
@@ -106,6 +118,7 @@ namespace EchoWallpaper.Core.ViewModel
                     var result = LockScreenServiceRequestResult.Granted;
                     if (!IsLockscreenProvider)
                     {
+                        await _lockscreenService.RevokeAccessAsync();
                         result = await _lockscreenService.RequestAccessAsync();
                     }
 
@@ -192,6 +205,7 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
+                    await _lockscreenService.RevokeAccessAsync();
                     var result = await _lockscreenService.RequestAccessAsync();
 
                     if (result == LockScreenServiceRequestResult.Granted)

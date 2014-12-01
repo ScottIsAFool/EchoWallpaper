@@ -107,19 +107,7 @@ namespace EchoWallpaper
                     throw new Exception("Failed to create initial page");
                 }
 
-                //var status = await BackgroundExecutionManager.RequestAccessAsync();
-                if (!LockScreenService.Current.IsProvidedByCurrentApplication)
-                {
-                    var status = await LockScreenService.Current.RequestAccessAsync();
-                    if (status == LockScreenServiceRequestResult.Granted)
-                    {
-                        CreateBackgroundTask();
-                    }
-                }
-                else
-                {
-                    CreateBackgroundTask();
-                }
+                await BackgroundTaskService.Current.CreateAgent();
 
                 CreateSettingsFlyout();
             }
@@ -134,23 +122,6 @@ namespace EchoWallpaper
             if (colour != null)
             {
                 AppSettings.Current.AddCommand<SettingsControl>("Background", colour, 200D);
-            }
-        }
-
-        private void CreateBackgroundTask()
-        {
-            var task = BackgroundTaskRegistration.AllTasks.FirstOrDefault(x => x.Value.Name == Constants.BackgroundAgentName);
-            if (task.Value == null)
-            {
-                var taskBuilder = new BackgroundTaskBuilder
-                {
-                    Name = Constants.BackgroundAgentName,
-                    TaskEntryPoint = Constants.BackgroundAgentEntryPoint
-                };
-
-                var trigger = new TimeTrigger(720, false);
-                taskBuilder.SetTrigger(trigger);
-                taskBuilder.Register();
             }
         }
 

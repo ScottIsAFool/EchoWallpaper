@@ -98,6 +98,9 @@ namespace EchoWallpaper.ViewModel
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();
 
+            if (!SimpleIoc.Default.IsRegistered<IBackgroundTaskService>())
+                SimpleIoc.Default.Register<IBackgroundTaskService, BackgroundTaskService>();
+
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();
         }
