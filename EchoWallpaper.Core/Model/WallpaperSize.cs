@@ -2,9 +2,9 @@
 {
     public enum WallpaperSize
     {
+        NineteenTwentyTenEighty,
         PreviewImage,
         NineteenTwentyTwelveHundred,
-        NineteenTwentyTenEighty,
         TwelveEightyTenTwentyFour,
         TenTwentyFourSevenSixtyEight,
         TwelveEightySevenSixtyEight,

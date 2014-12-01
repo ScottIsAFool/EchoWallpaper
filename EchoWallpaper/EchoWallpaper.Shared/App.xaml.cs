@@ -18,10 +18,12 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
+using EchoWallpaper.Controls;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.Views;
 using EchoWallpaper.Windows.Shared.Services;
+using AppSettings = Callisto.Controls.SettingsManagement.AppSettings;
 
 namespace EchoWallpaper
 {
@@ -118,10 +120,21 @@ namespace EchoWallpaper
                 {
                     CreateBackgroundTask();
                 }
+
+                CreateSettingsFlyout();
             }
 
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private void CreateSettingsFlyout()
+        {
+            var colour = Resources["AccentBrush"] as SolidColorBrush;
+            if (colour != null)
+            {
+                AppSettings.Current.AddCommand<SettingsControl>("Background", colour, 200D);
+            }
         }
 
         private void CreateBackgroundTask()

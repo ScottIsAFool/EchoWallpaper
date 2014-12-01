@@ -21,8 +21,9 @@ namespace EchoWallpaper.Windows.Shared.Services
         {
             get
             {
-                var status = BackgroundExecutionManager.GetAccessStatus();
-                return status != BackgroundAccessStatus.Denied && status != BackgroundAccessStatus.Unspecified;
+                return true;
+                //var status = BackgroundExecutionManager.GetAccessStatus();
+                //return status != BackgroundAccessStatus.Denied && status != BackgroundAccessStatus.Unspecified;
             }
         }
 

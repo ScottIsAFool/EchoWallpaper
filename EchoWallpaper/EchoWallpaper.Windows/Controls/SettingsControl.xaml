@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="EchoWallpaper.Controls.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:EchoWallpaper.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <HyperlinkButton Content="Set as lockscreen app"
+                                 HorizontalContentAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Margin="0,12"
+                                 Command="{Binding SetAsLockScreenAppCommand}"
+                                 Visibility="{Binding IsLockscreenProvider, Converter={StaticResource InvertedBooleanToVisibilityConverter}, FallbackValue=collapsed}" />
+
+                <StackPanel Orientation="Vertical"
+                            Visibility="{Binding IsLockscreenProvider, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=visible}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                    <ToggleSwitch Header="Automatically update lockscreen"
+                                  HorizontalAlignment="Left"
+                                  Margin="12,0,0,0"
+                                  IsOn="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                </StackPanel>
+            </StackPanel>
+            <ToggleSwitch Header="Automatically save wallpaper"
+                          IsOn="{Binding DownloadImageForStartScreen, Mode=TwoWay}"
+                          Margin="12,0,0,0"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

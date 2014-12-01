@@ -24,6 +24,8 @@
             
             <cimbalino:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
             <cimbalino:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <cimbalino:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" 
+                                                    InvertValue="True"/>
 
             <Thickness x:Key="PhoneBorderThickness">2.5</Thickness>
             <FontFamily x:Key="PhoneFontFamilyNormal">Segoe WP</FontFamily>
