@@ -1,7 +1,7 @@
 ﻿using System;
 using Cimbalino.Toolkit.Services;
 
-namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Extensions
+namespace EchoWallpaper.Core.Extensions
 {
     public static class DisplayExtensions
     {

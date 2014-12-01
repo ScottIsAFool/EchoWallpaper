@@ -31,7 +31,7 @@ namespace EchoWallpaper.Core.Empty
         {
         }
 
-        public Uri ImageUriToUse(Wallpapers wallpapers)
+        public Uri ImageUriToUse(Wallpapers wallpapers, WallpaperSize wallpaperSize)
         {
             return null;
         }

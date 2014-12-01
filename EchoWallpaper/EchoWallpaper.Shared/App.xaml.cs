@@ -18,11 +18,15 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
+using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Controls;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Extensions;
+using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.Views;
 using EchoWallpaper.Windows.Shared.Services;
+using GalaSoft.MvvmLight.Ioc;
 using AppSettings = Callisto.Controls.SettingsManagement.AppSettings;
 
 namespace EchoWallpaper
@@ -108,10 +112,19 @@ namespace EchoWallpaper
                 }
 
                 CreateSettingsFlyout();
+                SetScreenSize();
             }
 
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private void SetScreenSize()
+        {
+            var display = SimpleIoc.Default.GetInstance<IDisplayPropertiesService>();
+            var appSettings = SimpleIoc.Default.GetInstance<IAppSettings>();
+            appSettings.WallpaperSizeToUse = display.PhysicalBounds.GetWallpaperSize();
+            appSettings.Save();
         }
 
         private void CreateSettingsFlyout()

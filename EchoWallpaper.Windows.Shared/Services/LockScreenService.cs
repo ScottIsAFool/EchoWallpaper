@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.System.UserProfile;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 
@@ -47,9 +48,9 @@ namespace EchoWallpaper.Windows.Shared.Services
             await LockScreen.SetImageStreamAsync(stream.AsRandomAccessStream());
         }
 
-        public Uri ImageUriToUse(Wallpapers wallpapers)
+        public Uri ImageUriToUse(Wallpapers wallpapers, WallpaperSize wallpaperSize)
         {
-            return wallpapers != null ? wallpapers.NineteenTwentyTenEighty : null;
+            return wallpapers != null ? wallpapers.GetUri(wallpaperSize) : null;
         }
     }
 }

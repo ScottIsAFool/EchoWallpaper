@@ -84,7 +84,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 var wallpapers = await Echo.GetWallpapersAsync();
                 var date = DateTime.Now;
 
-                var uri = LockscreenService.Current.ImageUriToUse(wallpapers);
+                var uri = LockscreenService.Current.ImageUriToUse(wallpapers, settings.WallpaperSizeToUse);
 
                 if (lastRunDetails != null && uri == lastRunDetails.LastUsedUri)
                 {

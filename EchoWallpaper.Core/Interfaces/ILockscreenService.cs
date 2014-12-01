@@ -33,6 +33,6 @@ namespace EchoWallpaper.Core.Interfaces
 
         Task SetLockScreen(Uri uri);
         Task SetLockScreen(Stream stream);
-        Uri ImageUriToUse(Wallpapers wallpapers);
+        Uri ImageUriToUse(Wallpapers wallpapers, WallpaperSize wallpaperSize);
     }
 }

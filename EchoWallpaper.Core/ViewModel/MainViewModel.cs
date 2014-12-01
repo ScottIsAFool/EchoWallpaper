@@ -148,7 +148,7 @@ namespace EchoWallpaper.Core.ViewModel
                         return;
                     }
 
-                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers);
+                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers, _appSettings.WallpaperSizeToUse);
 
                     if (CurrentWallpapers == null || uri == null)
                     {
@@ -170,7 +170,7 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 return new RelayCommand(async () =>
                 {
-                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers);
+                    var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers, _appSettings.WallpaperSizeToUse);
 
                     if (CurrentWallpapers == null || uri == null)
                     {

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Windows.Phone.System.UserProfile;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
+using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Extensions;
 using ScottIsAFool.WindowsPhone.Logging;
 
 namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
@@ -132,7 +132,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background.Services
             ImageUri = new Uri(LockScreenImageUrl, UriKind.RelativeOrAbsolute);
         }
 
-        public Uri ImageUriToUse(Wallpapers wallpapers)
+        public Uri ImageUriToUse(Wallpapers wallpapers, WallpaperSize wallpaperSize)
         {
             var res = _display.ToScreenResolution();
 
