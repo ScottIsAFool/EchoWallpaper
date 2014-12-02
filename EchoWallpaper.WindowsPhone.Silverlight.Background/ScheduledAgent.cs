@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
@@ -84,7 +85,15 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.Background
                 var wallpapers = await Echo.GetWallpapersAsync();
                 var date = DateTime.Now;
 
-                var uri = LockscreenService.Current.ImageUriToUse(wallpapers, settings.WallpaperSizeToUse);
+                var tsc = new TaskCompletionSource<Uri>();
+                
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    var url = LockscreenService.Current.ImageUriToUse(wallpapers, settings.WallpaperSizeToUse);
+                    tsc.SetResult(url);
+                });
+
+                var uri = await tsc.Task;
 
                 if (lastRunDetails != null && uri == lastRunDetails.LastUsedUri)
                 {
