@@ -355,15 +355,38 @@
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>43233ScottLovegrove.HotRadioPlayer</MainPackageIdentityName>
-    <MainPackageIdentityName>43233ScottLovegrove.MediaBrowser</MainPackageIdentityName>
-    <MainPackageIdentityName>43233ScottLovegrove.469034CE8F3C4</MainPackageIdentityName>
-    <MainPackageIdentityName>43233ScottLovegrove.45325C238E813</MainPackageIdentityName>
-    <MainPackageIdentityName>43233ScottLovegrove.MediaBrowser3</MainPackageIdentityName>
-    <MainPackageIdentityName>43233ScottLovegrove.222904C874756</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.StoreCardBuddy</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.SquirrelforWindows</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.UniContact</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.VBeta</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/8888c42a-c0ce-490c-afec-e1300bce9042" />
+  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/8888c42a-c0ce-490c-afec-e1300bce9042">
+    <BundleInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>X86</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>X64</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>ARM</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.0.0.0</PackageMaxArchitectureVersion>
+      </PackageInfo>
+    </BundleInfo>
+  </PackageInfoList>
 </StoreAssociation>
