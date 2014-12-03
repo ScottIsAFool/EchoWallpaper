@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Background;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 using Cimbalino.Toolkit.Services;
@@ -23,10 +11,10 @@ using EchoWallpaper.Controls;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Interfaces;
-using EchoWallpaper.Core.Model;
+using EchoWallpaper.ViewModel;
 using EchoWallpaper.Views;
-using EchoWallpaper.Windows.Shared.Services;
 using GalaSoft.MvvmLight.Ioc;
+using Newtonsoft.Json;
 using AppSettings = Callisto.Controls.SettingsManagement.AppSettings;
 
 namespace EchoWallpaper
@@ -34,7 +22,7 @@ namespace EchoWallpaper
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    public sealed partial class App : Application
+    public sealed partial class App
     {
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
@@ -46,8 +34,8 @@ namespace EchoWallpaper
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += this.OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -61,7 +49,7 @@ namespace EchoWallpaper
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
 
@@ -92,15 +80,15 @@ namespace EchoWallpaper
                 // Removes the turnstile navigation for startup.
                 if (rootFrame.ContentTransitions != null)
                 {
-                    this.transitions = new TransitionCollection();
+                    transitions = new TransitionCollection();
                     foreach (var c in rootFrame.ContentTransitions)
                     {
-                        this.transitions.Add(c);
+                        transitions.Add(c);
                     }
                 }
 
                 rootFrame.ContentTransitions = null;
-                rootFrame.Navigated += this.RootFrame_FirstNavigated;
+                rootFrame.Navigated += RootFrame_FirstNavigated;
 #endif
 
                 // When the navigation stack isn't restored navigate to the first page,
@@ -112,17 +100,33 @@ namespace EchoWallpaper
                 }
 
                 CreateSettingsFlyout();
-                SetScreenSize();
+                LoadSettings();
             }
 
             // Ensure the current window is active
             Window.Current.Activate();
         }
 
-        private void SetScreenSize()
+        private void LoadSettings()
+        {
+            var localSettings = ViewModelLocator.SettingsService.Local;
+            var json = localSettings.Get(Constants.Settings.AppSettings, string.Empty);
+            var app = ViewModelLocator.Settings;
+
+            var settings = JsonConvert.DeserializeObject<Core.Model.AppSettings>(json);
+            if (settings != null)
+            {
+                app.AutomaticallyUpdateLockScreen = settings.AutomaticallyUpdateLockScreen;
+                app.DownloadImageForStartScreen = settings.DownloadImageForStartScreen;
+            }
+
+            SetScreenSize(app);
+        }
+
+        private void SetScreenSize(IAppSettings appSettings)
         {
             var display = SimpleIoc.Default.GetInstance<IDisplayPropertiesService>();
-            var appSettings = SimpleIoc.Default.GetInstance<IAppSettings>();
+            
             appSettings.WallpaperSizeToUse = display.PhysicalBounds.GetWallpaperSize();
             appSettings.Save();
         }
@@ -146,8 +150,8 @@ namespace EchoWallpaper
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
-            rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
-            rootFrame.Navigated -= this.RootFrame_FirstNavigated;
+            rootFrame.ContentTransitions = transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
+            rootFrame.Navigated -= RootFrame_FirstNavigated;
         }
 #endif
 
