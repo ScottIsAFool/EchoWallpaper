@@ -1,3 +1,3 @@
-MainPackage=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.0_Bundle\EchoWallpaper.Windows_1.1.0.0_ARM.appx
-ResourcePack=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.0_Bundle\EchoWallpaper.Windows_1.1.0.0_scale-140.appx
-ResourcePack=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.0_Bundle\EchoWallpaper.Windows_1.1.0.0_scale-180.appx
+MainPackage=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.1_Bundle\EchoWallpaper.Windows_1.1.0.1_ARM.appx
+ResourcePack=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.1_Bundle\EchoWallpaper.Windows_1.1.0.1_scale-140.appx
+ResourcePack=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\ARM\Release\EchoWallpaper.Windows_1.1.0.1_Bundle\EchoWallpaper.Windows_1.1.0.1_scale-180.appx
