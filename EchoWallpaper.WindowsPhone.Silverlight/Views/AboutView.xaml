@@ -68,11 +68,13 @@
                     <Paragraph>
                         <Run Text="Beach designed by"/>
                         <Hyperlink x:Name="DaveLarsen"
-                                   Command="{Binding LaunchArtistCommand}"
+                                   Command="{Binding LaunchArtistCommand}" 
+                                   MouseOverForeground="{StaticResource PhoneAccentBrush}"
                                    Foreground="{StaticResource PhoneAccentBrush}">Dave Larsen</Hyperlink>
                         <Run Text="from the"/>
                         <Hyperlink x:Name="NounProject"
                                    Command="{Binding LaunchNounProjectCommand}"
+                                   MouseOverForeground="{StaticResource PhoneAccentBrush}"
                                    Foreground="{StaticResource PhoneAccentBrush}">Noun Project</Hyperlink>
                     </Paragraph>
                 </RichTextBox>
