@@ -14,7 +14,6 @@
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>-->
             <ResourceDictionary.MergedDictionaries>
-                
                 <ResourceDictionary Source="/Theme/EchoTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <viewModel:ViewModelLocator x:Key="Locator" />
