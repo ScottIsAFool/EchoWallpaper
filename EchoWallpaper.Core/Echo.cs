@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -167,29 +168,58 @@ namespace EchoWallpaper.Core
 
         private static void GetPreviewDetails(HtmlNode imageDiv, Wallpapers result)
         {
-            var image = imageDiv.Descendants("img").FirstOrDefault();
-            if (image == null || !image.HasAttributes) return;
-
-            var src = image.Attributes["src"];
-            if (src != null)
+            var images = imageDiv.Descendants("img").ToList();
+            Debug.WriteLine(images.Count);
+            var image = images.FirstOrDefault();
+            var otherImage = images.LastOrDefault();
+            if (image != null && image.HasAttributes)
             {
-                result.PreviewImage = CreateUri(src.Value);
-            }
-
-            var title = image.Attributes["title"];
-            if (title != null)
-            {
-                result.Title = title.Value;
-            }
-            else
-            {
-                var alt = image.Attributes["alt"];
-                if (alt != null)
+                var src = image.Attributes["src"];
+                if (src != null)
                 {
-                    result.Title = alt.Value;
+                    result.LandscapePreviewImage = CreateUri(src.Value);
+                }
+
+                var title = image.Attributes["title"];
+                if (title != null)
+                {
+                    result.Title = title.Value;
+                }
+                else
+                {
+                    var alt = image.Attributes["alt"];
+                    if (alt != null)
+                    {
+                        result.Title = alt.Value;
+                    }
                 }
             }
-            
+
+            if (otherImage != null && otherImage.HasAttributes)
+            {
+                var src = otherImage.Attributes["src"];
+                if (src != null)
+                {
+                    result.PortraitPreviewImage = CreateUri(src.Value);
+                }
+
+                if (string.IsNullOrEmpty(result.Title))
+                {
+                    var title = otherImage.Attributes["title"];
+                    if (title != null)
+                    {
+                        result.Title = title.Value;
+                    }
+                    else
+                    {
+                        var alt = otherImage.Attributes["alt"];
+                        if (alt != null)
+                        {
+                            result.Title = alt.Value;
+                        }
+                    }
+                }
+            }
         }
 
         private static Uri CreateUri(string resource)

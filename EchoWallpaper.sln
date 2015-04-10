@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EchoWallpaper", "EchoWallpaper", "{41B768AE-711A-4D9E-829B-B743696A2ACD}"
 EndProject
@@ -74,9 +74,11 @@ Global
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Debug|x86.Build.0 = Debug|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|ARM.Build.0 = Release|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5B72543B-DBFC-4C23-B697-BB8DE4435B01}.Release|x64.ActiveCfg = Release|Any CPU
@@ -135,6 +137,7 @@ Global
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|ARM.Build.0 = Release|Any CPU
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1FC4A2FE-1436-4536-8365-A577CC6F4A4A}.Release|x64.ActiveCfg = Release|Any CPU
@@ -149,6 +152,7 @@ Global
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|ARM.Build.0 = Release|Any CPU
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E49BFDC0-225D-423E-8EEF-47E8C72F9AF8}.Release|x64.ActiveCfg = Release|Any CPU

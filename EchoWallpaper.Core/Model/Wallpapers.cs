@@ -7,13 +7,15 @@ namespace EchoWallpaper.Core.Model
     public class Wallpapers
     {
         public string Title { get; set; }
-        public Uri PreviewImage { get; set; }
+        public Uri LandscapePreviewImage { get; set; }
+        public Uri PortraitPreviewImage { get; set; }
         public Uri NineteenTwentyTwelveHundred { get; set; }
         public Uri NineteenTwentyTenEighty { get; set; }
         public Uri TwelveEightyTenTwentyFour { get; set; }
         public Uri TenTwentyFourSevenSixtyEight { get; set; }
         public Uri TwelveEightySevenSixtyEight { get; set; }
         public Uri TwelveEightySevenTwenty { get; set; }
+        public Uri TwentyFiveSixtyFourteenForty { get; set; }
 
         public Uri IpadLandscape { get; set; }
         public Uri IpadLandscapeNoCalendar { get; set; }

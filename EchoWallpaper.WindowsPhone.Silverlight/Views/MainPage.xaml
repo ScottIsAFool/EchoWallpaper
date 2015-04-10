@@ -20,6 +20,37 @@
                 shell:SystemTray.ForegroundColor="White"
                 toolkit:TiltEffect.IsTiltEnabled="True"
                 DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <scott:BasePage.Resources>
+        <Style x:Key="SuperImageStyle"
+               TargetType="coding4Fun:SuperImage">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="coding4Fun:SuperImage">
+                        <Grid>
+                            <Border x:Name="PlaceholderBorder"
+                                    Background="{TemplateBinding PlaceholderBackground}"
+                                    Opacity="{TemplateBinding PlaceholderOpacity}">
+                                <Image x:Name="PlaceholderImage"
+                                       Source="{TemplateBinding PlaceholderImageSource}"
+                                       Stretch="{TemplateBinding PlaceholderImageStretch}"
+                                       MaxHeight="{TemplateBinding MaxHeight}"
+                                       MaxWidth="{TemplateBinding MaxWidth}"
+                                       Height="{TemplateBinding Height}"
+                                       Width="{TemplateBinding Width}"/>
+                            </Border>
+                            <Image x:Name="PrimaryImage"
+                                   Source="{TemplateBinding Source}"
+                                   Stretch="{TemplateBinding Stretch}"
+                                   MaxHeight="{TemplateBinding MaxHeight}"
+                                   MaxWidth="{TemplateBinding MaxWidth}"
+                                   Height="{TemplateBinding Height}"
+                                   Width="{TemplateBinding Width}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </scott:BasePage.Resources>
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="{Binding ProgressIsVisible}"
                                  IsVisible="{Binding ProgressIsVisible}"
@@ -74,10 +105,15 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel"
               Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PreviewImage}"
-                                       Stretch="UniformToFill"
-                                       PlaceholderImageSource="/Assets/LoadingImage.png" />
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Top">
+                <coding4Fun:SuperImage Source="{Binding CurrentWallpapers.PortraitPreviewImage}"
+                                       Stretch="Uniform"
+                                       VerticalAlignment="Top"
+                                       HorizontalAlignment="Center"
+                                       MaxHeight="400"
+                                       PlaceholderImageSource="/Assets/LoadingImage.png"
+                                       Style="{StaticResource SuperImageStyle}" />
 
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="{Binding CurrentWallpapers.Title}"

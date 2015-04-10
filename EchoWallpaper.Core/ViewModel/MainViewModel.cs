@@ -54,7 +54,8 @@ namespace EchoWallpaper.Core.ViewModel
             {
                 CurrentWallpapers = new Wallpapers
                 {
-                    PreviewImage = new Uri("http://www.bournemouthecho.co.uk/resources/images/3345456.jpg"),
+                    PortraitPreviewImage = new Uri("http://www.bournemouthecho.co.uk/resources/images/3635576.jpg"),
+                    LandscapePreviewImage = new Uri("http://www.bournemouthecho.co.uk/resources/images/3345456.jpg"),
                     NineteenTwentyTenEighty = new Uri("http://www.bournemouthecho.co.uk/resources/images/3345456.jpg"),
                     Title = "A picture from the Bournemouth Echo"
                 };

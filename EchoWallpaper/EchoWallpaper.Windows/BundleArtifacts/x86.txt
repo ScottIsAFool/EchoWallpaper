@@ -1,1 +1,1 @@
-MainPackage=D:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\x86\Release\EchoWallpaper.Windows_1.1.0.1_Bundle\EchoWallpaper.Windows_1.1.0.1_x86.appx
+MainPackage=g:\Documents\Visual Studio 2013\Projects\EchoWallpaper\EchoWallpaper\EchoWallpaper.Windows\bin\x86\Release\EchoWallpaper.Windows_1.1.0.2_Bundle\EchoWallpaper.Windows_1.1.0.2_x86.appx
