@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="43233ScottLovegrove.EchoWallpaper" Publisher="CN=43EE5435-230A-4364-8907-04B5F073D610" Version="1.1.0.3" />
+  <Identity Name="43233ScottLovegrove.EchoWallpaper" Publisher="CN=43EE5435-230A-4364-8907-04B5F073D610" Version="1.2.0.1" />
   <Properties>
     <DisplayName>Echo Wallpaper</DisplayName>
     <PublisherDisplayName>ScottLovegrove</PublisherDisplayName>
