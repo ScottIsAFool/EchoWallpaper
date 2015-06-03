@@ -16,7 +16,7 @@ namespace EchoWallpaper.Core
     {
         private static readonly HttpClient HttpClient;
 
-        private const string DivContainer = "grid_8 flatHtml";
+        private const string DivContainer = "grid_8 alpha nonstory nonstory-links x-small";
         private const string BaseUrl = "http://www.bournemouthecho.co.uk";
 
         static Echo()
