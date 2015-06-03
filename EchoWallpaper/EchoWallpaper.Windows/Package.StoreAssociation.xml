@@ -356,6 +356,8 @@
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>43233ScottLovegrove.HotRadioPlayer</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.StoreCardBuddy</MainPackageIdentityName>
+    <MainPackageIdentityName>43233ScottLovegrove.OhYeah</MainPackageIdentityName>
+    <MainPackageIdentityName>43233ScottLovegrove.OhYeahBeta</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.SquirrelforWindows</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.UniContact</MainPackageIdentityName>
     <MainPackageIdentityName>43233ScottLovegrove.VBeta</MainPackageIdentityName>
@@ -367,27 +369,27 @@
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>X86</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>X64</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>ARM</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>
