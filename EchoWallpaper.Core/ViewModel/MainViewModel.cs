@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.Core.Services;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
 using ScottIsAFool.WindowsPhone.ViewModel;
@@ -24,7 +25,7 @@ namespace EchoWallpaper.Core.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IAppSettings _appSettings;
-        private readonly INavigationService _navigationService;
+        private readonly INavigation _navigationService;
         private readonly ILockScreenService _lockscreenService;
         private readonly IMediaLibraryService _mediaLibraryService;
         private readonly ILauncherService _launcherService;
@@ -37,7 +38,7 @@ namespace EchoWallpaper.Core.ViewModel
         /// </summary>
         public MainViewModel(
             IAppSettings appSettings, 
-            INavigationService navigationService,
+            INavigation navigationService,
             ILockScreenService lockscreenService,
             IMediaLibraryService mediaLibraryService,
             ILauncherService launcherService,
@@ -209,7 +210,7 @@ namespace EchoWallpaper.Core.ViewModel
         {
             get
             {
-                return new RelayCommand(() => _navigationService.Navigate("/Views/SettingsView.xaml"));
+                return new RelayCommand(() => _navigationService.NavigateToSettings());
             }
         }
 
@@ -217,7 +218,7 @@ namespace EchoWallpaper.Core.ViewModel
         {
             get
             {
-                return new RelayCommand(() => _navigationService.Navigate("/Views/AboutView.xaml"));
+                return new RelayCommand(() => _navigationService.NavigateToAbout());
             }
         }
 

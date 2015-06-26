@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Background;
 using Windows.System.UserProfile;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;

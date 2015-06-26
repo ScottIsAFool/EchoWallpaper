@@ -101,6 +101,7 @@
     <Compile Include="Services\ApplicationInfoService.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\MediaLibraryService.cs" />
+    <Compile Include="Services\Navigation.cs" />
     <Compile Include="ThemeManager.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>

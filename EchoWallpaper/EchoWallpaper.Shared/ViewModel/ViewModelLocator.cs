@@ -1,21 +1,8 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.Core.Services;
 using EchoWallpaper.Core.ViewModel;
 using EchoWallpaper.Windows.Shared.Services;
 using GalaSoft.MvvmLight;
@@ -46,8 +33,8 @@ namespace EchoWallpaper.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, EmptySettingsService>();
 
-                if (!SimpleIoc.Default.IsRegistered<INavigationService>())
-                    SimpleIoc.Default.Register<INavigationService, EmptyNavigationService>();
+                if (!SimpleIoc.Default.IsRegistered<INavigation>())
+                    SimpleIoc.Default.Register<INavigation, EmptyNavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
                     SimpleIoc.Default.Register<ILockScreenService, EmptyLockScreenService>();
@@ -73,8 +60,8 @@ namespace EchoWallpaper.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
 
-                if (!SimpleIoc.Default.IsRegistered<INavigationService>())
-                    SimpleIoc.Default.Register<INavigationService, NavigationService>();
+                if (!SimpleIoc.Default.IsRegistered<INavigation>())
+                    SimpleIoc.Default.Register<INavigation, NavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
                     SimpleIoc.Default.Register<ILockScreenService, LockScreenService>();

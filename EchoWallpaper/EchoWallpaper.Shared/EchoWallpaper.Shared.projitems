@@ -16,6 +16,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\PreviewImageUrlConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Navigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -65,8 +66,5 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-180.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\widelogo.scale-80.png" />
     <Content Include="$(MSBuildThisFileDirectory)Theme\EchoTheme.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cimbalino.Toolkit.Services;
+using EchoWallpaper.Core.Services;
 
 namespace EchoWallpaper.Core.Empty
 {
-    public class EmptyNavigationService : INavigationService
+    public class EmptyNavigationService : INavigation
     {
         public bool Navigate(string source)
         {
@@ -58,5 +59,14 @@ namespace EchoWallpaper.Core.Empty
         public bool CanGoForward { get; private set; }
         public event EventHandler Navigated;
         public event EventHandler<NavigationServiceBackKeyPressedEventArgs> BackKeyPressed;
+        public void NavigateToSettings()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NavigateToAbout()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

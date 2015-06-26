@@ -16,6 +16,7 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
+using EchoWallpaper.Core.Services;
 using EchoWallpaper.Core.ViewModel;
 using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
 using EchoWallpaper.WindowsPhone.Silverlight.Services;
@@ -47,8 +48,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, EmptySettingsService>();
 
-                if(!SimpleIoc.Default.IsRegistered<INavigationService>())
-                    SimpleIoc.Default.Register<INavigationService, EmptyNavigationService>();
+                if(!SimpleIoc.Default.IsRegistered<INavigation>())
+                    SimpleIoc.Default.Register<INavigation, EmptyNavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
                     SimpleIoc.Default.Register<ILockScreenService, EmptyLockScreenService>();
@@ -74,8 +75,8 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
 
-                if (!SimpleIoc.Default.IsRegistered<INavigationService>())
-                    SimpleIoc.Default.Register<INavigationService, NavigationService>();
+                if (!SimpleIoc.Default.IsRegistered<INavigation>())
+                    SimpleIoc.Default.Register<INavigation, Navigation>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
                     SimpleIoc.Default.Register<ILockScreenService>(() => LockscreenService.Current);
