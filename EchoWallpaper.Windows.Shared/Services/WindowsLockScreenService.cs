@@ -9,9 +9,9 @@ using EchoWallpaper.Core.Model;
 
 namespace EchoWallpaper.Windows.Shared.Services
 {
-    public class LockScreenService : ILockScreenService
+    public class WindowsLockScreenService : ILockScreenService
     {
-        public LockScreenService()
+        public WindowsLockScreenService()
         {
             Current = this;
         }
@@ -23,7 +23,7 @@ namespace EchoWallpaper.Windows.Shared.Services
 
         public Uri ImageUri { get; set; }
 
-        public static LockScreenService Current { get; private set; }
+        public static WindowsLockScreenService Current { get; private set; }
 
         public async Task<LockScreenServiceRequestResult> RequestAccessAsync()
         {

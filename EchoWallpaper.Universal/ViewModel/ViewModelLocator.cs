@@ -1,30 +1,17 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:EchoWallpaper.WindowsPhone.Silverlight"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
 using EchoWallpaper.Core.Model;
 using EchoWallpaper.Core.Services;
 using EchoWallpaper.Core.ViewModel;
-using EchoWallpaper.WindowsPhone.Silverlight.Background.Services;
-using EchoWallpaper.WindowsPhone.Silverlight.Services;
+using EchoWallpaper.Universal.Services;
+using EchoWallpaper.Windows.Shared.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using ILockScreenService = EchoWallpaper.Core.Interfaces.ILockScreenService;
 
-namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
+namespace EchoWallpaper.Universal.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -48,7 +35,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<IApplicationSettingsService>())
                     SimpleIoc.Default.Register<IApplicationSettingsService, EmptySettingsService>();
 
-                if(!SimpleIoc.Default.IsRegistered<INavigation>())
+                if (!SimpleIoc.Default.IsRegistered<INavigation>())
                     SimpleIoc.Default.Register<INavigation, EmptyNavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
@@ -60,7 +47,7 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, EmptyLauncherService>();
 
-                if(!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
+                if (!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
                     SimpleIoc.Default.Register<IDeviceSettingsService, EmptyDeviceSettingsService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IStoreService>())
@@ -68,6 +55,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
                     SimpleIoc.Default.Register<IApplicationInfoService, EmptyApplicationInfoService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IWallpaperService>())
+                    SimpleIoc.Default.Register<IWallpaperService, EmptyWallpaperService>();
             }
             else
             {
@@ -79,10 +69,10 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                     SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
 
                 if (!SimpleIoc.Default.IsRegistered<INavigation>())
-                    SimpleIoc.Default.Register<INavigation, Navigation>();
+                    SimpleIoc.Default.Register<INavigation, NavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
-                    SimpleIoc.Default.Register<ILockScreenService>(() => LockscreenService.Current);
+                    SimpleIoc.Default.Register<ILockScreenService, UniversalLockScreenService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
                     SimpleIoc.Default.Register<IMediaLibraryService, MediaLibraryService>();
@@ -98,19 +88,19 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
                     SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
+
+                if(!SimpleIoc.Default.IsRegistered<IPersonalizationService>())
+                    SimpleIoc.Default.Register<IPersonalizationService, PersonalizationService>();
+
+                if (!SimpleIoc.Default.IsRegistered<IWallpaperService>())
+                    SimpleIoc.Default.Register<IWallpaperService, UniversalWallpaperService>();
             }
 
-            if (!SimpleIoc.Default.IsRegistered<IWallpaperService>())
-                SimpleIoc.Default.Register<IWallpaperService, EmptyWallpaperService>();
-
-            if (!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
+            if(!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
                 SimpleIoc.Default.Register<IDisplayPropertiesService, DisplayPropertiesService>();
 
             if (!SimpleIoc.Default.IsRegistered<IAppSettings>())
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();
-
-            if(!SimpleIoc.Default.IsRegistered<LockscreenService>())
-                SimpleIoc.Default.Register<LockscreenService>();
 
             if (!SimpleIoc.Default.IsRegistered<IBackgroundTaskService>())
                 SimpleIoc.Default.Register<IBackgroundTaskService, BackgroundTaskService>();
@@ -119,32 +109,14 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
             SimpleIoc.Default.Register<AboutViewModel>();
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
+        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-        public AboutViewModel About
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AboutViewModel>();
-            }
-        }
+        public AboutViewModel About => ServiceLocator.Current.GetInstance<AboutViewModel>();
 
-        public static IAppSettings Settings
-        {
-            get { return ServiceLocator.Current.GetInstance<IAppSettings>(); }
-        }
+        public static IAppSettings Settings => ServiceLocator.Current.GetInstance<IAppSettings>();
 
-        public static IApplicationSettingsService SettingsService
-        {
-            get { return ServiceLocator.Current.GetInstance<IApplicationSettingsService>(); }
-        }
-        
+        public static IApplicationSettingsService SettingsService => ServiceLocator.Current.GetInstance<IApplicationSettingsService>();
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

@@ -12,7 +12,7 @@ namespace EchoWallpaper.Windows.Background
 {
     public sealed class BackgroundTask : IBackgroundTask
     {
-        private static readonly LockScreenService LockScreenService = new LockScreenService();
+        private static readonly WindowsLockScreenService WindowsLockScreenService = new WindowsLockScreenService();
         private static readonly MediaLibraryService MediaLibraryService = new MediaLibraryService();
 
         public async void Run(IBackgroundTaskInstance taskInstance)
@@ -67,7 +67,7 @@ namespace EchoWallpaper.Windows.Background
                 {
                     if (settings.AutomaticallyUpdateLockScreen)
                     {
-                        await LockScreenService.SetLockScreen(stream);
+                        await WindowsLockScreenService.SetLockScreen(stream);
                     }
 
                     if (settings.DownloadImageForStartScreen)
