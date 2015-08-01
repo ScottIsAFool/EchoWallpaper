@@ -4,7 +4,17 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Callisto.Controls.SettingsManagement;
+using Cimbalino.Toolkit.Services;
+using EchoWallpaper.Core;
+using EchoWallpaper.Core.Extensions;
+using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Universal.ViewModel;
+using EchoWallpaper.Universal.Views;
+using GalaSoft.MvvmLight.Ioc;
+using Newtonsoft.Json;
 
 namespace EchoWallpaper.Universal
 {
@@ -63,10 +73,50 @@ namespace EchoWallpaper.Universal
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                var navigation = SimpleIoc.Default.GetInstance<INavigationService>();
+                navigation.Navigate<MainPage>(e.Arguments);
             }
+
+            LoadSettings();
+
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+
+
+        private void LoadSettings()
+        {
+            var localSettings = ViewModelLocator.SettingsService.Local;
+            var json = localSettings.Get(Constants.Settings.AppSettings, string.Empty);
+            var app = ViewModelLocator.Settings;
+
+            var settings = JsonConvert.DeserializeObject<Core.Model.AppSettings>(json);
+            if (settings != null)
+            {
+                app.AutomaticallyUpdateLockScreen = settings.AutomaticallyUpdateLockScreen;
+                app.DownloadImageForStartScreen = settings.DownloadImageForStartScreen;
+            }
+
+            SetScreenSize(app);
+        }
+
+        private void SetScreenSize(IAppSettings appSettings)
+        {
+            var display = SimpleIoc.Default.GetInstance<IDisplayPropertiesService>();
+
+            appSettings.WallpaperSizeToUse = display.PhysicalBounds.GetWallpaperSize();
+            appSettings.Save();
+        }
+
+        private void CreateSettingsFlyout()
+        {
+            var colour = Resources["AccentBrush"] as SolidColorBrush;
+            if (colour != null)
+            {
+                //AppSettings.Current.AddCommand<SettingsControl>("Background", colour, 200D);
+                //AppSettings.Current.AddCommand<AboutControl>("About", colour, 200D);
+            }
         }
 
         /// <summary>

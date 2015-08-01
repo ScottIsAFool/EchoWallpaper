@@ -1,3 +1,4 @@
+using Cimbalino.Toolkit.Core.Services;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Empty;
 using EchoWallpaper.Core.Interfaces;
@@ -5,6 +6,7 @@ using EchoWallpaper.Core.Model;
 using EchoWallpaper.Core.Services;
 using EchoWallpaper.Core.ViewModel;
 using EchoWallpaper.Universal.Services;
+using EchoWallpaper.Universal.Shared.Services;
 using EchoWallpaper.Windows.Shared.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;

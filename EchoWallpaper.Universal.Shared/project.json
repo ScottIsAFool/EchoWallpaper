@@ -1,10 +1,7 @@
 ﻿{
   "dependencies": {
-    "Callisto": "1.4.0",
-    "Cimbalino.Toolkit": "2.0.0-beta1",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "MvvmLightLibs": "5.1.1",
-    "Newtonsoft.Json": "6.0.8"
+    "Cimbalino.Toolkit.Core": "2.0.0-beta1",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {
     "uap10.0": {}

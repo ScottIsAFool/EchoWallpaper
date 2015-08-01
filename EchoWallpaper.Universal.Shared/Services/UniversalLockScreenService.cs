@@ -9,7 +9,7 @@ using EchoWallpaper.Core.Model;
 using ILockScreenService = EchoWallpaper.Core.Interfaces.ILockScreenService;
 using LockScreenServiceRequestResult = EchoWallpaper.Core.Model.LockScreenServiceRequestResult;
 
-namespace EchoWallpaper.Universal.Services
+namespace EchoWallpaper.Universal.Shared.Services
 {
     public class UniversalLockScreenService : ILockScreenService
     {

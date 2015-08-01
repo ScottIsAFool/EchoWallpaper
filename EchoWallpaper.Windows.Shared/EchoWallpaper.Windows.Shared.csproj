@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\ApplicationDataExtensions.cs" />
+    <Compile Include="Helpers\BackgroundHelper.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\WindowsLockScreenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
