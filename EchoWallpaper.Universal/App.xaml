@@ -28,6 +28,7 @@
             <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
                                                     InvertValue="True" />
+            <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter"/>
 
             <Thickness x:Key="PhoneBorderThickness">2.5</Thickness>
             <FontWeight x:Key="PhoneButtonFontWeight">Semibold</FontWeight>
@@ -142,6 +143,17 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+            </Style>
+
+            <Style TargetType="Button"
+                   BasedOn="{StaticResource EmptyButtonStyle}"
+                   x:Key="CoolButtonStyle">
+                <Setter Property="HorizontalContentAlignment"
+                        Value="Center" />
+                <Setter Property="Padding"
+                        Value="10" />
+                <Setter Property="Foreground"
+                        Value="{StaticResource BackgroundBrush}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

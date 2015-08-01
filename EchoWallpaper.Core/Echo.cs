@@ -17,7 +17,7 @@ namespace EchoWallpaper.Core
         {
             HttpClient = new HttpClient(new HttpClientHandler
             {
-                AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
+                //AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
             });
         }
 

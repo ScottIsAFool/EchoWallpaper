@@ -2,6 +2,7 @@
   "dependencies": {
     "Callisto": "1.4.0",
     "Cimbalino.Toolkit": "2.0.0-beta1",
+    "Coding4Fun.Toolkit.Controls": "2.1.0.4-beta",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MvvmLightLibs": "5.1.1",
     "Newtonsoft.Json": "6.0.8"

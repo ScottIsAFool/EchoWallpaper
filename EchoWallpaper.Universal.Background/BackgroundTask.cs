@@ -2,7 +2,6 @@
 using Cimbalino.Toolkit.Core.Services;
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core.Interfaces;
-using EchoWallpaper.Universal.Services;
 using EchoWallpaper.Universal.Shared.Services;
 using EchoWallpaper.Windows.Shared.Helpers;
 using EchoWallpaper.Windows.Shared.Services;

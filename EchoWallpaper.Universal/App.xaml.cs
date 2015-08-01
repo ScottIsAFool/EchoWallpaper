@@ -11,6 +11,7 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Extensions;
 using EchoWallpaper.Core.Interfaces;
+using EchoWallpaper.Core.Services;
 using EchoWallpaper.Universal.ViewModel;
 using EchoWallpaper.Universal.Views;
 using GalaSoft.MvvmLight.Ioc;
@@ -73,8 +74,7 @@ namespace EchoWallpaper.Universal
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                var navigation = SimpleIoc.Default.GetInstance<INavigationService>();
-                navigation.Navigate<MainPage>(e.Arguments);
+                rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
             LoadSettings();

@@ -6,7 +6,7 @@ using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Core;
 using EchoWallpaper.Core.Interfaces;
 
-namespace EchoWallpaper.Universal.Services
+namespace EchoWallpaper.Universal.Shared.Services
 {
     public class UniversalWallpaperService : IWallpaperService
     {
@@ -36,7 +36,7 @@ namespace EchoWallpaper.Universal.Services
         {
             await _localStorage.WriteAllBytesAsync(FileName, await stream.ToArrayAsync());
 
-            await _personalizationService.SetWallpaperImageAsync(FilePath);
+            await _personalizationService.SetWallpaperImageAsync(FilePath, true);
         }
     }
 }

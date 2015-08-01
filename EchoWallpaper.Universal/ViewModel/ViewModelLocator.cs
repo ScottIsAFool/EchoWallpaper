@@ -71,7 +71,7 @@ namespace EchoWallpaper.Universal.ViewModel
                     SimpleIoc.Default.Register<IApplicationSettingsService, ApplicationSettingsService>();
 
                 if (!SimpleIoc.Default.IsRegistered<INavigation>())
-                    SimpleIoc.Default.Register<INavigation, NavigationService>();
+                    SimpleIoc.Default.Register<INavigation, Navigation>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
                     SimpleIoc.Default.Register<ILockScreenService, UniversalLockScreenService>();

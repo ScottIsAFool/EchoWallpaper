@@ -1,4 +1,5 @@
-﻿using Windows.Storage;
+﻿using Windows.Foundation.Metadata;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
 namespace EchoWallpaper.Universal.Views
@@ -12,8 +13,10 @@ namespace EchoWallpaper.Universal.Views
         {
             this.InitializeComponent();
 
-            var folder = ApplicationData.Current.LocalFolder;
-            var name = folder.Name;
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                StatusBar.GetForCurrentView().HideAsync();
+            }
         }
     }
 }

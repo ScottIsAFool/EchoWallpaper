@@ -33,6 +33,16 @@
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
         }
       },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -1639,6 +1649,16 @@
         },
         "runtime": {
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
         }
       },
       "CommonServiceLocator/1.3.0": {
@@ -3339,6 +3359,16 @@
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
         }
       },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -5007,6 +5037,16 @@
         },
         "runtime": {
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
         }
       },
       "CommonServiceLocator/1.3.0": {
@@ -6712,6 +6752,16 @@
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
         }
       },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -8380,6 +8430,16 @@
         },
         "runtime": {
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
         }
       },
       "CommonServiceLocator/1.3.0": {
@@ -10083,6 +10143,16 @@
         },
         "runtime": {
           "lib/uap10.0/Cimbalino.Toolkit.Core.dll": {}
+        }
+      },
+      "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+        "compile": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Coding4Fun.Toolkit.Controls.dll": {},
+          "lib/netcore451/Coding4Fun.Toolkit.dll": {}
         }
       },
       "CommonServiceLocator/1.3.0": {
@@ -11794,6 +11864,33 @@
         "lib/wpa81/Cimbalino.Toolkit.Core.xml",
         "tools/Cimbalino.Toolkit.Core.targets",
         "package/services/metadata/core-properties/da251313135e4eb9a4404619068e1221.psmdcp",
+        "[Content_Types].xml"
+      ]
+    },
+    "Coding4Fun.Toolkit.Controls/2.1.0.4-beta": {
+      "sha512": "Hep736O+z8bI4N7s7nyl7veVcPHMXj94CSUAy7BoLdWeqCR3OgDKPX8hSohR3a5eJYEoskzeBFHs8rLFFZL6vQ==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "Coding4Fun.Toolkit.Controls.nuspec",
+        "content/ReadMe.Coding4Fun.Toolkit.txt",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls/Themes/Generic.xbf",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls/Coding4Fun.Toolkit.Controls.xr.xml",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls.dll",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls.pdb",
+        "lib/netcore451/Coding4Fun.Toolkit.Controls.pri",
+        "lib/netcore451/Coding4Fun.Toolkit.dll",
+        "lib/netcore451/Coding4Fun.Toolkit.pdb",
+        "lib/netcore451/Coding4Fun.Toolkit.pri",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls/Themes/Generic.xbf",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls/Coding4Fun.Toolkit.Controls.xr.xml",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls.dll",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls.pdb",
+        "lib/wpa81/Coding4Fun.Toolkit.Controls.pri",
+        "lib/wpa81/Coding4Fun.Toolkit.dll",
+        "lib/wpa81/Coding4Fun.Toolkit.pdb",
+        "lib/wpa81/Coding4Fun.Toolkit.pri",
+        "package/services/metadata/core-properties/b90e5a79763043cfbd2d7290b364f30c.psmdcp",
         "[Content_Types].xml"
       ]
     },
@@ -15372,6 +15469,7 @@
     "": [
       "Callisto >= 1.4.0",
       "Cimbalino.Toolkit >= 2.0.0-beta1",
+      "Coding4Fun.Toolkit.Controls >= 2.1.0.4-beta",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MvvmLightLibs >= 5.1.1",
       "Newtonsoft.Json >= 6.0.8"
