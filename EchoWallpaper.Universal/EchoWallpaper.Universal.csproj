@@ -115,10 +115,6 @@
   <ItemGroup>
     <Content Include="Assets\LoadingImage.png" />
     <None Include="Package.StoreAssociation.xml" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-125.png" />
-    <Content Include="Assets\SplashScreen.scale-150.png" />
-    <Content Include="Assets\Splashscreen.scale-400.png" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-125.png" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-150.png" />
@@ -144,13 +140,6 @@
     <Content Include="Assets\Tiles\StoreLogo.scale-200.png" />
     <Content Include="Assets\Tiles\StoreLogo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
