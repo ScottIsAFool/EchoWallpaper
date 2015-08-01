@@ -58,7 +58,7 @@
                         Grid.Column="1"
                         VerticalAlignment="Top">
                 <Button Style="{StaticResource EmptyButtonStyle}"
-                        Content="Set lock screen now"
+                        Content="Set lock screen"
                         Background="#FF0689A6"
                         Command="{Binding SetLockscreenCommand}" />
                 <Button Style="{StaticResource EmptyButtonStyle}"

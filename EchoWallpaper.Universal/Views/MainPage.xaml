@@ -76,11 +76,77 @@
         </VisualStateManager.VisualStateGroups>
 
         <Grid x:Name="WideGrid"
-              Background="Red"
-              Visibility="Collapsed"></Grid>
+              Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"
+                               MaxHeight="154" />
+                <RowDefinition Height="80*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="90*" />
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.ColumnSpan="2"
+                       Fill="{StaticResource AccentBrush}" />
+
+            <Grid Grid.Column="1"
+                  Grid.Row="0">
+                <TextBlock Text="{Binding Source={StaticResource AppName}}"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           VerticalAlignment="Center"
+                           Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.95*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <controls:SuperImage Source="{Binding CurrentWallpapers.NineteenTwentyTenEighty}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Stretch="Uniform"
+                                           PlaceholderImageSource="/Assets/LoadingImage.png"
+                                           PlaceholderImageStretch="Uniform" />
+                </Grid>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="1"
+                            VerticalAlignment="Top">
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Set lock screen"
+                            Background="{StaticResource AltAccentBrush}"
+                            Command="{Binding SetLockscreenCommand}" />
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Set wallpaper"
+                            Background="{StaticResource AltAccentBrush}"
+                            Command="{Binding SetAsWallpaperCommand}" />
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Save image"
+                            Background="{StaticResource AccentBrush}"
+                            Command="{Binding DownloadImageNow}" />
+                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                               Style="{StaticResource SubheaderTextBlockStyle}"
+                               Foreground="#7E000000"
+                               VerticalAlignment="Top"
+                               TextWrapping="WrapWholeWords"
+                               Margin="12,0" />
+                    <ProgressRing IsActive="{Binding ProgressIsVisible}"
+                                  Visibility="{Binding ProgressIsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                  Foreground="{StaticResource AccentBrush}" />
+                    <TextBlock Text="{Binding ProgressText}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+        </Grid>
 
         <Grid x:Name="NarrowGrid"
-              Background="White"
               Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -109,7 +175,7 @@
                 </Grid.RowDefinitions>
                 <controls:SuperImage Source="{Binding CurrentWallpapers.PortraitPreviewImage}"
                                      Stretch="Uniform"
-                                     VerticalAlignment="Stretch"
+                                     VerticalAlignment="Top"
                                      HorizontalAlignment="Center"
                                      PlaceholderImageSource="/Assets/LoadingImage.png"
                                      Style="{StaticResource SuperImageStyle}" />
@@ -135,13 +201,13 @@
                     <Button Content="Set lockscreen"
                             Command="{Binding SetLockscreenCommand}"
                             Style="{StaticResource CoolButtonStyle}"
-                            Background="#FF0689A6"
+                            Background="{StaticResource AltAccentBrush}"
                             IsEnabled="{Binding CanDoStuff}"
                             Grid.Column="0" />
                     <Button Content="Set wallpaper"
                             Command="{Binding SetAsWallpaperCommand}"
                             Style="{StaticResource CoolButtonStyle}"
-                            Background="#FF0689A6"
+                            Background="{StaticResource AltAccentBrush}"
                             IsEnabled="{Binding CanDoStuff}"
                             Grid.Column="1" />
                 </Grid>
