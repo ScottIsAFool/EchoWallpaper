@@ -5,6 +5,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Cimbalino.Toolkit.Core.Helpers;
+using EchoWallpaper.Core.Services;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace EchoWallpaper.Universal.Views
 {
@@ -31,12 +34,6 @@ namespace EchoWallpaper.Universal.Views
             var titleBarWithButtons = ApplicationView.GetForCurrentView().TitleBar;
             titleBarWithButtons.ButtonBackgroundColor = accentBrush?.Color;
             titleBarWithButtons.ButtonForegroundColor = altAccentBrush?.Color;
-        }
-
-        private void UIElement_OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            SettingsFlyout flyout = new SettingsFlyout();
-            flyout.ShowIndependent();
         }
     }
 }

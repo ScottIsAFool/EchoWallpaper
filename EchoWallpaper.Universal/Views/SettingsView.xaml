@@ -1,0 +1,46 @@
+﻿<Page x:Class="EchoWallpaper.Universal.Views.SettingsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <Grid Background="{StaticResource AccentBrush}">
+            <StackPanel x:Name="TitlePanel"
+                        Grid.Row="0"
+                        Margin="12,15,0,14">
+                <TextBlock Text="{Binding Source={StaticResource AppName}, Converter={StaticResource StringToUppercaseConverter}}"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           Foreground="{StaticResource BackgroundBrush}"
+                           Margin="12,0" />
+            </StackPanel>
+        </Grid>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Top">
+                <HyperlinkButton Content="Lockscreen settings"
+                                 HorizontalContentAlignment="Left"
+                                 Margin="0,12"
+                                 Command="{Binding GoToLockScreenSettings}" />
+                <ToggleSwitch Header="Automatically update lockscreen"
+                              IsOn="{Binding AutomaticallyUpdateLockscreen, Mode=TwoWay}" />
+                <ToggleSwitch Header="Automatically save for start screen use"
+                              IsOn="{Binding DownloadImageForStartScreen, Mode=TwoWay}" />
+                <ToggleSwitch Header="Automatically update wallpaper"
+                              IsOn="{Binding AutomaticallyUpdateWallpaper, Mode=TwoWay}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

@@ -75,6 +75,7 @@ namespace EchoWallpaper.Core.ViewModel
         public bool IsLockscreenProvider { get { return _lockscreenService.IsProvidedByCurrentApplication; } }
         public bool AutomaticallyUpdateLockscreen { get; set; }
         public bool DownloadImageForStartScreen { get; set; }
+        public bool AutomaticallyUpdateWallpaper { get; set; }
         public bool BackgroundAgentAllowed { get { return _backgroundTaskService.CanRunTask; } }
 
         public bool CanDoStuff
@@ -296,6 +297,13 @@ namespace EchoWallpaper.Core.ViewModel
         private void OnAutomaticallyUpdateLockscreenChanged()
         {
             _appSettings.AutomaticallyUpdateLockScreen = AutomaticallyUpdateLockscreen;
+            _appSettings.Save();
+        }
+
+        [UsedImplicitly]
+        private void OnAutomaticallyUpdateWallpaperChanged()
+        {
+            _appSettings.AutomaticallyUpdateWallpaper = AutomaticallyUpdateWallpaper;
             _appSettings.Save();
         }
 

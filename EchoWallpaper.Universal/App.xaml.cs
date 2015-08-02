@@ -77,7 +77,7 @@ namespace EchoWallpaper.Universal
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
-            //LoadSettings();
+            LoadSettings();
 
             // Ensure the current window is active
             Window.Current.Activate();
@@ -96,6 +96,7 @@ namespace EchoWallpaper.Universal
             {
                 app.AutomaticallyUpdateLockScreen = settings.AutomaticallyUpdateLockScreen;
                 app.DownloadImageForStartScreen = settings.DownloadImageForStartScreen;
+                app.AutomaticallyUpdateWallpaper = settings.AutomaticallyUpdateWallpaper;
             }
 
             SetScreenSize(app);

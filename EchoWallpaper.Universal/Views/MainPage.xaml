@@ -51,7 +51,8 @@
         <CommandBar ClosedDisplayMode="Minimal">
             <CommandBar.PrimaryCommands>
                 <AppBarButton Icon="Setting"
-                              Tapped="UIElement_OnTapped"/>
+                              Label="settings"
+                              Command="{Binding NavigateToSettingsCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

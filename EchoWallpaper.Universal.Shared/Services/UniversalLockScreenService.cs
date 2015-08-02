@@ -51,7 +51,7 @@ namespace EchoWallpaper.Universal.Shared.Services
         {
             await _localStorage.WriteAllBytesAsync(FileName, await stream.ToArrayAsync());
 
-            await _personalizationService.SetLockScreenImageAsync(FilePath);
+            await _personalizationService.SetLockScreenImageAsync(FilePath, true);
         }
 
         public Uri ImageUriToUse(Wallpapers wallpapers, WallpaperSize wallpaperSize)
