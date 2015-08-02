@@ -105,7 +105,7 @@ namespace EchoWallpaper.Universal.ViewModel
                 SimpleIoc.Default.Register<IAppSettings, AppSettings>();
 
             if (!SimpleIoc.Default.IsRegistered<IBackgroundTaskService>())
-                SimpleIoc.Default.Register<IBackgroundTaskService, BackgroundTaskService>();
+                SimpleIoc.Default.Register<IBackgroundTaskService>(() => new BackgroundTaskService(true));
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();

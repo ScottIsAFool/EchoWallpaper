@@ -12,7 +12,7 @@ namespace EchoWallpaper.Windows.Shared.Helpers
 {
     public static class BackgroundHelper
     {
-        public static async Task GetValue(Action finish, ILockScreenService lockscreenService, IMediaLibraryService mediaLibraryService, IWallpaperService wallpaperService = null)
+        public static async Task UpdateAllTheThings(Action finish, ILockScreenService lockscreenService, IMediaLibraryService mediaLibraryService, IWallpaperService wallpaperService = null)
         {
             var localSettings = ApplicationData.Current.LocalSettings;
 
@@ -40,7 +40,7 @@ namespace EchoWallpaper.Windows.Shared.Helpers
             }
 
             var settings = JsonConvert.DeserializeObject<AppSettings>(json);
-            if (settings == null || (!settings.AutomaticallyUpdateLockScreen && !settings.DownloadImageForStartScreen))
+            if (settings == null || (!settings.AutomaticallyUpdateLockScreen && !settings.DownloadImageForStartScreen && !settings.AutomaticallyUpdateWallpaper))
             {
                 finish();
                 return;

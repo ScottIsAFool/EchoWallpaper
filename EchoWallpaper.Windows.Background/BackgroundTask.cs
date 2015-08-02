@@ -12,7 +12,7 @@ namespace EchoWallpaper.Windows.Background
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             var deferral = taskInstance.GetDeferral();
-            await BackgroundHelper.GetValue(() => Finish(deferral), WindowsLockScreenService, MediaLibraryService);
+            await BackgroundHelper.UpdateAllTheThings(() => Finish(deferral), WindowsLockScreenService, MediaLibraryService);
         }
 
         private static void Finish(BackgroundTaskDeferral deferral)

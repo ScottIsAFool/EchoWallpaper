@@ -9,7 +9,7 @@ using ILockScreenService = EchoWallpaper.Core.Interfaces.ILockScreenService;
 
 namespace EchoWallpaper.Universal.Background
 {
-    public sealed class BackgroundTask
+    public sealed class BackgroundTask : IBackgroundTask
     {
         private static readonly ILockScreenService UniversalLockScreenService = new UniversalLockScreenService(new StorageService(), new PersonalizationService());
         private static readonly IMediaLibraryService MediaLibraryService = new MediaLibraryService();
@@ -18,7 +18,7 @@ namespace EchoWallpaper.Universal.Background
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             var deferral = taskInstance.GetDeferral();
-            await BackgroundHelper.GetValue(() => Finish(deferral), UniversalLockScreenService, MediaLibraryService, UniversalWallpaperService);
+            await BackgroundHelper.UpdateAllTheThings(() => Finish(deferral), UniversalLockScreenService, MediaLibraryService, UniversalWallpaperService);
         }
 
         private static void Finish(BackgroundTaskDeferral deferral)

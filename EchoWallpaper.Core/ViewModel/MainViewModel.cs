@@ -97,7 +97,10 @@ namespace EchoWallpaper.Core.ViewModel
                     {
                         await _backgroundTaskService.CreateAgent();
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        var i = 1;
+                    }
                     await LoadData(false);
                 });
             }
