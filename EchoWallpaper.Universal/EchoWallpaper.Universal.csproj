@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EchoWallpaper.Universal</RootNamespace>
     <AssemblyName>EchoWallpaper.Universal</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en-GB</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -112,7 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\LoadingImage.png" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-125.png" />
     <Content Include="Assets\Tiles\Square150x150Logo.scale-150.png" />

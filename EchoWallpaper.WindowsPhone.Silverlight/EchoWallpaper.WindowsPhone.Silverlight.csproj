@@ -195,13 +195,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cimbalino.Toolkit, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cimbalino.Toolkit.1.2.3\lib\wp8\Cimbalino.Toolkit.dll</HintPath>
+    <Reference Include="Cimbalino.Toolkit, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cimbalino.Toolkit.2.0.0-beta1\lib\wp8\Cimbalino.Toolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Cimbalino.Toolkit.Core, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cimbalino.Toolkit.Core.1.2.3\lib\wp8\Cimbalino.Toolkit.Core.dll</HintPath>
+    <Reference Include="Cimbalino.Toolkit.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cimbalino.Toolkit.Core.2.0.0-beta1\lib\wp8\Cimbalino.Toolkit.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Coding4Fun.Toolkit">
       <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.8\lib\windowsphone8\Coding4Fun.Toolkit.dll</HintPath>
