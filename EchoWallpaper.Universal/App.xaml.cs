@@ -77,7 +77,7 @@ namespace EchoWallpaper.Universal
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
-            LoadSettings();
+            //LoadSettings();
 
             // Ensure the current window is active
             Window.Current.Activate();
