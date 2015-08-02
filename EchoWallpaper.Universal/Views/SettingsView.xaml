@@ -3,10 +3,35 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:windowsStateTriggers="using:WindowsStateTriggers"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:behaviours="using:EchoWallpaper.Universal.Behaviours"
       mc:Ignorable="d"
       DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="BackButtonGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.StateTriggers>
+                        <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Mobile"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BackButton.Visibility"
+                                Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Desktop" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BackButton.Visibility"
+                                Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -16,11 +41,22 @@
         <Grid Background="{StaticResource AccentBrush}">
             <StackPanel x:Name="TitlePanel"
                         Grid.Row="0"
-                        Margin="12,15,0,14">
+                        Margin="12,15,0,14"
+                        Orientation="Horizontal">
+                <HyperlinkButton HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 x:Name="BackButton"
+                                 Tapped="UIElement_OnTapped">
+                    <TextBlock Text="&#xe0a6;"
+                               FontFamily="Segoe MDL2 Assets"
+                               Foreground="{StaticResource BackgroundBrush}"
+                               Margin="0,0,12,0" />
+                </HyperlinkButton>
+
                 <TextBlock Text="{Binding Source={StaticResource AppName}, Converter={StaticResource StringToUppercaseConverter}}"
                            Style="{StaticResource BodyTextBlockStyle}"
                            Foreground="{StaticResource BackgroundBrush}"
-                           Margin="12,0" />
+                           VerticalAlignment="Center"/>
             </StackPanel>
         </Grid>
 

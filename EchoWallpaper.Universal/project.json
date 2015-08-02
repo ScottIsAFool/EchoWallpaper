@@ -5,7 +5,9 @@
     "Coding4Fun.Toolkit.Controls": "2.1.0.4-beta",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MvvmLightLibs": "5.1.1",
-    "Newtonsoft.Json": "6.0.8"
+    "Newtonsoft.Json": "6.0.8",
+    "ScottIsAFool.Windows": "0.0.1.5-pre",
+    "WindowsStateTriggers": "1.0.2"
   },
   "frameworks": {
     "uap10.0": {}

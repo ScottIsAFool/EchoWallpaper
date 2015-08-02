@@ -1,12 +1,12 @@
-﻿<Application
-    x:Class="EchoWallpaper.Universal.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:EchoWallpaper.Universal"
-    xmlns:viewModel="using:EchoWallpaper.Universal.ViewModel"
-    xmlns:converters="using:Cimbalino.Toolkit.Converters"
-    xmlns:converters1="using:EchoWallpaper.Universal.Converters"
-    RequestedTheme="Light">
+﻿<controls:BaseApplication x:Class="EchoWallpaper.Universal.App"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:local="using:EchoWallpaper.Universal"
+                          xmlns:viewModel="using:EchoWallpaper.Universal.ViewModel"
+                          xmlns:converters="using:Cimbalino.Toolkit.Converters"
+                          xmlns:converters1="using:EchoWallpaper.Universal.Converters"
+                          xmlns:controls="using:ScottIsAFool.Windows.Controls"
+                          RequestedTheme="Light">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -27,8 +27,8 @@
             <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
             <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"
-                                                    InvertValue="True" />
-            <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter"/>
+                                                     InvertValue="True" />
+            <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
 
             <Thickness x:Key="PhoneBorderThickness">2.5</Thickness>
             <FontWeight x:Key="PhoneButtonFontWeight">Semibold</FontWeight>
@@ -39,7 +39,7 @@
             <SolidColorBrush x:Key="ButtonDisabledBackgroundThemeBrush"
                              Color="Transparent" />
             <Style TargetType="Button"
-                   x:Name="EmptyButtonStyle">
+                   x:Key="EmptyButtonStyle">
                 <Setter Property="Background"
                         Value="Transparent" />
                 <Setter Property="Foreground"
@@ -128,8 +128,7 @@
                                 <Border x:Name="Border"
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        Background="{TemplateBinding Background}"
-                                        Margin="{ThemeResource PhoneTouchTargetOverhang}">
+                                        Background="{TemplateBinding Background}">
                                     <ContentPresenter x:Name="ContentPresenter"
                                                       AutomationProperties.AccessibilityView="Raw"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -157,4 +156,4 @@
             </Style>
         </ResourceDictionary>
     </Application.Resources>
-</Application>
+</controls:BaseApplication>

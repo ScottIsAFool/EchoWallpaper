@@ -1,5 +1,6 @@
 ﻿using Windows.ApplicationModel.Core;
 using Windows.Foundation.Metadata;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,21 +20,6 @@ namespace EchoWallpaper.Universal.Views
         public MainPage()
         {
             this.InitializeComponent();
-
-            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                StatusBar.GetForCurrentView().HideAsync();
-            }
-
-            var titleBar = CoreApplication.GetCurrentView().TitleBar;
-            titleBar.ExtendViewIntoTitleBar = true;
-
-            var accentBrush = Application.Current.Resources["AccentBrush"] as SolidColorBrush;
-            var altAccentBrush = Application.Current.Resources["AltAccentBrush"] as SolidColorBrush;
-
-            var titleBarWithButtons = ApplicationView.GetForCurrentView().TitleBar;
-            titleBarWithButtons.ButtonBackgroundColor = accentBrush?.Color;
-            titleBarWithButtons.ButtonForegroundColor = altAccentBrush?.Color;
         }
     }
 }

@@ -2,6 +2,10 @@
 using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
+using Windows.Foundation.Metadata;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -16,13 +20,14 @@ using EchoWallpaper.Universal.ViewModel;
 using EchoWallpaper.Universal.Views;
 using GalaSoft.MvvmLight.Ioc;
 using Newtonsoft.Json;
+using ScottIsAFool.Windows.Controls;
 
 namespace EchoWallpaper.Universal
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : BaseApplication
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -34,6 +39,31 @@ namespace EchoWallpaper.Universal
             this.Suspending += OnSuspending;
         }
 
+        public override void AppStarted()
+        {
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                StatusBar.GetForCurrentView().HideAsync();
+            }
+
+            var titleBar = CoreApplication.GetCurrentView().TitleBar;
+            titleBar.ExtendViewIntoTitleBar = true;
+
+            var accentBrush = Application.Current.Resources["AccentBrush"] as SolidColorBrush;
+
+            var titleBarWithButtons = ApplicationView.GetForCurrentView().TitleBar;
+            titleBarWithButtons.ButtonBackgroundColor = accentBrush?.Color;
+            titleBarWithButtons.ButtonForegroundColor = Colors.White;
+            titleBarWithButtons.BackgroundColor = accentBrush?.Color;
+            titleBarWithButtons.ForegroundColor = Colors.White;
+
+            NavigationService.HandleBackButtonVisibility = false;
+
+            LoadSettings();
+
+            base.AppStarted();
+        }
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -41,7 +71,6 @@ namespace EchoWallpaper.Universal
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
 #if DEBUG
             if (Debugger.IsAttached)
             {
@@ -77,13 +106,11 @@ namespace EchoWallpaper.Universal
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
 
-            LoadSettings();
-
+            base.OnLaunched(e);
+            
             // Ensure the current window is active
             Window.Current.Activate();
         }
-
-
 
         private void LoadSettings()
         {
@@ -108,16 +135,6 @@ namespace EchoWallpaper.Universal
 
             appSettings.WallpaperSizeToUse = display.PhysicalBounds.GetWallpaperSize();
             appSettings.Save();
-        }
-
-        private void CreateSettingsFlyout()
-        {
-            var colour = Resources["AccentBrush"] as SolidColorBrush;
-            if (colour != null)
-            {
-                //AppSettings.Current.AddCommand<SettingsControl>("Background", colour, 200D);
-                //AppSettings.Current.AddCommand<AboutControl>("About", colour, 200D);
-            }
         }
 
         /// <summary>

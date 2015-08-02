@@ -284,6 +284,25 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -1618,6 +1637,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -1943,6 +1970,25 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3326,6 +3372,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -3637,6 +3691,25 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5005,6 +5078,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       }
     },
@@ -5338,6 +5419,25 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -6719,6 +6819,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -7030,6 +7138,25 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8398,6 +8525,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       }
     },
@@ -8731,6 +8866,25 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Runtime": "[4.0.20, )",
@@ -10112,6 +10266,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -10423,6 +10585,25 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows/0.0.1.5-pre": {
+        "dependencies": {
+          "ScottIsAFool.Windows.Core": "[0.0.1.5-pre, )"
+        },
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.dll": {}
+        }
+      },
+      "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+        "compile": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/win81/ScottIsAFool.Windows.Core.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -11791,6 +11972,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       }
     }
@@ -12766,6 +12955,42 @@
         "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
         "tools/install.ps1",
         "package/services/metadata/core-properties/d6cceb7474b245aab29598e10c6e65d6.psmdcp",
+        "[Content_Types].xml"
+      ]
+    },
+    "ScottIsAFool.Windows/0.0.1.5-pre": {
+      "sha512": "37ClDgrFlD1y8QNFEGE3kMPWlbk3lv+K/VgDqfiSVgo0b/Ali46m/bpDo0bZn20LQqRjioIJ+V5NXOrAvofW3g==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "ScottIsAFool.Windows.nuspec",
+        "lib/win81/ScottIsAFool.Windows/Themes/ControlStyles.xaml",
+        "lib/win81/ScottIsAFool.Windows/Themes/ControlStyles.xbf",
+        "lib/win81/ScottIsAFool.Windows/Themes/Generic.xaml",
+        "lib/win81/ScottIsAFool.Windows/Themes/Generic.xbf",
+        "lib/win81/ScottIsAFool.Windows/ScottIsAFool.Windows.xr.xml",
+        "lib/win81/ScottIsAFool.Windows.dll",
+        "lib/win81/ScottIsAFool.Windows.pri",
+        "lib/wpa/ScottIsAFool.Windows/Themes/ControlStyles.xaml",
+        "lib/wpa/ScottIsAFool.Windows/Themes/ControlStyles.xbf",
+        "lib/wpa/ScottIsAFool.Windows/Themes/Generic.xaml",
+        "lib/wpa/ScottIsAFool.Windows/Themes/Generic.xbf",
+        "lib/wpa/ScottIsAFool.Windows/ScottIsAFool.Windows.xr.xml",
+        "lib/wpa/ScottIsAFool.Windows.dll",
+        "lib/wpa/ScottIsAFool.Windows.pri",
+        "package/services/metadata/core-properties/16f01b17dc7b4141a973d767fe0683e7.psmdcp",
+        "[Content_Types].xml"
+      ]
+    },
+    "ScottIsAFool.Windows.Core/0.0.1.5-pre": {
+      "sha512": "90EuhgiBORIryBDrU8MF9nQeb37ECTqlUwmwJqRZaFpMxgmJM+wIw/OT8zZGqk2Zk1y7jrQ/tpO3VsGPSuLr3Q==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "ScottIsAFool.Windows.Core.nuspec",
+        "lib/win81/ScottIsAFool.Windows.Core.dll",
+        "lib/wpa81/ScottIsAFool.Windows.Core.dll",
+        "package/services/metadata/core-properties/1b3d1c894a194840b52e371585be6ed1.psmdcp",
         "[Content_Types].xml"
       ]
     },
@@ -15463,6 +15688,41 @@
         "package/services/metadata/core-properties/c80d56868865446d9ee122fad8e0fdb9.psmdcp",
         "[Content_Types].xml"
       ]
+    },
+    "WindowsStateTriggers/1.0.2": {
+      "sha512": "p15cFsOKxRrzSxXMZ/yNpPxra3HaGTBttFzjXUiDpEvyo8Ujm3hOcqWUsDa/9rz7HfUcJ4ZOqFREo0cIZojGhQ==",
+      "type": "Package",
+      "files": [
+        "_rels/.rels",
+        "WindowsStateTriggers.nuspec",
+        "lib/uap10.0/WindowsStateTriggers.dll",
+        "lib/uap10.0/WindowsStateTriggers.pdb",
+        "lib/uap10.0/WindowsStateTriggers.pri",
+        "lib/uap10.0/WindowsStateTriggers.xml",
+        "lib/uap10.0/WindowsStateTriggers/Properties/WindowsStateTriggers.rd.xml",
+        "src/CompareStateTrigger.cs",
+        "src/CompositeStateTrigger.cs",
+        "src/DeviceFamilyStateTrigger.cs",
+        "src/EqualsStateTrigger.cs",
+        "src/InputTypeTrigger.cs",
+        "src/IsFalseStateTrigger.cs",
+        "src/IsNullOrEmptyStateTrigger.cs",
+        "src/IsTypePresentStateTrigger.cs",
+        "src/ITriggerValue.cs",
+        "src/NetworkConnectionStateTrigger.cs",
+        "src/NotEqualStateTrigger.cs",
+        "src/OrientationStateTrigger.cs",
+        "src/RegexStateTrigger.cs",
+        "src/UserHandPreferenceStateTrigger.cs",
+        "src/UserInteractionModeTrigger.cs",
+        "src/WeakEventListener.cs",
+        "src/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+        "src/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+        "src/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs",
+        "src/Properties/AssemblyInfo.cs",
+        "package/services/metadata/core-properties/2f267b14e65f42b78af535f2513ee898.psmdcp",
+        "[Content_Types].xml"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -15472,7 +15732,9 @@
       "Coding4Fun.Toolkit.Controls >= 2.1.0.4-beta",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MvvmLightLibs >= 5.1.1",
-      "Newtonsoft.Json >= 6.0.8"
+      "Newtonsoft.Json >= 6.0.8",
+      "ScottIsAFool.Windows >= 0.0.1.5-pre",
+      "WindowsStateTriggers >= 1.0.2"
     ],
     "UAP,Version=v10.0": []
   }
