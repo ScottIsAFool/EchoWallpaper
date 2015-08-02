@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="ccb5dc73-300e-4af8-affe-b1c149363b0c" Publisher="CN=scott" Version="1.0.0.0" />
+  <Identity Name="43233ScottLovegrove.EchoWallpaper" Publisher="CN=43EE5435-230A-4364-8907-04B5F073D610" Version="2.0.1.0" />
   <mp:PhoneIdentity PhoneProductId="ccb5dc73-300e-4af8-affe-b1c149363b0c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>EchoWallpaper.Universal</DisplayName>
-    <PublisherDisplayName>scott</PublisherDisplayName>
+    <DisplayName>Echo Wallpaper</DisplayName>
+    <PublisherDisplayName>ScottLovegrove</PublisherDisplayName>
     <Logo>Assets\Tiles\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
