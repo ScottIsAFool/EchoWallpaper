@@ -13,6 +13,7 @@ namespace EchoWallpaper.Universal.Services
 
         public void NavigateToAbout()
         {
+            Navigate<AboutView>();
         }
     }
 }
