@@ -10,6 +10,10 @@
     <SolidColorBrush x:Key="AltAccentBrush"
                      Color="{StaticResource AltAccentColor}"/>
 
+    <Color x:Key="AltAccentColor2">#FF060DA6</Color>
+    <SolidColorBrush x:Key="AltAccentBrush2"
+                     Color="{StaticResource AltAccentColor2}" />
+
     <Color x:Key="BackgroundColor">White</Color>
     <SolidColorBrush x:Key="BackgroundBrush"
                      Color="{StaticResource BackgroundColor}" />

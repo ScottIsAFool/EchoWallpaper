@@ -144,7 +144,7 @@
                             Command="{Binding SetAsWallpaperCommand}" />
                     <Button Style="{StaticResource EmptyButtonStyle}"
                             Content="Save image"
-                            Background="{StaticResource AccentBrush}"
+                            Background="{StaticResource AltAccentBrush2}"
                             Command="{Binding DownloadImageNow}" />
                     <TextBlock Text="{Binding CurrentWallpapers.Title}"
                                Style="{StaticResource SubheaderTextBlockStyle}"
@@ -230,7 +230,7 @@
                 <Button Content="Save image"
                         Command="{Binding DownloadImageNow}"
                         Style="{StaticResource CoolButtonStyle}"
-                        Background="{StaticResource AccentBrush}"
+                        Background="{StaticResource AltAccentBrush2}"
                         IsEnabled="{Binding CanDoStuff}"
                         Grid.Row="2" />
             </Grid>
