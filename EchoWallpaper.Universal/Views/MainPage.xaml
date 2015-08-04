@@ -50,6 +50,12 @@
         <CommandBar ClosedDisplayMode="Minimal"
                     Background="{StaticResource AccentBrush}"
                     Foreground="{StaticResource BackgroundBrush}">
+            <CommandBar.CommandBarOverflowPresenterStyle>
+                <Style TargetType="CommandBarOverflowPresenter">
+                    <Setter Property="Background"
+                            Value="{StaticResource AccentBrush}" />
+                </Style>
+            </CommandBar.CommandBarOverflowPresenterStyle>
             <CommandBar.PrimaryCommands>
                 <AppBarButton Icon="Setting"
                               Foreground="{StaticResource BackgroundBrush}"
@@ -58,6 +64,7 @@
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="about"
+                              Foreground="{StaticResource BackgroundBrush}"
                               Command="{Binding NavigateToAboutCommand}"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
