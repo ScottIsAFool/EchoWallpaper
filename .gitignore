@@ -74,6 +74,9 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+BundleArtifacts/
+*.appx
+project.lock.json
 
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this

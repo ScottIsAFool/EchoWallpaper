@@ -10,6 +10,10 @@ namespace EchoWallpaper.Core.Empty
         {
         }
 
+        public async Task LaunchUriAsync(string url)
+        {
+        }
+
         public async Task LaunchFileAsync(string file)
         {
         }

@@ -60,6 +60,9 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, EmptyLauncherService>();
 
+                if(!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
+                    SimpleIoc.Default.Register<IDeviceSettingsService, EmptyDeviceSettingsService>();
+
                 if (!SimpleIoc.Default.IsRegistered<IStoreService>())
                     SimpleIoc.Default.Register<IStoreService, EmptyStoreService>();
 
@@ -87,12 +90,18 @@ namespace EchoWallpaper.WindowsPhone.Silverlight.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, LauncherService>();
 
+                if (!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
+                    SimpleIoc.Default.Register<IDeviceSettingsService, DeviceSettingsService>();
+
                 if (!SimpleIoc.Default.IsRegistered<IStoreService>())
                     SimpleIoc.Default.Register<IStoreService, StoreService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
                     SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
             }
+
+            if (!SimpleIoc.Default.IsRegistered<IWallpaperService>())
+                SimpleIoc.Default.Register<IWallpaperService, EmptyWallpaperService>();
 
             if (!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
                 SimpleIoc.Default.Register<IDisplayPropertiesService, DisplayPropertiesService>();

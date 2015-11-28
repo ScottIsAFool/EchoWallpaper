@@ -7,6 +7,8 @@ using EchoWallpaper.Core.Services;
 using GalaSoft.MvvmLight.Command;
 using JetBrains.Annotations;
 using ScottIsAFool.WindowsPhone.ViewModel;
+using ILockScreenService = EchoWallpaper.Core.Interfaces.ILockScreenService;
+using LockScreenServiceRequestResult = EchoWallpaper.Core.Model.LockScreenServiceRequestResult;
 
 namespace EchoWallpaper.Core.ViewModel
 {
@@ -28,8 +30,9 @@ namespace EchoWallpaper.Core.ViewModel
         private readonly INavigation _navigationService;
         private readonly ILockScreenService _lockscreenService;
         private readonly IMediaLibraryService _mediaLibraryService;
-        private readonly ILauncherService _launcherService;
         private readonly IBackgroundTaskService _backgroundTaskService;
+        private readonly IDeviceSettingsService _deviceSettingsService;
+        private readonly IWallpaperService _wallpaperService;
 
         private bool _dataLoaded;
 
@@ -41,15 +44,17 @@ namespace EchoWallpaper.Core.ViewModel
             INavigation navigationService,
             ILockScreenService lockscreenService,
             IMediaLibraryService mediaLibraryService,
-            ILauncherService launcherService,
-            IBackgroundTaskService backgroundTaskService)
+            IBackgroundTaskService backgroundTaskService,
+            IDeviceSettingsService deviceSettingsService,
+            IWallpaperService wallpaperService)
         {
             _appSettings = appSettings;
             _navigationService = navigationService;
             _lockscreenService = lockscreenService;
             _mediaLibraryService = mediaLibraryService;
-            _launcherService = launcherService;
             _backgroundTaskService = backgroundTaskService;
+            _deviceSettingsService = deviceSettingsService;
+            _wallpaperService = wallpaperService;
 
             if (IsInDesignMode)
             {
@@ -70,6 +75,7 @@ namespace EchoWallpaper.Core.ViewModel
         public bool IsLockscreenProvider { get { return _lockscreenService.IsProvidedByCurrentApplication; } }
         public bool AutomaticallyUpdateLockscreen { get; set; }
         public bool DownloadImageForStartScreen { get; set; }
+        public bool AutomaticallyUpdateWallpaper { get; set; }
         public bool BackgroundAgentAllowed { get { return _backgroundTaskService.CanRunTask; } }
 
         public bool CanDoStuff
@@ -91,7 +97,10 @@ namespace EchoWallpaper.Core.ViewModel
                     {
                         await _backgroundTaskService.CreateAgent();
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        var i = 1;
+                    }
                     await LoadData(false);
                 });
             }
@@ -202,7 +211,7 @@ namespace EchoWallpaper.Core.ViewModel
         {
             get
             {
-                return new RelayCommand(() => _launcherService.LaunchUriAsync(new Uri("ms-settings-lock:", UriKind.Absolute)));
+                return new RelayCommand(() => _deviceSettingsService.ShowLockScreenSettingsAsync());
             }
         }
 
@@ -239,6 +248,31 @@ namespace EchoWallpaper.Core.ViewModel
             }
         }
 
+        public RelayCommand SetAsWallpaperCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    if (_wallpaperService.CanSetWallpaper)
+                    {
+                        var uri = _lockscreenService.ImageUriToUse(CurrentWallpapers, _appSettings.WallpaperSizeToUse);
+
+                        if (uri == null)
+                        {
+                            return;
+                        }
+
+                        SetProgressBar("Setting wallpaper...");
+
+                        await _wallpaperService.SetWallpaper(uri);
+
+                        SetProgressBar();
+                    }
+                });
+            }
+        }
+
         private async Task LoadData(bool isRefresh)
         {
             if (_dataLoaded && !isRefresh)
@@ -266,6 +300,13 @@ namespace EchoWallpaper.Core.ViewModel
         private void OnAutomaticallyUpdateLockscreenChanged()
         {
             _appSettings.AutomaticallyUpdateLockScreen = AutomaticallyUpdateLockscreen;
+            _appSettings.Save();
+        }
+
+        [UsedImplicitly]
+        private void OnAutomaticallyUpdateWallpaperChanged()
+        {
+            _appSettings.AutomaticallyUpdateWallpaper = AutomaticallyUpdateWallpaper;
             _appSettings.Save();
         }
 

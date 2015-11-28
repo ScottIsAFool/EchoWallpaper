@@ -1,0 +1,90 @@
+﻿<Page x:Class="EchoWallpaper.Universal.Views.AboutView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:windowsStateTriggers="using:WindowsStateTriggers"
+      mc:Ignorable="d"
+      DataContext="{Binding About, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="BackButtonGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.StateTriggers>
+                        <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Mobile" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BackButton.Visibility"
+                                Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Desktop" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BackButton.Visibility"
+                                Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <Grid Background="{StaticResource AccentBrush}">
+            <StackPanel x:Name="TitlePanel"
+                        Grid.Row="0"
+                        Margin="12,15,0,14"
+                        Orientation="Horizontal">
+                <HyperlinkButton HorizontalContentAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 x:Name="BackButton"
+                                 Tapped="UIElement_OnTapped">
+                    <TextBlock Text="&#xe0a6;"
+                               FontFamily="Segoe MDL2 Assets"
+                               Foreground="{StaticResource BackgroundBrush}"
+                               Margin="0,0,12,0" />
+                </HyperlinkButton>
+
+                <TextBlock Text="{Binding Source={StaticResource AppName}, Converter={StaticResource StringToUppercaseConverter}}"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           Foreground="{StaticResource BackgroundBrush}"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Margin="12">
+            <TextBlock x:Name="Version"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Text="{Binding Version}"
+                       Margin="0,0,12,12" />
+
+            <HyperlinkButton Content="Feedback"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,12"
+                             x:Name="Feedback"
+                             Foreground="{StaticResource AccentBrush}"
+                             Command="{Binding LaunchFeedbackCommand}" />
+
+            <HyperlinkButton Content="Rate and Review"
+                             HorizontalContentAlignment="Left"
+                             Margin="0,0,0,12"
+                             x:Name="RateAndReview"
+                             Foreground="{StaticResource AccentBrush}"
+                             Command="{Binding LaunchRateReviewCommand}" />
+
+            <RichTextBlock x:Name="RichTextBox"
+                           TextWrapping="Wrap"
+                           FontSize="14.333" />
+
+        </StackPanel>
+    </Grid>
+</Page>

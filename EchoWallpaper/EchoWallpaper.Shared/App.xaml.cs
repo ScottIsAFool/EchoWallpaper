@@ -4,8 +4,6 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-
-// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 using Cimbalino.Toolkit.Services;
 using EchoWallpaper.Controls;
 using EchoWallpaper.Core;

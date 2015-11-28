@@ -9,10 +9,16 @@ namespace EchoWallpaper.Windows.Shared.Services
 {
     public class BackgroundTaskService : IBackgroundTaskService
     {
+        private readonly bool _isUniversal;
+
+        private const string BackgroundAgentEntryPoint = "EchoWallpaper.Windows.Background.BackgroundTask";
+        private const string BackgroundAgentUniversalEntryPoint = "EchoWallpaper.Universal.Background.BackgroundTask";
+
         public static BackgroundTaskService Current { get; private set; }
 
-        public BackgroundTaskService()
+        public BackgroundTaskService(bool isUniversal = false)
         {
+            _isUniversal = isUniversal;
             Current = this;
         }
 
@@ -71,7 +77,7 @@ namespace EchoWallpaper.Windows.Shared.Services
                 var taskBuilder = new BackgroundTaskBuilder
                 {
                     Name = Constants.BackgroundAgentName,
-                    TaskEntryPoint = Constants.BackgroundAgentEntryPoint
+                    TaskEntryPoint = _isUniversal ? BackgroundAgentUniversalEntryPoint : BackgroundAgentEntryPoint
                 };
 
                 var trigger = new TimeTrigger(720, false);

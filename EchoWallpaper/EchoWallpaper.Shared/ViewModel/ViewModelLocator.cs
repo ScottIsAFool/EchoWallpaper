@@ -45,6 +45,9 @@ namespace EchoWallpaper.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, EmptyLauncherService>();
 
+                if (!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
+                    SimpleIoc.Default.Register<IDeviceSettingsService, EmptyDeviceSettingsService>();
+
                 if (!SimpleIoc.Default.IsRegistered<IStoreService>())
                     SimpleIoc.Default.Register<IStoreService, EmptyStoreService>();
 
@@ -64,7 +67,7 @@ namespace EchoWallpaper.ViewModel
                     SimpleIoc.Default.Register<INavigation, NavigationService>();
 
                 if (!SimpleIoc.Default.IsRegistered<ILockScreenService>())
-                    SimpleIoc.Default.Register<ILockScreenService, LockScreenService>();
+                    SimpleIoc.Default.Register<ILockScreenService, WindowsLockScreenService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IMediaLibraryService>())
                     SimpleIoc.Default.Register<IMediaLibraryService, MediaLibraryService>();
@@ -72,12 +75,18 @@ namespace EchoWallpaper.ViewModel
                 if (!SimpleIoc.Default.IsRegistered<ILauncherService>())
                     SimpleIoc.Default.Register<ILauncherService, LauncherService>();
 
+                if (!SimpleIoc.Default.IsRegistered<IDeviceSettingsService>())
+                    SimpleIoc.Default.Register<IDeviceSettingsService, DeviceSettingsService>();
+
                 if (!SimpleIoc.Default.IsRegistered<IStoreService>())
                     SimpleIoc.Default.Register<IStoreService, StoreService>();
 
                 if (!SimpleIoc.Default.IsRegistered<IApplicationInfoService>())
                     SimpleIoc.Default.Register<IApplicationInfoService, ApplicationInfoService>();
             }
+
+            if(!SimpleIoc.Default.IsRegistered<IWallpaperService>())
+                SimpleIoc.Default.Register<IWallpaperService, EmptyWallpaperService>();
 
             if(!SimpleIoc.Default.IsRegistered<IDisplayPropertiesService>())
                 SimpleIoc.Default.Register<IDisplayPropertiesService, DisplayPropertiesService>();

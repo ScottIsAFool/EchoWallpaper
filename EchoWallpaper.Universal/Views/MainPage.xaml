@@ -1,0 +1,246 @@
+﻿<Page x:Class="EchoWallpaper.Universal.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:controls="using:Coding4Fun.Toolkit.Controls"
+      mc:Ignorable="d"
+      DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <interactivity:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding MainPageLoaded}" />
+        </core:EventTriggerBehavior>
+    </interactivity:Interaction.Behaviors>
+
+    <Page.Resources>
+        <Style x:Key="SuperImageStyle"
+               TargetType="controls:SuperImage">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:SuperImage">
+                        <Grid>
+                            <Border x:Name="PlaceholderBorder"
+                                    Background="{TemplateBinding PlaceholderBackground}"
+                                    Opacity="{TemplateBinding PlaceholderOpacity}">
+                                <Image x:Name="PlaceholderImage"
+                                       Source="{TemplateBinding PlaceholderImageSource}"
+                                       Stretch="{TemplateBinding PlaceholderImageStretch}"
+                                       MaxHeight="{TemplateBinding MaxHeight}"
+                                       MaxWidth="{TemplateBinding MaxWidth}"
+                                       Height="{TemplateBinding Height}"
+                                       Width="{TemplateBinding Width}" />
+                            </Border>
+                            <Image x:Name="PrimaryImage"
+                                   Source="{TemplateBinding Source}"
+                                   Stretch="{TemplateBinding Stretch}"
+                                   MaxHeight="{TemplateBinding MaxHeight}"
+                                   MaxWidth="{TemplateBinding MaxWidth}"
+                                   Height="{TemplateBinding Height}"
+                                   Width="{TemplateBinding Width}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal"
+                    Background="{StaticResource AccentBrush}"
+                    Foreground="{StaticResource BackgroundBrush}">
+            <CommandBar.CommandBarOverflowPresenterStyle>
+                <Style TargetType="CommandBarOverflowPresenter">
+                    <Setter Property="Background"
+                            Value="{StaticResource AccentBrush}" />
+                </Style>
+            </CommandBar.CommandBarOverflowPresenterStyle>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Setting"
+                              Foreground="{StaticResource BackgroundBrush}"
+                              Label="settings"
+                              Command="{Binding NavigateToSettingsCommand}" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="about"
+                              Foreground="{StaticResource BackgroundBrush}"
+                              Command="{Binding NavigateToAboutCommand}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WideNarrow">
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="WideGrid.Visibility"
+                                Value="Collapsed" />
+                        <Setter Target="NarrowGrid.Visibility"
+                                Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="540" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NarrowGrid.Visibility"
+                                Value="Collapsed" />
+                        <Setter Target="WideGrid.Visibility"
+                                Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid x:Name="WideGrid"
+              Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"
+                               MaxHeight="154" />
+                <RowDefinition Height="80*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="90*" />
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.ColumnSpan="2"
+                       Fill="{StaticResource AccentBrush}" />
+
+            <Grid Grid.Column="1"
+                  Grid.Row="0">
+                <TextBlock Text="{Binding Source={StaticResource AppName}}"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           VerticalAlignment="Center"
+                           Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.95*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <controls:SuperImage Source="{Binding CurrentWallpapers.NineteenTwentyTenEighty}"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Top"
+                                         Stretch="Uniform"
+                                         PlaceholderImageSource="/Assets/LoadingImage.png"
+                                         PlaceholderImageStretch="Uniform" />
+                </Grid>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="1"
+                            VerticalAlignment="Top">
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Set lock screen"
+                            Background="{StaticResource AltAccentBrush}"
+                            Command="{Binding SetLockscreenCommand}" />
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Set wallpaper"
+                            Background="{StaticResource AltAccentBrush}"
+                            Command="{Binding SetAsWallpaperCommand}" />
+                    <Button Style="{StaticResource EmptyButtonStyle}"
+                            Content="Save image"
+                            Background="{StaticResource AltAccentBrush2}"
+                            Command="{Binding DownloadImageNow}" />
+                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                               Style="{StaticResource SubheaderTextBlockStyle}"
+                               Foreground="#7E000000"
+                               VerticalAlignment="Top"
+                               TextWrapping="WrapWholeWords"
+                               Margin="12,0" />
+                    <ProgressRing IsActive="{Binding ProgressIsVisible}"
+                                  Visibility="{Binding ProgressIsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                  Foreground="{StaticResource AccentBrush}" />
+                    <TextBlock Text="{Binding ProgressText}"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="NarrowGrid"
+              Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--TitlePanel contains the name of the application and page title-->
+            <Grid Background="{StaticResource AccentBrush}">
+                <StackPanel x:Name="TitlePanel"
+                            Grid.Row="0"
+                            Margin="12,14,0,13">
+                    <TextBlock Text="{Binding Source={StaticResource AppName}, Converter={StaticResource StringToUppercaseConverter}}"
+                               Foreground="{StaticResource BackgroundBrush}"
+                               Style="{StaticResource BodyTextBlockStyle}" />
+                </StackPanel>
+            </Grid>
+
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel"
+                  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <controls:SuperImage Source="{Binding CurrentWallpapers.PortraitPreviewImage}"
+                                     Stretch="Uniform"
+                                     VerticalAlignment="Top"
+                                     HorizontalAlignment="Center"
+                                     PlaceholderImageSource="/Assets/LoadingImage.png"
+                                     Style="{StaticResource SuperImageStyle}" />
+
+                <Border Grid.Row="0"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Background="#C4000000"
+                        Margin="0,0,30,0">
+                    <TextBlock Text="{Binding CurrentWallpapers.Title}"
+                               Style="{StaticResource CaptionTextBlockStyle}"
+                               TextWrapping="Wrap"
+                               Margin="6"
+                               Foreground="{ThemeResource BackgroundBrush}" />
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Set lockscreen"
+                            Command="{Binding SetLockscreenCommand}"
+                            Style="{StaticResource CoolButtonStyle}"
+                            Background="{StaticResource AltAccentBrush}"
+                            IsEnabled="{Binding CanDoStuff}"
+                            Grid.Column="0" />
+                    <Button Content="Set wallpaper"
+                            Command="{Binding SetAsWallpaperCommand}"
+                            Style="{StaticResource CoolButtonStyle}"
+                            Background="{StaticResource AltAccentBrush}"
+                            IsEnabled="{Binding CanDoStuff}"
+                            Grid.Column="1" />
+                </Grid>
+
+                <Button Content="Save image"
+                        Command="{Binding DownloadImageNow}"
+                        Style="{StaticResource CoolButtonStyle}"
+                        Background="{StaticResource AltAccentBrush2}"
+                        IsEnabled="{Binding CanDoStuff}"
+                        Grid.Row="2" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

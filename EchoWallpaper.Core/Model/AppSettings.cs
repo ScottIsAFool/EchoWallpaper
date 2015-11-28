@@ -18,6 +18,7 @@ namespace EchoWallpaper.Core.Model
         public AppSettings() { }
         public bool DownloadImageForStartScreen { get; set; }
         public bool AutomaticallyUpdateLockScreen { get; set; }
+        public bool AutomaticallyUpdateWallpaper { get; set; }
         public WallpaperSize WallpaperSizeToUse { get; set; }
         public void Save()
         {
